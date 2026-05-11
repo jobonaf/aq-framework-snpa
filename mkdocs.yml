@@ -4,20 +4,10 @@ site_author: Giovanni Bonafè
 use_directory_urls: true
 
 theme:
-  name: material
-  language: it
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - search.highlight
-    - content.code.copy
+  name: readthedocs
 
 plugins:
   - search
-
-extra:
-  search:
-    language: 'it'
 
 nav:
   - Home: index.md
@@ -27,15 +17,15 @@ nav:
       - Architettura: architecture.md
 
   - Moduli:
-      - M_ZONE — Zoning: modules/zone.md
-      - M_ASSESS — Assessment: modules/assess.md
-      - M_NETWORK — Monitoring Network: modules/network.md
-      - M_MOD — Modelling: modules/modelling.md
-      - M_MODEL_QA — Model QA: modules/model_qa.md
-      - M_REPR — Representativeness: modules/repr.md
-      - M_LIMITS — Compliance: modules/limits.md
-      - M_EXPOSURE — Exposure: modules/exposure.md
-      - M_DATA_QUALITY — Data Quality: modules/data_quality.md
+      - M_ZONE - Zoning: modules/zone.md
+      - M_ASSESS - Assessment: modules/assess.md
+      - M_NETWORK - Monitoring Network: modules/network.md
+      - M_MOD - Modelling: modules/modelling.md
+      - M_MODEL_QA - Model QA: modules/model_qa.md
+      - M_REPR - Representativeness: modules/repr.md
+      - M_LIMITS - Compliance: modules/limits.md
+      - M_EXPOSURE - Exposure: modules/exposure.md
+      - M_DATA_QUALITY - Data Quality: modules/data_quality.md
 
   - Tabelle:
       - Valori limite: tables/limits.md
@@ -44,4 +34,3 @@ nav:
       - Tolleranze rappresentatività: tables/repr_tolerance.md
       - Qualità dati: tables/data_quality.md
       - Vocabolari EIONET: tables/eionet.md
-
