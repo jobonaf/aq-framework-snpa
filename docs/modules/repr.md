@@ -1,12 +1,12 @@
-# M_REPR — Spatial Representativeness of Sampling Points
+# M_REPR — Rappresentatività spaziale dei punti di campionamento
 
 ## Riferimenti normativi
 
-- Art. 4(26) Directive (EU) 2024/2881
-- Art. 8 Directive (EU) 2024/2881
-- Art. 9 Directive (EU) 2024/2881
-- Implementing Acts (draft 2026 — spatial representativeness methodology)
-- Annex IV (implicit references)
+- Art. 4(26) Direttiva (UE) 2024/2881
+- Art. 8 Direttiva (UE) 2024/2881
+- Art. 9 Direttiva (UE) 2024/2881
+- Atti di esecuzione (bozza 2026 — metodologia di rappresentatività spaziale)
+- Allegato IV (riferimenti impliciti)
 
 ---
 
@@ -142,7 +142,7 @@ Escludere:
 
 ```
 
-exclude x where emission\_profile(x) differs significantly
+escludi x dove emission\_profile(x) differisce significativamente
 
 ```
 
@@ -203,7 +203,7 @@ Criteri:
 
 ---
 
-### Caso critico (implementing acts)
+### Caso critico (atti di esecuzione)
 
 ```
 

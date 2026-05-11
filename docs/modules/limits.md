@@ -1,13 +1,13 @@
-# M_LIMITS — Limit Values and Compliance
+# M_LIMITS — Valori limite e conformità
 
 ## Riferimenti normativi
 
-- Annex I Directive (EU) 2024/2881 (limit values)
-- Art. 8 (assessment)
-- Art. 16 (natural sources)
-- Art. 17 (exceedances and plans)
-- Art. 18 (time extensions)
-- Annex V (data quality and uncertainty)
+- Allegato I Direttiva (UE) 2024/2881 (valori limite)
+- Art. 8 (valutazione)
+- Art. 16 (fonti naturali)
+- Art. 17 (superamenti e piani)
+- Art. 18 (proroghe temporali)
+- Allegato V (qualità dati e incertezza)
 
 ---
 
@@ -302,7 +302,7 @@ defines spatial validity of exceedance
 
 ```
 
-identifies exceedances outside monitoring network
+identifica superamenti al di fuori della rete di monitoraggio
 
 ```
 

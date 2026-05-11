@@ -1,10 +1,10 @@
 
-# M_NETWORK — Monitoring Network
+# M_NETWORK — Rete di monitoraggio
 
 ## Riferimenti normativi
-- Art. 9 Directive (EU) 2024/2881
-- Annex III (minimum number of stations)
-- Annex IV (siting criteria)
+- Art. 9 Direttiva (UE) 2024/2881
+- Allegato III (numero minimo di stazioni)
+- Allegato IV (criteri di posizionamento)
 
 ---
 
@@ -29,7 +29,7 @@ N\_active = numero stazioni attive
 
 N\_min = numero minimo richiesto (Tabella network)
 
-VALID(station) = rispetto criteri di posizionamento (Annex IV)
+VALID(station) = rispetto criteri di posizionamento (Allegato IV)
 
 ```
 

@@ -1,8 +1,8 @@
-# Limit Values (Annex I)
+# Valori limite (Allegato I)
 
-## Transitional Values (≤ 2026)
+## Valori transitori (≤ 2026)
 
-| Pollutant | Metric | Value | Max exceedances |
+| Inquinante | Metrica | Valore | Superamenti max |
 |-----------|--------|--------|----------------|
 | PM2.5 | annual | 25 µg/m³ | — |
 | PM10 | annual | 40 µg/m³ | — |
@@ -17,9 +17,9 @@
 
 ---
 
-## Final Values (2030)
+## Valori finali (2030)
 
-| Pollutant | Metric | Value | Max exceedances |
+| Inquinante | Metrica | Valore | Superamenti max |
 |-----------|--------|--------|----------------|
 | PM2.5 | annual | 10 µg/m³ | — |
 | PM2.5 | daily | 25 µg/m³ | 18 |

@@ -86,7 +86,7 @@ La rappresentatività spaziale:
 La presente versione:
 
 - è prototipale (v0.1)
-- incorpora elementi da implementing acts (draft)
+- incorpora elementi da atti di esecuzione (bozza)
 - è soggetta a revisione
 
 ---

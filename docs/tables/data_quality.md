@@ -1,6 +1,6 @@
-# Data Quality Objectives (Annex V)
+# Obiettivi qualità dei dati (Allegato V)
 
-| Pollutant | Max uncertainty | Min coverage |
+| Inquinante | Incertezza max | Copertura min |
 |-----------|---------------|-------------|
 | SO2 | 15% | ≥ 90% |
 | NO2 | 15% | ≥ 90% |
@@ -14,8 +14,8 @@
 
 ---
 
-## Notes
+## Note
 
-- Coverage refers to valid data fraction over period
-- Applies to validation in M_DATA_QUALITY and M_MODEL_QA
+- La copertura si riferisce alla frazione di dati validi nel periodo
+- Si applica alla validazione in M_DATA_QUALITY e M_MODEL_QA
 ``

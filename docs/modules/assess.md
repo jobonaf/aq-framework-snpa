@@ -1,10 +1,10 @@
-# M_ASSESS — Assessment Regime
+# M_ASSESS — Regime di valutazione
 
 ## Riferimenti normativi
 
-- Art. 8 Directive (EU) 2024/2881
-- Annex II (assessment thresholds)
-- Annex IV (assessment methods)
+- Art. 8 Direttiva (UE) 2024/2881
+- Allegato II (soglie di valutazione)
+- Allegato IV (metodi di valutazione)
 
 ---
 
@@ -77,26 +77,26 @@ ASSESSMENT\_TYPE = modelOrObjectiveEstimation
 
 ---
 
-### Uso combinato (implementing acts)
+### Uso combinato (atti di esecuzione)
 
 ```
 
 ASSESSMENT\_DATA =
-combination of:
-measurements
-modelling
-indicative measurements
+combinazione di:
+misure
+modellistica
+misure indicative
 
 ```
 
 ---
 
-### Transizione (implementing acts)
+### Transizione (atti di esecuzione)
 
 ```
 
-after implementing acts:
-modelling becomes core component
+dopo gli atti di esecuzione:
+modellistica diventa componente principale
 
 ```
 
@@ -107,7 +107,7 @@ modelling becomes core component
 ### M_NETWORK
 ```
 
-number of stations depends on ABOVE\_THRESHOLD
+numero di stazioni dipende da ABOVE\_THRESHOLD
 
 ```
 
@@ -116,7 +116,7 @@ number of stations depends on ABOVE\_THRESHOLD
 ### M_MOD
 ```
 
-determines when modelling can/must be used
+determina quando la modellistica può/deve essere utilizzata
 
 ```
 
@@ -125,7 +125,7 @@ determines when modelling can/must be used
 ### M_LIMITS
 ```
 
-assessment regime influences compliance decision
+il regime di valutazione influenza la decisione di conformità
 
 ```
 

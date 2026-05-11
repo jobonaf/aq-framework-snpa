@@ -1,15 +1,15 @@
-# EIONET Vocabulary Mapping
+# Mappatura vocabolario EIONET
 
-| Concept | Vocabulary |
+| Concetto | Vocabolario |
 |--------|------------|
-| Zone | aqd:AQD_Zone |
-| Station | aqd:AQD_Station |
-| Sampling Point | aqd:AQD_SamplingPoint |
-| Pollutant | aq/pollutant |
-| Assessment Type | aq/assessmenttype |
-| Station Type | aq/stationclassification |
-| Area Type | aq/areaclassification |
-| Model Type | aq/modeltype |
-| Observation Validity | aq/observationvalidity |
-| Observation Verification | aq/observationverification |
-| Adjustment Type | aq/adjustmenttype |
+| Zona | aqd:AQD_Zone |
+| Stazione | aqd:AQD_Station |
+| Punto di campionamento | aqd:AQD_SamplingPoint |
+| Inquinante | aq/pollutant |
+| Tipo di valutazione | aq/assessmenttype |
+| Tipo di stazione | aq/stationclassification |
+| Tipo di area | aq/areaclassification |
+| Tipo di modello | aq/modeltype |
+| Validità dell’osservazione | aq/observationvalidity |
+| Verifica dell’osservazione | aq/observationverification |
+| Tipo di aggiustamento | aq/adjustmenttype |

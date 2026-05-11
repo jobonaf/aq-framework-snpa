@@ -1,9 +1,9 @@
-# M_EXPOSURE — Average Exposure Indicator (AEI)
+# M_EXPOSURE — Indicatore di esposizione media (AEI)
 
 ## Riferimenti normativi
 
-- Annex VI Directive (EU) 2024/2881
-- Exposure reduction obligations
+- Allegato VI Direttiva (UE) 2024/2881
+- Obblighi di riduzione dell’esposizione
 
 ---
 
@@ -13,8 +13,8 @@ Il modulo definisce l’indicatore di esposizione media (AEI), utilizzato per va
 
 Si basa su stazioni:
 
-- urban background
-- suburban background
+- background urbano
+- background suburbano
 
 ---
 
@@ -38,7 +38,7 @@ AEI =
 mean(
 C\_ann(sp, y)
 for sp ∈ stations
-over last 3 years
+negli ultimi 3 anni
 )
 
 ```
@@ -49,7 +49,7 @@ over last 3 years
 
 ### Selezione stazioni
 
-- solo urban/suburban background
+- solo stazioni background urbano/suburbano
 - distribuzione rappresentativa della popolazione
 
 ---
@@ -58,7 +58,7 @@ over last 3 years
 
 ```
 
-3-year moving average
+media mobile su 3 anni
 
 ```
 
@@ -77,7 +77,7 @@ over last 3 years
 ### M_NETWORK
 ```
 
-depends on correct station classification
+dipende dalla corretta classificazione delle stazioni
 
 ```
 
@@ -86,7 +86,7 @@ depends on correct station classification
 ### M_DATA_QUALITY
 ```
 
-uses only valid data
+usa solo dati validi
 
 ```
 
@@ -106,4 +106,4 @@ period
 
 ## Tabelle
 
-- ../tables/network.md (implicit filtering of stations)
+- ../tables/network.md (filtro implicito delle stazioni)

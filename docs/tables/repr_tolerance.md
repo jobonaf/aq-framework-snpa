@@ -1,6 +1,6 @@
-# Representativeness Tolerance (Implementing Acts — draft)
+# Tolleranze di rappresentatività (Atti di esecuzione — bozza)
 
-| Pollutant | Minimum tolerance |
+| Inquinante | Tolleranza minima |
 |-----------|-----------------|
 | PM10 | ±2.0 µg/m³ |
 | NO2 | ±2.0 µg/m³ |
@@ -13,9 +13,9 @@
 
 ---
 
-## Rule
+## Regola
 
-Used in M_REPR:
+Utilizzata in M_REPR:
 
 ```
 
@@ -25,7 +25,7 @@ Used in M_REPR:
 
 ---
 
-## Notes
+## Note
 
-- Values derived from implementing acts (draft)
-- Subject to change before formal adoption
+- Valori derivati dagli atti di esecuzione (bozza)
+- Soggetti a modifica prima dell’adozione formale

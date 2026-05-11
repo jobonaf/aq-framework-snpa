@@ -1,11 +1,11 @@
 # AQ Framework — SNPA
 
-## Formal Compliance Framework for Ambient Air Quality  
-Directive (EU) 2024/2881
+## Framework di conformità formale per la qualità dell’aria ambiente  
+Direttiva (UE) 2024/2881
 
 ---
 
-## Overview
+## Panoramica
 
 Questo progetto definisce una **specifica formale e computazionale** per l’implementazione della Direttiva (UE) 2024/2881 sulla qualità dell’aria.
 
@@ -40,14 +40,7 @@ Il sistema è organizzato in:
 
 ```
 
-ZONE
-→ ASSESS
-→ NETWORK
-→ MODEL
-→ MODEL\_QA
-→ REPR
-→ LIMITS
-→ EXPOSURE
+ZONE → ASSESS → NETWORK → MODEL → MODEL\_QA → REPR → LIMITS → EXPOSURE
 
 ```
 
@@ -58,13 +51,13 @@ ZONE
 ### Moduli
 - Zoning
 - Assessment
-- Monitoring Network
-- Modelling
-- Model Quality Assurance
-- Spatial Representativeness
-- Limit Values
-- Exposure
-- Data Quality
+- Rete di monitoraggio
+- Modellistica
+- Garanzia della qualità del modello
+- Rappresentatività spaziale
+- Valori limite
+- Esposizione
+- Qualità dei dati
 
 ### Tabelle
 - Valori limite
@@ -78,7 +71,7 @@ ZONE
 ## Stato del progetto
 
 ⚠ Versione: **v0.1 (prototipo)**  
-⚠ Include elementi da implementing acts (draft 2026)  
+⚠ Include elementi da atti di esecuzione (bozza 2026)  
 ⚠ Richiede validazione normativa (GUUE)
 
 ---

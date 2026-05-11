@@ -1,9 +1,9 @@
-# M_DATA_QUALITY — Data Quality
+# M_DATA_QUALITY — Qualità dei dati
 
 ## Riferimenti normativi
 
-- Annex V Directive (EU) 2024/2881
-- Implementing Acts (data usage rules)
+- Allegato V Direttiva (UE) 2024/2881
+- Atti di esecuzione (regole di utilizzo dei dati)
 
 ---
 
@@ -51,7 +51,7 @@ AND (uncertainty ≤ MAX\_uncertainty)
 ```
 
 if NOT DATA\_VALID:
-data must be excluded
+i dati devono essere esclusi
 
 ```
 
@@ -69,8 +69,8 @@ data must be excluded
 
 ```
 
-indicative measurements:
-higher uncertainty allowed
+misure indicative:
+incertezza maggiore consentita
 
 ```
 
@@ -80,8 +80,8 @@ higher uncertainty allowed
 
 ```
 
-only valid observations used
-for model validation
+solo osservazioni valide usate
+per la validazione del modello
 
 ```
 
@@ -92,7 +92,7 @@ for model validation
 ### M_MODEL_QA
 ```
 
-validation requires DATA\_VALID = True
+la validazione richiede DATA\_VALID = True
 
 ```
 
@@ -101,7 +101,7 @@ validation requires DATA\_VALID = True
 ### M_LIMITS
 ```
 
-compliance must use only valid data
+la conformità deve usare solo dati validi
 
 ```
 
@@ -110,7 +110,7 @@ compliance must use only valid data
 ### M_REPR
 ```
 
-representativeness based on valid data
+rappresentatività basata su dati validi
 
 ```
 

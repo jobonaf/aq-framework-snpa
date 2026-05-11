@@ -1,11 +1,11 @@
-# M_MOD — Modelling Applications
+# M_MOD — Applicazioni modellistiche
 
 ## Riferimenti normativi
 
-- Art. 8 Directive (EU) 2024/2881
-- Annex IV (uso combinato metodi)
-- Annex V (incertezze e qualità)
-- Implementing Acts (draft 2026 — modelling requirements)
+- Art. 8 Direttiva (UE) 2024/2881
+- Allegato IV (uso combinato metodi)
+- Allegato V (incertezze e qualità)
+- Atti di esecuzione (bozza 2026 — requisiti modellistici)
 
 ---
 
@@ -94,7 +94,7 @@ MODEL\_USABLE = VALID\_MODEL
 ```
 
 if zone ABOVE\_THRESHOLD:
-modelling may be used together with measurements
+la modellistica può essere utilizzata insieme alle misure
 
 ```
 
@@ -105,25 +105,25 @@ modelling may be used together with measurements
 ```
 
 if zone BELOW\_THRESHOLD:
-modelling may be primary method
+la modellistica può essere metodo principale
 
 ```
 
 ---
 
-### Uso sopra valori limite (implementing acts)
+### Uso sopra valori limite (atti di esecuzione)
 
 ```
 
 if C\_ann > LIMIT\_VALUE
 AND implementing\_acts in force:
-modelling becomes mandatory (after transition period)
+modellistica diventa obbligatoria (dopo periodo di transizione)
 
 ```
 
 ---
 
-## Requisiti tecnici (implementing acts)
+## Requisiti tecnici (atti di esecuzione)
 
 Un modello è conforme se soddisfa:
 
@@ -158,9 +158,9 @@ reflect relevant sources
 
 ```
 
-meteorological data must:
-match spatial/temporal scale
-represent variability
+dati meteorologici devono:
+essere coerenti con scala spaziale/temporale
+rappresentare la variabilità
 
 ```
 
@@ -170,8 +170,8 @@ represent variability
 
 ```
 
-background concentrations must:
-be consistent with model domain
+concentrazioni di background devono:
+essere coerenti con il dominio del modello
 
 ```
 
@@ -287,7 +287,7 @@ model used to compute AREA\_REPR
 
 ```
 
-model detects gaps in monitoring network
+il modello individua lacune nella rete di monitoraggio
 
 ```
 
@@ -320,4 +320,4 @@ hotspots
 
 - Il modello non sostituisce le misure nelle aree rappresentate
 - L’uso del modello è vincolato alla validazione
-- Le regole sono rafforzate dagli implementing acts
+- Le regole sono rafforzate dagli atti di esecuzione

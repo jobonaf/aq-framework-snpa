@@ -1,9 +1,9 @@
-# M_ZONE — Zoning
+# M_ZONE — Suddivisione territoriale
 
 ## Riferimenti normativi
 
-- Art. 3 Directive (EU) 2024/2881
-- Annex II (zone classification)
+- Art. 3 Direttiva (UE) 2024/2881
+- Allegato II (classificazione delle zone)
 
 ---
 
@@ -64,10 +64,10 @@ OR when significant changes occur
 
 Zone possono essere:
 
-- urban
-- suburban
-- rural
-- agglomerations
+- urbane
+- suburbane
+- rurali
+- agglomerati
 
 ---
 
@@ -98,7 +98,7 @@ number of stations depends on zone characteristics
 ### M_ASSESS
 ```
 
-assessment regime defined per zone
+il regime di valutazione è definito per zona
 
 ```
 

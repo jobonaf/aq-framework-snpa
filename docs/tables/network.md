@@ -1,8 +1,8 @@
-# Minimum Number of Sampling Points (Annex III)
+# Numero minimo di punti di campionamento (Allegato III)
 
-## Population-based requirements
+## Requisiti basati sulla popolazione
 
-| Population | PM2.5 | PM10 | NO2 | SO2 | O3 | BaP / Metals |
+| Popolazione | PM2.5 | PM10 | NO2 | SO2 | O3 | BaP / Metalli |
 |------------|------|------|------|------|------|--------------|
 | < 250,000 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 250,000 – 499,999 | 1 | 2 | 2 | 1 | 1 | 1 |

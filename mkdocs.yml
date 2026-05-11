@@ -15,6 +15,10 @@ theme:
 plugins:
   - search
 
+extra:
+  search:
+    language: 'it'
+
 nav:
   - Home: index.md
 

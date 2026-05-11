@@ -1,6 +1,6 @@
 # Architettura del Framework
 
-## Overview
+## Panoramica
 
 Il framework è basato su una pipeline logica che rappresenta il processo di valutazione della qualità dell’aria secondo la Direttiva (UE) 2024/2881.
 
@@ -10,14 +10,7 @@ Il framework è basato su una pipeline logica che rappresenta il processo di val
 
 ```
 
-ZONE
-→ ASSESS
-→ NETWORK
-→ MODEL
-→ MODEL\_QA
-→ REPR
-→ LIMITS
-→ EXPOSURE
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
 
 ```
 
@@ -30,37 +23,37 @@ Definisce la suddivisione del territorio in zone e agglomerati.
 
 ---
 
-### M_ASSESS — Assessment
+### M_ASSESS — Valutazione
 Determina il regime di valutazione in base alle soglie.
 
 ---
 
-### M_NETWORK — Monitoring Network
-Verifica adeguatezza della rete di monitoraggio.
+### M_NETWORK — Rete di monitoraggio
+Verifica l’adeguatezza della rete di monitoraggio.
 
 ---
 
-### M_MOD — Modelling
+### M_MOD — Modellistica
 Gestisce le applicazioni modellistiche.
 
 ---
 
-### M_MODEL_QA — Model Quality Assurance
+### M_MODEL_QA — Garanzia qualità modello
 Valida le prestazioni del modello.
 
 ---
 
-### M_REPR — Representativeness
+### M_REPR — Rappresentatività
 Definisce le aree di rappresentatività dei punti di misura.
 
 ---
 
-### M_LIMITS — Compliance
+### M_LIMITS — Conformità
 Verifica la conformità ai valori limite.
 
 ---
 
-### M_EXPOSURE — Exposure
+### M_EXPOSURE — Esposizione
 Calcola l’indicatore di esposizione (AEI).
 
 ---

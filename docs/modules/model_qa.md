@@ -1,10 +1,10 @@
-# M_MODEL_QA — Model Quality Assurance and Validation
+# M_MODEL_QA — Garanzia qualità modelli e validazione
 
 ## Riferimenti normativi
 
-- Implementing Acts (draft 2026), Art. 3
-- Annex V Directive (EU) 2024/2881 (data quality objectives)
-- Art. 8 Directive (EU) 2024/2881 (use of modelling)
+- Atti di esecuzione (bozza 2026), Art. 3
+- Allegato V Direttiva (UE) 2024/2881 (obiettivi qualità dei dati)
+- Art. 8 Direttiva (UE) 2024/2881 (uso della modellistica)
 
 ---
 
@@ -75,7 +75,7 @@ MQI(sp) ≤ 1
 ```
 
 for each model\_run:
-input datasets must be quality controlled
+i dataset di input devono essere controllati per qualità
 
 ```
 
@@ -110,16 +110,16 @@ NON possono essere usati per la validazione.
 ```
 
 validation\_stations must:
-cover spatial variability
-include different environments
+coprire la variabilità spaziale
+includere ambienti diversi
 
 ```
 
 Tipologie richieste:
 
-- urban background
-- traffic
-- suburban / rural
+- background urbano
+- traffico
+- suburbano / rurale
 
 ---
 
@@ -134,9 +134,9 @@ Leave-One-Out Cross-Validation (LOOCV)
 ```
 ```
 
-for each station sp:
-run model excluding sp
-compare model(sp) vs observed(sp)
+per ogni stazione sp:
+eseguire il modello escludendo sp
+confrontare model(sp) con observed(sp)
 
 ```
 
@@ -146,7 +146,7 @@ compare model(sp) vs observed(sp)
 
 ```
 
-validation\_data must satisfy:
+i validation\_data devono soddisfare:
 OBS\_VALID = True
 
 ```
@@ -157,13 +157,13 @@ dove:
 
 ---
 
-### 6. Modelli integrati (data fusion)
+### 6. Modelli integrati (fusione dati)
 
 Nel caso di modelli con assimilazione dati:
 
 ```
 
-only independent observations used for validation
+solo osservazioni indipendenti usate per la validazione
 
 ```
 
@@ -174,7 +174,7 @@ only independent observations used for validation
 ```
 
 if NOT VALID\_MODEL:
-model\_output NOT usable
+model\_output NON utilizzabile
 
 ```
 
@@ -257,7 +257,7 @@ LOO | other
 
 ## Note
 
-- MQI ≤ 1 deriva dagli obiettivi di qualità (Annex V)
+- MQI ≤ 1 deriva dagli obiettivi di qualità (Allegato V)
 - La validazione è un requisito vincolante, non opzionale
 - L’uso di dati non indipendenti invalida la validazione
 - Il modulo è prerequisito per l’intero uso della modellistica

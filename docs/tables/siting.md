@@ -1,18 +1,18 @@
-# Siting Criteria (Annex IV)
+# Criteri di posizionamento (Allegato IV)
 
-| Criterion | Requirement | Type |
+| Criterio | Requisito | Tipo |
 |----------|------------|------|
-| Inlet height (traffic) | 0.5 – 4 m | technical |
-| Inlet height (background) | 0.5 – 8 m | technical |
-| Distance from intersections | ≥ 25 m | technical |
-| Distance from buildings | ≥ 0.5 m | technical |
-| Air flow (free exposure) | ≥ 270° | geometric |
-| Representativeness area | must be defined | conceptual |
-| Station classification consistency | required | expert |
+| Altezza dell’ingresso aria (traffico) | 0.5 – 4 m | tecnico |
+| Altezza dell’ingresso aria (background) | 0.5 – 8 m | tecnico |
+| Distanza dalle intersezioni | ≥ 25 m | tecnico |
+| Distanza dagli edifici | ≥ 0.5 m | tecnico |
+| Flusso d’aria (esposizione libera) | ≥ 270° | geometrico |
+| Area di rappresentatività | deve essere definita | concettuale |
+| Coerenza classificazione stazione | richiesta | esperto |
 
 ---
 
-## Notes
+## Note
 
-- Some criteria require expert judgement (e.g. representativeness)
-- Applied during station validation (M_NETWORK)
+- Alcuni criteri richiedono giudizio esperto (es. rappresentatività)
+- Applicato durante la validazione delle stazioni (M_NETWORK)
