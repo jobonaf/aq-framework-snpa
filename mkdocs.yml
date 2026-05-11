@@ -1,6 +1,7 @@
 site_name: AQ Framework SNPA
 site_description: Formal Compliance Framework for Directive (EU) 2024/2881
-site_author: SNPA
+site_author: Giovanni Bonafè
+use_directory_urls: true
 
 theme:
   name: material
@@ -8,7 +9,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.top
     - search.highlight
     - content.code.copy
 
@@ -45,6 +45,3 @@ nav:
       - Qualità dati: tables/data_quality.md
       - Vocabolari EIONET: tables/eionet.md
 
-  - Allegati:
-      - Implementing Acts: annexes/implementing_acts.md
-      - Mapping direttiva: annexes/directive_mapping.md
