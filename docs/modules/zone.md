@@ -31,7 +31,7 @@ area(zone)
 
 ```
 
-ZONE\_COVERAGE\_VALID =
+ZONE_COVERAGE_VALID =
 ∀ x ∈ territorio :
 ∃ zona z : x ∈ z
 

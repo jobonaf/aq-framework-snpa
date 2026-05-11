@@ -32,16 +32,16 @@ Il modulo rappresenta l’output finale del sistema.
 
 ```
 
-C\_metric(x, t) = concentrazione per metrica specifica
+C_metric(x, t) = concentrazione per metrica specifica
 (annuale, giornaliera, oraria, 8h)
 
 LV(pollutant, metric, year) =
 valore normativo (vedi tables/limits.md)
 
-N\_exceed =
+N_exceed =
 numero di superamenti
 
-MAX\_exceed =
+MAX_exceed =
 massimo numero consentito
 
 ```
@@ -54,9 +54,9 @@ massimo numero consentito
 
 ```
 
-APPLICABLE\_LV =
-LV\_transitional if year < 2030
-else LV\_2030
+APPLICABLE_LV =
+LV_transitional if year < 2030
+else LV_2030
 
 ```
 
@@ -66,8 +66,8 @@ else LV\_2030
 
 ```
 
-COMPLIANT\_MEAN =
-C\_metric ≤ APPLICABLE\_LV
+COMPLIANT_MEAN =
+C_metric ≤ APPLICABLE_LV
 
 ```
 
@@ -79,8 +79,8 @@ C\_metric ≤ APPLICABLE\_LV
 
 ```
 
-COMPLIANT\_EXCEEDANCE =
-N\_exceed ≤ MAX\_exceed
+COMPLIANT_EXCEEDANCE =
+N_exceed ≤ MAX_exceed
 
 ```
 
@@ -93,8 +93,8 @@ N\_exceed ≤ MAX\_exceed
 ```
 
 COMPLIANT =
-COMPLIANT\_MEAN
-AND COMPLIANT\_EXCEEDANCE
+COMPLIANT_MEAN
+AND COMPLIANT_EXCEEDANCE
 
 ```
 
@@ -107,8 +107,8 @@ AND COMPLIANT\_EXCEEDANCE
 ```
 
 C(x) =
-measurement if x ∈ AREA\_REPR
-else model if VALID\_MODEL
+measurement if x ∈ AREA_REPR
+else model if VALID_MODEL
 
 ```
 
@@ -129,7 +129,7 @@ else model if VALID\_MODEL
 
 ```
 
-if x ∈ AREA\_REPR:
+if x ∈ AREA_REPR:
 use measurement
 
 ```
@@ -140,7 +140,7 @@ use measurement
 
 ```
 
-if x ∉ AREA\_REPR AND VALID\_MODEL:
+if x ∉ AREA_REPR AND VALID_MODEL:
 use model
 
 ```
@@ -155,8 +155,8 @@ use model
 
 ```
 
-if model\_exceedance
-AND measurement\_exceedance:
+if model_exceedance
+AND measurement_exceedance:
 → valid exceedance
 
 ```
@@ -167,8 +167,8 @@ AND measurement\_exceedance:
 
 ```
 
-if measurement\_exceedance
-AND model\_no\_exceedance:
+if measurement_exceedance
+AND model_no_exceedance:
 → model NOT usable
 
 ```
@@ -179,9 +179,9 @@ AND model\_no\_exceedance:
 
 ```
 
-if model\_exceedance
-AND x ∈ AREA\_REPR
-AND measurement\_no\_exceedance:
+if model_exceedance
+AND x ∈ AREA_REPR
+AND measurement_no_exceedance:
 → NOT valid exceedance
 
 ```
@@ -192,9 +192,9 @@ AND measurement\_no\_exceedance:
 
 ```
 
-if model\_exceedance outside all AREA\_REPR:
+if model_exceedance outside all AREA_REPR:
 → valid exceedance
-→ new station required (M\_NETWORK)
+→ new station required (M_NETWORK)
 
 ```
 
@@ -210,8 +210,8 @@ Applicabile a:
 
 ```
 
-N\_exceed =
-count(periods where C\_metric > LV)
+N_exceed =
+count(periods where C_metric > LV)
 
 ```
 
@@ -222,7 +222,7 @@ count(periods where C\_metric > LV)
 ```
 
 use only data where:
-DATA\_VALID = True
+DATA_VALID = True
 
 ```
 ```
@@ -239,7 +239,7 @@ exclude from calculation
 ```
 
 if exceedance attributable to natural sources:
-EXCLUDED\_FROM\_COMPLIANCE = True
+EXCLUDED_FROM_COMPLIANCE = True
 
 ```
 
@@ -272,7 +272,7 @@ may be excluded from exceedance count
 ```
 
 if extension granted:
-TEMPORARY\_NON\_COMPLIANCE\_ALLOWED
+TEMPORARY_NON_COMPLIANCE_ALLOWED
 
 ```
 
@@ -322,7 +322,7 @@ exceedances may trigger new stations
 
 ```
 
-model usable only if VALID\_MODEL
+model usable only if VALID_MODEL
 
 ```
 
@@ -343,7 +343,7 @@ only valid data used for compliance
 ```
 
 compliance:
-zone\_id
+zone_id
 pollutant
 metric
 compliant (boolean)

@@ -22,7 +22,7 @@ Si basa su stazioni:
 
 ```
 
-C\_ann(sp, y) = concentrazione media annuale
+C_ann(sp, y) = concentrazione media annuale
 
 stations = stazioni di background
 
@@ -36,7 +36,7 @@ stations = stazioni di background
 
 AEI =
 mean(
-C\_ann(sp, y)
+C_ann(sp, y)
 for sp ∈ stations
 negli ultimi 3 anni
 )

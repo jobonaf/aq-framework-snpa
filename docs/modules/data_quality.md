@@ -25,8 +25,8 @@ coverage = percentuale dati validi
 
 uncertainty = incertezza di misura
 
-MIN\_coverage, MAX\_uncertainty =
-valori da tables/data\_quality.md
+MIN_coverage, MAX_uncertainty =
+valori da tables/data_quality.md
 
 ```
 
@@ -36,9 +36,9 @@ valori da tables/data\_quality.md
 
 ```
 
-DATA\_VALID =
-(coverage ≥ MIN\_coverage)
-AND (uncertainty ≤ MAX\_uncertainty)
+DATA_VALID =
+(coverage ≥ MIN_coverage)
+AND (uncertainty ≤ MAX_uncertainty)
 
 ```
 
@@ -50,7 +50,7 @@ AND (uncertainty ≤ MAX\_uncertainty)
 
 ```
 
-if NOT DATA\_VALID:
+if NOT DATA_VALID:
 i dati devono essere esclusi
 
 ```
@@ -92,7 +92,7 @@ per la validazione del modello
 ### M_MODEL_QA
 ```
 
-la validazione richiede DATA\_VALID = True
+la validazione richiede DATA_VALID = True
 
 ```
 

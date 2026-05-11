@@ -27,13 +27,13 @@ La rappresentatività spaziale definisce l’area geografica in cui le concentra
 
 ```
 
-C\_sp = concentrazione media annuale nel punto di campionamento
+C_sp = concentrazione media annuale nel punto di campionamento
 
-T\_min = tolleranza minima (vedi tables/repr\_tolerance.md)
+T_min = tolleranza minima (vedi tables/repr_tolerance.md)
 
-Δ = max(0.15 \* C\_sp, T\_min)
+Δ = max(0.15 \* C_sp, T_min)
 
-interval = \[C\_sp - Δ, C\_sp + Δ]
+interval = \[C_sp - Δ, C_sp + Δ]
 
 ```
 ```
@@ -57,7 +57,7 @@ C(x) ∈ interval(sp)
 ```
 ```
 
-AREA\_REPR(sp) =
+AREA_REPR(sp) =
 { x ∈ zone | REPRESENTED(x, sp) }
 
 ```
@@ -70,7 +70,7 @@ AREA\_REPR(sp) =
 
 ```
 
-C\_sp = annual\_mean(sp)
+C_sp = annual_mean(sp)
 
 ```
 
@@ -88,8 +88,8 @@ Alternative possibili (se giustificate):
 
 ```
 
-AREA\_meas =
-{ x | C\_meas(x) ∈ interval }
+AREA_meas =
+{ x | C_meas(x) ∈ interval }
 
 ```
 
@@ -101,8 +101,8 @@ AREA\_meas =
 
 grid = model(zone)
 
-AREA\_model =
-{ cell ∈ grid | C\_model(cell) ∈ interval }
+AREA_model =
+{ cell ∈ grid | C_model(cell) ∈ interval }
 
 ```
 
@@ -142,7 +142,7 @@ Escludere:
 
 ```
 
-escludi x dove emission\_profile(x) differisce significativamente
+escludi x dove emission_profile(x) differisce significativamente
 
 ```
 
@@ -173,8 +173,8 @@ Per ogni zona e inquinante:
 
 ```
 
-MAP\_REPR =
-{ AREA\_REPR(sp) per tutte le stazioni }
+MAP_REPR =
+{ AREA_REPR(sp) per tutte le stazioni }
 
 ```
 
@@ -186,7 +186,7 @@ Caso:
 
 ```
 
-x ∈ AREA\_REPR(sp1) AND x ∈ AREA\_REPR(sp2)
+x ∈ AREA_REPR(sp1) AND x ∈ AREA_REPR(sp2)
 
 ```
 ```
@@ -207,9 +207,9 @@ Criteri:
 
 ```
 
-if C(x) > LIMIT\_VALUE
+if C(x) > LIMIT_VALUE
 AND nessuna stazione ha superamento:
-x non assegnato a nessuna AREA\_REPR
+x non assegnato a nessuna AREA_REPR
 
 ```
 
@@ -217,7 +217,7 @@ Conseguenze:
 
 ```
 
-MODEL\_REVIEW\_REQUIRED = True
+MODEL_REVIEW_REQUIRED = True
 
 ```
 
@@ -229,7 +229,7 @@ MODEL\_REVIEW\_REQUIRED = True
 
 ```
 
-if model\_exceedance ∈ AREA\_REPR
+if model_exceedance ∈ AREA_REPR
 AND measurement non supera:
 → non considerare superamento
 
@@ -241,8 +241,8 @@ AND measurement non supera:
 
 ```
 
-if exceedance outside all AREA\_REPR:
-ADDITIONAL\_STATION\_REQUIRED = True
+if exceedance outside all AREA_REPR:
+ADDITIONAL_STATION_REQUIRED = True
 
 ```
 
@@ -255,7 +255,7 @@ ADDITIONAL\_STATION\_REQUIRED = True
 ```
 
 if model ≠ measurement (fuori incertezza):
-MODEL\_REVIEW\_REQUIRED = True
+MODEL_REVIEW_REQUIRED = True
 
 ```
 
@@ -275,7 +275,7 @@ il modello fornisce campo di concentrazione
 ### M_MODEL_QA
 ```
 
-uso modellistica solo se VALID\_MODEL = True
+uso modellistica solo se VALID_MODEL = True
 
 ```
 
@@ -284,7 +284,7 @@ uso modellistica solo se VALID\_MODEL = True
 ### M_NETWORK
 ```
 
-le AREA\_REPR definiscono copertura rete
+le AREA_REPR definiscono copertura rete
 
 ```
 
@@ -304,9 +304,9 @@ determinano validità dei superamenti
 ```
 
 representativeness:
-station\_id
+station_id
 geometry (polygon / multipolygon)
-central\_value (C\_sp)
+central_value (C_sp)
 tolerance (Δ)
 method:
 measurement | modelling | hybrid

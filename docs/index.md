@@ -40,7 +40,7 @@ Il sistema è organizzato in:
 
 ```
 
-ZONE → ASSESS → NETWORK → MODEL → MODEL\_QA → REPR → LIMITS → EXPOSURE
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
 
 ```
 

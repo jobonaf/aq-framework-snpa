@@ -19,7 +19,7 @@ Utilizzata in M_REPR:
 
 ```
 
-Δ = max(0.15 \* C\_sp, T\_min)
+Δ = max(0.15 \* C_sp, T_min)
 
 ```
 

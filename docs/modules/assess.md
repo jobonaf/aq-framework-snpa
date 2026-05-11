@@ -25,9 +25,9 @@ Definisce se utilizzare:
 
 ```
 
-C\_y = concentrazione annuale per anno y
+C_y = concentrazione annuale per anno y
 
-TH = soglia di valutazione (tables/assess\_thresholds.md)
+TH = soglia di valutazione (tables/assess_thresholds.md)
 
 ```
 
@@ -39,8 +39,8 @@ TH = soglia di valutazione (tables/assess\_thresholds.md)
 
 ```
 
-ABOVE\_THRESHOLD =
-count(y ∈ ultimi\_5\_anni where C\_y > TH) ≥ 3
+ABOVE_THRESHOLD =
+count(y ∈ ultimi_5_anni where C_y > TH) ≥ 3
 
 ```
 
@@ -50,10 +50,10 @@ count(y ∈ ultimi\_5\_anni where C\_y > TH) ≥ 3
 
 ```
 
-if ABOVE\_THRESHOLD:
-ASSESSMENT\_TYPE = fixedMeasurements
+if ABOVE_THRESHOLD:
+ASSESSMENT_TYPE = fixedMeasurements
 else:
-ASSESSMENT\_TYPE = modelOrObjectiveEstimation
+ASSESSMENT_TYPE = modelOrObjectiveEstimation
 
 ```
 
@@ -81,7 +81,7 @@ ASSESSMENT\_TYPE = modelOrObjectiveEstimation
 
 ```
 
-ASSESSMENT\_DATA =
+ASSESSMENT_DATA =
 combinazione di:
 misure
 modellistica
@@ -107,7 +107,7 @@ modellistica diventa componente principale
 ### M_NETWORK
 ```
 
-numero di stazioni dipende da ABOVE\_THRESHOLD
+numero di stazioni dipende da ABOVE_THRESHOLD
 
 ```
 

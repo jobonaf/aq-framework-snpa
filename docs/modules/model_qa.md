@@ -27,13 +27,13 @@ La validazione è una **condizione necessaria** per l’utilizzo del modello nei
 
 MQI = modelling quality indicator
 
-OBS\_VALID =
-osservazioni che soddisfano M\_DATA\_QUALITY
+OBS_VALID =
+osservazioni che soddisfano M_DATA_QUALITY
 
-DATA\_independent =
+DATA_independent =
 dataset NON utilizzati nel modello
 
-N\_val =
+N_val =
 numero stazioni utilizzate per validazione
 
 ```
@@ -46,7 +46,7 @@ numero stazioni utilizzate per validazione
 
 ```
 
-VALID\_MODEL =
+VALID_MODEL =
 MQI ≤ 1
 
 ```
@@ -57,9 +57,9 @@ MQI ≤ 1
 
 ```
 
-if N\_val < 10:
-VALID\_MODEL =
-∀ sp ∈ validation\_stations :
+if N_val < 10:
+VALID_MODEL =
+∀ sp ∈ validation_stations :
 MQI(sp) ≤ 1
 
 ```
@@ -74,7 +74,7 @@ MQI(sp) ≤ 1
 
 ```
 
-for each model\_run:
+for each model_run:
 i dataset di input devono essere controllati per qualità
 
 ```
@@ -91,7 +91,7 @@ Include:
 
 ```
 
-validation\_data ∩ model\_input\_data = ∅
+validation_data ∩ model_input_data = ∅
 
 ```
 
@@ -109,7 +109,7 @@ NON possono essere usati per la validazione.
 
 ```
 
-validation\_stations must:
+validation_stations must:
 coprire la variabilità spaziale
 includere ambienti diversi
 
@@ -146,8 +146,8 @@ confrontare model(sp) con observed(sp)
 
 ```
 
-i validation\_data devono soddisfare:
-OBS\_VALID = True
+i validation_data devono soddisfare:
+OBS_VALID = True
 
 ```
 
@@ -173,8 +173,8 @@ solo osservazioni indipendenti usate per la validazione
 
 ```
 
-if NOT VALID\_MODEL:
-model\_output NON utilizzabile
+if NOT VALID_MODEL:
+model_output NON utilizzabile
 
 ```
 
@@ -194,7 +194,7 @@ Conseguenze:
 
 ```
 
-MODEL\_USABLE = VALID\_MODEL
+MODEL_USABLE = VALID_MODEL
 
 ```
 
@@ -204,7 +204,7 @@ MODEL\_USABLE = VALID\_MODEL
 
 ```
 
-representativeness from model allowed only if VALID\_MODEL
+representativeness from model allowed only if VALID_MODEL
 
 ```
 
@@ -214,7 +214,7 @@ representativeness from model allowed only if VALID\_MODEL
 
 ```
 
-exceedances valid only if model is VALID\_MODEL
+exceedances valid only if model is VALID_MODEL
 
 ```
 
@@ -224,7 +224,7 @@ exceedances valid only if model is VALID\_MODEL
 
 ```
 
-network reduction allowed only if VALID\_MODEL
+network reduction allowed only if VALID_MODEL
 
 ```
 
@@ -234,7 +234,7 @@ network reduction allowed only if VALID\_MODEL
 
 ```
 
-validation depends on data\_quality = valid
+validation depends on data_quality = valid
 
 ```
 
@@ -244,11 +244,11 @@ validation depends on data\_quality = valid
 
 ```
 
-model\_validation:
+model_validation:
 valid (boolean)
 MQI
-N\_val
-validation\_method:
+N_val
+validation_method:
 LOO | other
 
 ```

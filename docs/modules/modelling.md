@@ -29,11 +29,11 @@ La modellistica integra le misure ed è parte essenziale del framework.
 
 model = applicazione modellistica
 
-C\_model(x, t) = concentrazione modellata nella localizzazione x
+C_model(x, t) = concentrazione modellata nella localizzazione x
 
-C\_meas(sp, t) = concentrazione misurata nel punto di campionamento
+C_meas(sp, t) = concentrazione misurata nel punto di campionamento
 
-AREA\_REPR(sp) = area di rappresentatività (vedi M\_REPR)
+AREA_REPR(sp) = area di rappresentatività (vedi M_REPR)
 
 ```
 
@@ -46,8 +46,8 @@ AREA\_REPR(sp) = area di rappresentatività (vedi M\_REPR)
 ```
 
 C(x) =
-C\_meas se x ∈ AREA\_REPR(station)
-else C\_model(x)
+C_meas se x ∈ AREA_REPR(station)
+else C_model(x)
 
 ```
 
@@ -57,8 +57,8 @@ else C\_model(x)
 
 ```
 
-ASSESSMENT\_DATA =
-merge(measurements, model\_output)
+ASSESSMENT_DATA =
+merge(measurements, model_output)
 
 ```
 
@@ -81,7 +81,7 @@ Il modello deve fornire:
 
 ```
 
-MODEL\_USABLE = VALID\_MODEL
+MODEL_USABLE = VALID_MODEL
 
 ```
 
@@ -93,7 +93,7 @@ MODEL\_USABLE = VALID\_MODEL
 
 ```
 
-if zone ABOVE\_THRESHOLD:
+if zone ABOVE_THRESHOLD:
 la modellistica può essere utilizzata insieme alle misure
 
 ```
@@ -104,7 +104,7 @@ la modellistica può essere utilizzata insieme alle misure
 
 ```
 
-if zone BELOW\_THRESHOLD:
+if zone BELOW_THRESHOLD:
 la modellistica può essere metodo principale
 
 ```
@@ -115,8 +115,8 @@ la modellistica può essere metodo principale
 
 ```
 
-if C\_ann > LIMIT\_VALUE
-AND implementing\_acts in force:
+if C_ann > LIMIT_VALUE
+AND implementing_acts in force:
 modellistica diventa obbligatoria (dopo periodo di transizione)
 
 ```
@@ -129,11 +129,11 @@ Un modello è conforme se soddisfa:
 
 ```
 
-MODEL\_FIT =
-MATCHES\_AVERAGING\_PERIODS
-AND HAS\_APPROPRIATE\_SPATIAL\_RESOLUTION
-AND INPUTS\_ALIGNED
-AND REPRESENTS\_RELEVANT\_PROCESSES
+MODEL_FIT =
+MATCHES_AVERAGING_PERIODS
+AND HAS_APPROPRIATE_SPATIAL_RESOLUTION
+AND INPUTS_ALIGNED
+AND REPRESENTS_RELEVANT_PROCESSES
 
 ```
 
@@ -197,7 +197,7 @@ Il modello deve catturare:
 
 ```
 
-if model\_exceedance AND measurement\_exceedance:
+if model_exceedance AND measurement_exceedance:
 → use model results
 
 ```
@@ -208,8 +208,8 @@ if model\_exceedance AND measurement\_exceedance:
 
 ```
 
-if model\_exceedance outside all AREA\_REPR:
-→ trigger new station (M\_NETWORK)
+if model_exceedance outside all AREA_REPR:
+→ trigger new station (M_NETWORK)
 
 ```
 
@@ -219,8 +219,8 @@ if model\_exceedance outside all AREA\_REPR:
 
 ```
 
-if measurement\_exceedance
-AND model\_no\_exceedance:
+if measurement_exceedance
+AND model_no_exceedance:
 → model cannot be used for assessment
 
 ```
@@ -231,9 +231,9 @@ AND model\_no\_exceedance:
 
 ```
 
-if model\_exceedance
-AND measurement\_no\_exceedance
-AND x ∈ AREA\_REPR:
+if model_exceedance
+AND measurement_no_exceedance
+AND x ∈ AREA_REPR:
 → not valid exceedance
 
 ```
@@ -253,7 +253,7 @@ Condizione:
 
 ```
 
-MODEL\_USABLE = True
+MODEL_USABLE = True
 
 ```
 
@@ -267,7 +267,7 @@ MODEL\_USABLE = True
 
 ```
 
-model usable only if VALID\_MODEL = True
+model usable only if VALID_MODEL = True
 
 ```
 
@@ -277,7 +277,7 @@ model usable only if VALID\_MODEL = True
 
 ```
 
-model used to compute AREA\_REPR
+model used to compute AREA_REPR
 
 ```
 
@@ -307,9 +307,9 @@ model used to identify exceedance areas
 
 ```
 
-model\_output:
-concentration\_field
-exceedance\_areas
+model_output:
+concentration_field
+exceedance_areas
 hotspots
 
 ```

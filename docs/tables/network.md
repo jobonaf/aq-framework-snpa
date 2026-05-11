@@ -4,16 +4,16 @@
 
 | Popolazione | PM2.5 | PM10 | NO2 | SO2 | O3 | BaP / Metalli |
 |------------|------|------|------|------|------|--------------|
-| < 250,000 | 1 | 1 | 1 | 1 | 1 | 1 |
-| 250,000 – 499,999 | 1 | 2 | 2 | 1 | 1 | 1 |
-| 500,000 – 999,999 | 2 | 3 | 3 | 1 | 2 | 1 |
-| 1,000,000 – 1,999,999 | 3 | 5 | 5 | 2 | 3 | 1 |
-| 2,000,000 – 3,999,999 | 5 | 8 | 8 | 2 | 4 | 2 |
-| ≥ 4,000,000 | 7 | 10 | 10 | 3 | 5 | 2 |
+| < 250k | 1 | 1 | 1 | 1 | 1 | 1 |
+| 250k – 499k | 1 | 2 | 2 | 1 | 1 | 1 |
+| 500k – 999k | 2 | 3 | 3 | 1 | 2 | 1 |
+| 1M – 1,9M | 3 | 5 | 5 | 2 | 3 | 1 |
+| 2M – 3,9M | 5 | 8 | 8 | 2 | 4 | 2 |
+| ≥ 4M | 7 | 10 | 10 | 3 | 5 | 2 |
 
 ---
 
-## Notes
+## Note
 
-- Applies to zones above assessment threshold
-- May be reduced (max 50%) if modelling is used and validated (M_MODEL_QA)
+- Si applica alle zone sopra la soglia di valutazione
+- Può essere ridotto (massimo 50%) se la modellistica è usata e validata (M_MODEL_QA)

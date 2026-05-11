@@ -25,9 +25,9 @@ La rete deve garantire:
 
 ```
 
-N\_active = numero stazioni attive
+N_active = numero stazioni attive
 
-N\_min = numero minimo richiesto (Tabella network)
+N_min = numero minimo richiesto (Tabella network)
 
 VALID(station) = rispetto criteri di posizionamento (Allegato IV)
 
@@ -39,8 +39,8 @@ VALID(station) = rispetto criteri di posizionamento (Allegato IV)
 
 ```
 
-NETWORK\_OK =
-(N\_active ≥ N\_min)
+NETWORK_OK =
+(N_active ≥ N_min)
 AND ∀ st : VALID(st)
 
 ```
@@ -53,9 +53,9 @@ AND ∀ st : VALID(st)
 
 ```
 
-if ABOVE\_THRESHOLD
-AND C\_ann ≤ LIMIT\_VALUE:
-→ N\_min\_eff = ceil(N\_min \* 0.5)
+if ABOVE_THRESHOLD
+AND C_ann ≤ LIMIT_VALUE:
+→ N_min_eff = ceil(N_min \* 0.5)
 
 ```
 
@@ -71,8 +71,8 @@ Condizioni:
 
 ```
 
-if model\_exceedance outside all AREA\_REPR:
-→ ADDITIONAL\_STATION\_REQUIRED = True
+if model_exceedance outside all AREA_REPR:
+→ ADDITIONAL_STATION_REQUIRED = True
 
 ```
 
@@ -87,9 +87,9 @@ Tempistiche:
 
 ```
 
-RELOCATION\_FORBIDDEN =
+RELOCATION_FORBIDDEN =
 ∃ y negli ultimi 3 anni :
-C(station, y) > LIMIT\_VALUE
+C(station, y) > LIMIT_VALUE
 
 ```
 
@@ -97,7 +97,7 @@ Eccezione:
 
 ```
 
-if new\_location ∈ same AREA\_REPR:
+if new_location ∈ same AREA_REPR:
 relocation allowed
 
 ```
@@ -108,8 +108,8 @@ relocation allowed
 
 ```
 
-NETWORK\_COVERAGE =
-union(AREA\_REPR(stations))
+NETWORK_COVERAGE =
+union(AREA_REPR(stations))
 
 ```
 
@@ -117,7 +117,7 @@ Condizione implicita:
 
 ```
 
-zone ⊆ NETWORK\_COVERAGE
+zone ⊆ NETWORK_COVERAGE
 
 ```
 
@@ -139,7 +139,7 @@ La rete deve garantire copertura di:
 ### M_REPR
 ```
 
-ogni stazione deve avere AREA\_REPR definita
+ogni stazione deve avere AREA_REPR definita
 
 ```
 
