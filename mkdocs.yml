@@ -1,14 +1,46 @@
-
 site_name: AQ Framework SNPA
+site_description: Formal Compliance Framework for Directive (EU) 2024/2881
+site_author: SNPA
+
+theme:
+  name: material
+  language: it
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
 nav:
-  - Home: docs/index.md
-  - Introduction: docs/introduction.md
-  - Architecture: docs/architecture.md
-  - Modules:
-      - Network: docs/modules/network.md
-      - Modelling: docs/modules/modelling.md
-      - Representativeness: docs/modules/repr.md
-      - Limits: docs/modules/limits.md
-  - Tables:
-      - Network: docs/tables/network.md
-      - Limits: docs/tables/limits.md
+  - Home: index.md
+
+  - Introduzione:
+      - Overview: introduction.md
+      - Architettura: architecture.md
+
+  - Moduli:
+      - M_ZONE — Zoning: modules/zone.md
+      - M_ASSESS — Assessment: modules/assess.md
+      - M_NETWORK — Monitoring Network: modules/network.md
+      - M_MOD — Modelling: modules/modelling.md
+      - M_MODEL_QA — Model QA: modules/model_qa.md
+      - M_REPR — Representativeness: modules/repr.md
+      - M_LIMITS — Compliance: modules/limits.md
+      - M_EXPOSURE — Exposure: modules/exposure.md
+      - M_DATA_QUALITY — Data Quality: modules/data_quality.md
+
+  - Tabelle:
+      - Valori limite: tables/limits.md
+      - Numero stazioni: tables/network.md
+      - Criteri di posizionamento: tables/siting.md
+      - Tolleranze rappresentatività: tables/repr_tolerance.md
+      - Qualità dati: tables/data_quality.md
+      - Vocabolari EIONET: tables/eionet.md
+
+  - Allegati:
+      - Implementing Acts: annexes/implementing_acts.md
+      - Mapping direttiva: annexes/directive_mapping.md
