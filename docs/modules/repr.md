@@ -29,9 +29,9 @@ La rappresentatività spaziale definisce l’area geografica in cui le concentra
 
 C_sp = concentrazione media annuale nel punto di campionamento
 
-T_min = tolleranza minima (vedi tables/repr_tolerance.md)
+T_min = tolleranza minima ([vedi tabella repr_tolerance](../tables/repr_tolerance.md))
 
-Δ = max(0.15 \* C_sp, T_min)
+Δ = max(0.15 * C_sp, T_min)
 
 interval = \[C_sp - Δ, C_sp + Δ]
 
@@ -106,7 +106,7 @@ AREA_model =
 
 ```
 
-⚠ Uso consentito solo se il modello è valido (vedi M_MODEL_QA)
+⚠ Uso consentito solo se il modello è valido ([vedi M_MODEL_QA](../model_qa.md))
 
 ---
 
@@ -246,7 +246,7 @@ ADDITIONAL_STATION_REQUIRED = True
 
 ```
 
-→ vedi M_NETWORK
+→ [vedi M_NETWORK](../network.md)
 
 ---
 

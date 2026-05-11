@@ -36,7 +36,7 @@ C_metric(x, t) = concentrazione per metrica specifica
 (annuale, giornaliera, oraria, 8h)
 
 LV(pollutant, metric, year) =
-valore normativo (vedi tables/limits.md)
+valore normativo ([vedi tabella limits](../tables/limits.md))
 
 N_exceed =
 numero di superamenti
@@ -116,7 +116,7 @@ else model if VALID_MODEL
 
 ### Requisiti
 
-- dati validi (vedi M_DATA_QUALITY)
+- dati validi ([vedi M_DATA_QUALITY](../data_quality.md))
 - uso modello solo se VALID_MODEL (M_MODEL_QA)
 
 ---

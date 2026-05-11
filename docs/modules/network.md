@@ -55,13 +55,13 @@ AND ∀ st : VALID(st)
 
 if ABOVE_THRESHOLD
 AND C_ann ≤ LIMIT_VALUE:
-→ N_min_eff = ceil(N_min \* 0.5)
+→ N_min_eff = ceil(N_min * 0.5)
 
 ```
 
 Condizioni:
 
-- uso di modellistica validata (vedi M_MODEL_QA)
+- uso di modellistica validata ([vedi M_MODEL_QA](../model_qa.md))
 - oppure integrazione con misure indicative
 - mantenimento adeguata informazione spaziale
 

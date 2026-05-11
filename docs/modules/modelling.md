@@ -33,7 +33,7 @@ C_model(x, t) = concentrazione modellata nella localizzazione x
 
 C_meas(sp, t) = concentrazione misurata nel punto di campionamento
 
-AREA_REPR(sp) = area di rappresentatività (vedi M_REPR)
+AREA_REPR(sp) = area di rappresentatività ([vedi M_REPR](../repr.md))
 
 ```
 
@@ -85,7 +85,7 @@ MODEL_USABLE = VALID_MODEL
 
 ```
 
-→ vedi M_MODEL_QA
+→ [vedi M_MODEL_QA](../model_qa.md)
 
 ---
 
