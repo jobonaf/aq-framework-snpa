@@ -1,0 +1,14 @@
+
+site_name: AQ Framework SNPA
+nav:
+  - Home: docs/index.md
+  - Introduction: docs/introduction.md
+  - Architecture: docs/architecture.md
+  - Modules:
+      - Network: docs/modules/network.md
+      - Modelling: docs/modules/modelling.md
+      - Representativeness: docs/modules/repr.md
+      - Limits: docs/modules/limits.md
+  - Tables:
+      - Network: docs/tables/network.md
+      - Limits: docs/tables/limits.md

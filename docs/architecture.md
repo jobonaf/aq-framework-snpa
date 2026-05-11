@@ -1,0 +1,4 @@
+
+# Architettura
+
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
