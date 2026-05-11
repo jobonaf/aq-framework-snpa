@@ -87,35 +87,10 @@ per la validazione del modello
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_MODEL_QA
-```
+La qualità dei dati condiziona tutte le valutazioni successive.
 
-la validazione richiede DATA_VALID = True
-
-```
-
----
-
-### M_LIMITS
-```
-
-la conformità deve usare solo dati validi
-
-```
-
----
-
-### M_REPR
-```
-
-rappresentatività basata su dati validi
-
-```
-
----
-
-## Tabelle
-
-- ../tables/data_quality.md
+- [M_MODEL_QA](model_qa.md): la validazione modellistica richiede dati di qualità adeguata.
+- [M_LIMITS](limits.md): solo dati validi possono essere usati per la conformità.
+- [Obiettivi di qualità dei dati](../tables/data_quality.md): specificano copertura e incertezza massime.

@@ -102,35 +102,10 @@ modellistica diventa componente principale
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_NETWORK
-```
+Il regime di valutazione definisce quali metodi possono o devono essere utilizzati.
 
-numero di stazioni dipende da ABOVE_THRESHOLD
-
-```
-
----
-
-### M_MOD
-```
-
-determina quando la modellistica può/deve essere utilizzata
-
-```
-
----
-
-### M_LIMITS
-```
-
-il regime di valutazione influenza la decisione di conformità
-
-```
-
----
-
-## Tabelle
-
-- ../tables/assess_thresholds.md
+- [M_NETWORK](network.md): il numero minimo di stazioni dipende dalla classificazione sopra/sotto soglia.
+- [M_MOD](modelling.md): la modellistica è obbligatoria o opzionale in funzione del regime.
+- [Tabelle delle soglie di valutazione](../tables/assess_thresholds.md): definiscono i valori di riferimento per la classificazione delle zone.

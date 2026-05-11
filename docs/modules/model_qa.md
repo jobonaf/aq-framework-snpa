@@ -186,57 +186,15 @@ Conseguenze:
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
----
+La validazione del modello è un prerequisito per l’utilizzo regolatorio dei risultati.
 
-### M_MOD
-
-```
-
-MODEL_USABLE = VALID_MODEL
-
-```
-
----
-
-### M_REPR
-
-```
-
-representativeness from model allowed only if VALID_MODEL
-
-```
-
----
-
-### M_LIMITS
-
-```
-
-exceedances valid only if model is VALID_MODEL
-
-```
-
----
-
-### M_NETWORK
-
-```
-
-network reduction allowed only if VALID_MODEL
-
-```
-
----
-
-### M_DATA_QUALITY
-
-```
-
-validation depends on data_quality = valid
-
-```
+- [M_MOD](modelling.md): la validazione abilita o inibisce l’uso del modello.
+- [M_REPR](repr.md): solo modelli validati possono essere usati per la rappresentatività spaziale.
+- [M_LIMITS](limits.md): i superamenti modellistici sono validi solo se il modello è validato.
+- [Qualità dei dati](../tables/data_quality.md): definisce i requisiti per i dati di validazione.
+``
 
 ---
 

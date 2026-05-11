@@ -284,57 +284,14 @@ Condizioni:
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
----
+La verifica di conformità integra tutti i risultati precedenti.
 
-### M_REPR
-
-```
-
-defines spatial validity of exceedance
-
-```
-
----
-
-### M_MOD
-
-```
-
-identifica superamenti al di fuori della rete di monitoraggio
-
-```
-
----
-
-### M_NETWORK
-
-```
-
-exceedances may trigger new stations
-
-```
-
----
-
-### M_MODEL_QA
-
-```
-
-model usable only if VALID_MODEL
-
-```
-
----
-
-### M_DATA_QUALITY
-
-```
-
-only valid data used for compliance
-
-```
+- [M_REPR](repr.md): determina la validità spaziale delle misure.
+- [M_MOD](modelling.md): individua superamenti al di fuori della rete.
+- [M_MODEL_QA](model_qa.md): condiziona l’uso dei risultati modellistici.
+- [Valori limite](../tables/limits.md): definiscono i criteri di conformità normativa.
 
 ---
 

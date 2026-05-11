@@ -259,47 +259,14 @@ MODEL_USABLE = True
 
 ---
 
-## Interazione con altri moduli
+## Moduli e tabelle correlati
 
----
+La modellistica è integrata con le misure e soggetta a vincoli di qualità.
 
-### M_MODEL_QA
-
-```
-
-model usable only if VALID_MODEL = True
-
-```
-
----
-
-### M_REPR
-
-```
-
-model used to compute AREA_REPR
-
-```
-
----
-
-### M_NETWORK
-
-```
-
-il modello individua lacune nella rete di monitoraggio
-
-```
-
----
-
-### M_LIMITS
-
-```
-
-model used to identify exceedance areas
-
-```
+- [M_MODEL_QA](model_qa.md): solo modelli validati possono essere utilizzati.
+- [M_REPR](repr.md): i risultati modellistici sono utilizzati per la determinazione della rappresentatività spaziale.
+- [M_LIMITS](limits.md): il modello contribuisce all’identificazione delle aree di superamento.
+- [Obiettivi di qualità dei dati](../tables/data_quality.md): definiscono i limiti di incertezza accettabili.
 
 ---
 

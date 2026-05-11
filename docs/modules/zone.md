@@ -84,41 +84,13 @@ monitoring objectives
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_NETWORK
-```
+Questo modulo fornisce il contesto territoriale per l’intero framework.
 
-number of stations depends on zone characteristics
-
-```
-
----
-
-### M_ASSESS
-```
-
-il regime di valutazione è definito per zona
-
-```
-
----
-
-### M_REPR
-```
-
-representativeness constrained within zone
-
-```
-
----
-
-### M_LIMITS
-```
-
-compliance determined at zone level
-
-```
+- [M_ASSESS](assess.md): il regime di valutazione è determinato per ciascuna zona.
+- [M_NETWORK](network.md): il numero minimo e la tipologia di stazioni dipendono dalle caratteristiche della zona.
+- [M_REPR](repr.md): le aree di rappresentatività sono sempre limitate ai confini zonali.
 
 ---
 

@@ -261,41 +261,14 @@ MODEL_REVIEW_REQUIRED = True
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_MOD
-```
+La rappresentatività spaziale collega misure, modellistica e territorio.
 
-il modello fornisce campo di concentrazione
-
-```
-
----
-
-### M_MODEL_QA
-```
-
-uso modellistica solo se VALID_MODEL = True
-
-```
-
----
-
-### M_NETWORK
-```
-
-le AREA_REPR definiscono copertura rete
-
-```
-
----
-
-### M_LIMITS
-```
-
-determinano validità dei superamenti
-
-```
+- [M_NETWORK](network.md): determina la copertura spaziale effettiva della rete.
+- [M_MOD](modelling.md): il modello fornisce il campo di concentrazione continuo.
+- [M_LIMITS](limits.md): stabilisce se un superamento è attribuibile a una stazione.
+- [Tolleranze di rappresentatività](../tables/repr_tolerance.md): definiscono l’intervallo di concentrazione accettabile.
 
 ---
 
@@ -329,8 +302,3 @@ oppure quando:
 - cambiano le emissioni
 - variazioni meteorologiche significative
 
----
-
-## Tabelle
-
-- ../tables/repr_tolerance.md

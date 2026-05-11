@@ -72,24 +72,12 @@ media mobile su 3 anni
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_NETWORK
-```
+L’indicatore di esposizione utilizza una selezione specifica della rete.
 
-dipende dalla corretta classificazione delle stazioni
-
-```
-
----
-
-### M_DATA_QUALITY
-```
-
-usa solo dati validi
-
-```
-
+- [M_NETWORK](network.md): fornisce la classificazione delle stazioni di background.
+- [M_DATA_QUALITY](data_quality.md): garantisce l’affidabilità dei dati utilizzati.
 ---
 
 ## Output
@@ -101,9 +89,3 @@ value
 period
 
 ```
-
----
-
-## Tabelle
-
-- ../tables/network.md (filtro implicito delle stazioni)

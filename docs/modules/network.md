@@ -134,24 +134,11 @@ La rete deve garantire copertura di:
 
 ---
 
-## Interazioni con altri moduli
+## Moduli e tabelle correlati
 
-### M_REPR
-```
+La progettazione e la verifica della rete dipendono da criteri normativi e da altri moduli.
 
-ogni stazione deve avere AREA_REPR definita
-
-```
-
-### M_MOD
-```
-
-riduzione rete ⇒ richiede modello valido
-
-```
-
-### M_LIMITS
-```
-
-superamenti ⇒ possono generare nuove stazioni
-
+- [M_REPR](repr.md): ogni stazione deve avere un’area di rappresentatività definita.
+- [M_MOD](modelling.md): la modellistica validata consente la riduzione della rete o l’individuazione di nuove stazioni.
+- [Numero minimo di stazioni](../tables/network.md): requisiti quantitativi basati sulla popolazione.
+- [Criteri di posizionamento](../tables/siting.md): requisiti tecnici per la validità delle stazioni.
