@@ -18,4 +18,3 @@
 
 - La copertura si riferisce alla frazione di dati validi nel periodo
 - Si applica alla validazione in M_DATA_QUALITY e M_MODEL_QA
-``

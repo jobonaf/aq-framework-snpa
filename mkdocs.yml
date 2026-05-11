@@ -34,3 +34,6 @@ nav:
       - Tolleranze rappresentatività: tables/repr_tolerance.md
       - Qualità dati: tables/data_quality.md
       - Vocabolari EIONET: tables/eionet.md
+      
+  - Stato del progetto:
+      - TODO: TODO.md
