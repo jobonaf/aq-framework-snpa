@@ -8,8 +8,9 @@ Il framework è basato su una pipeline logica che rappresenta il processo di val
 
 ## Pipeline
 
-
 Il diagramma seguente rappresenta le dipendenze logiche tra i moduli del framework.
+Le frecce continue indicano dipendenze dirette; le frecce tratteggiate indicano
+prerequisiti trasversali; la freccia bidirezionale indica un ciclo di feedback.
 
 ```mermaid
 graph TD
@@ -68,19 +69,6 @@ Verifica la conformità ai valori limite.
 
 ### M_EXPOSURE — Indicatore di esposizione media
 Calcola l’indicatore di esposizione (AEI).
-
----
-
-## Flusso logico
-
-1. Il territorio è suddiviso in zone (M_ZONE)  
-2. Viene determinato il regime di valutazione (M_ASSESS)  
-3. Si verifica l’adeguatezza della rete (M_NETWORK)  
-4. Si applica la modellistica (M_MOD)  
-5. Il modello viene validato (M_MODEL_QA)  
-6. Si determinano le aree di rappresentatività (M_REPR)  
-7. Si valutano i superamenti (M_LIMITS)  
-8. Si calcola l’esposizione (M_EXPOSURE)  
 
 ---
 
