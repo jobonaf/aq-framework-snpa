@@ -8,10 +8,23 @@ Il framework è basato su una pipeline logica che rappresenta il processo di val
 
 ## Pipeline
 
-```
 
-ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
+Il diagramma seguente rappresenta le dipendenze logiche tra i moduli del framework.
 
+```mermaid
+graph TD
+    M_ZONE --> M_ASSESS
+    M_ASSESS --> M_NETWORK
+    M_ASSESS --> M_MOD
+    M_DATA_QUALITY -.->|prerequisite| M_MODEL_QA
+    M_DATA_QUALITY -.->|prerequisite| M_LIMITS
+    M_DATA_QUALITY -.->|prerequisite| M_EXPOSURE
+    M_MOD --> M_MODEL_QA
+    M_MODEL_QA --> M_REPR
+    M_MODEL_QA --> M_LIMITS
+    M_REPR --> M_LIMITS
+    M_NETWORK <-->|feedback| M_REPR
+    M_LIMITS --> M_EXPOSURE
 ```
 
 ---

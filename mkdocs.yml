@@ -8,6 +8,7 @@ theme:
 
 plugins:
   - search
+  - mermaid2
 
 nav:
   - Home: index.md
