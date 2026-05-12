@@ -27,7 +27,7 @@ Definisce se utilizzare:
 
 C_y = concentrazione annuale per anno y
 
-TH = soglia di valutazione (tables/assess_thresholds.md)
+TH = soglia di valutazione (tables/t_assess_thresholds.md)
 
 ```
 
@@ -35,7 +35,7 @@ TH = soglia di valutazione (tables/assess_thresholds.md)
 
 ## Logica
 
-### Classificazione zona
+### Classificazione della zona
 
 ```
 
@@ -46,7 +46,7 @@ count(y ∈ ultimi_5_anni where C_y > TH) ≥ 3
 
 ---
 
-### Determinazione regime
+### Determinazione del regime di valutazione
 
 ```
 
@@ -77,7 +77,7 @@ ASSESSMENT_TYPE = modelOrObjectiveEstimation
 
 ---
 
-### Uso combinato (atti di esecuzione)
+### Uso combinato (Implementing Decision)
 
 ```
 
@@ -91,7 +91,7 @@ misure indicative
 
 ---
 
-### Transizione (atti di esecuzione)
+### Transizione (Implementing Decision)
 
 ```
 
@@ -108,4 +108,4 @@ Il regime di valutazione definisce quali metodi possono o devono essere utilizza
 
 - [M_NETWORK](network.md): il numero minimo di stazioni dipende dalla classificazione sopra/sotto soglia.
 - [M_MOD](modelling.md): la modellistica è obbligatoria o opzionale in funzione del regime.
-- [Tabelle delle soglie di valutazione](../tables/assess_thresholds.md): definiscono i valori di riferimento per la classificazione delle zone.
+- [Tabelle delle soglie di valutazione](../tables/t_assess_thresholds.md): definiscono i valori di riferimento per la classificazione delle zone.

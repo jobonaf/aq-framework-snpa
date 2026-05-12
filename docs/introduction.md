@@ -40,11 +40,10 @@ Ogni componente è rappresentato da un modulo M_*:
 - M_MOD → modellistica
 - M_REPR → rappresentatività
 - M_LIMITS → conformità
-- M_DATA_QUALITY → qualità dati
 
 ---
 
-### Separazione logica/dati
+### Separazione logica e dati
 
 - moduli → regole e logica
 - tabelle → parametri normativi
@@ -72,7 +71,7 @@ La modellistica assume un ruolo centrale:
 
 ---
 
-## Ruolo della rappresentatività
+## Ruolo della rappresentatività spaziale
 
 La rappresentatività spaziale:
 

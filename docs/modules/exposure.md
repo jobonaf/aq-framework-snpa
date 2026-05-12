@@ -47,7 +47,7 @@ negli ultimi 3 anni
 
 ## Regole operative
 
-### Selezione stazioni
+### Selezione delle stazioni
 
 - solo stazioni background urbano/suburbano
 - distribuzione rappresentativa della popolazione
@@ -64,7 +64,7 @@ media mobile su 3 anni
 
 ---
 
-### Uso
+### Utilizzo
 
 - monitoraggio esposizione popolazione
 - valutazione trend

@@ -1,4 +1,4 @@
-# Architettura del Framework
+# Architettura del framework
 
 ## Panoramica
 
@@ -8,36 +8,22 @@ Il framework è basato su una pipeline logica che rappresenta il processo di val
 
 ## Pipeline
 
-Il diagramma seguente rappresenta le dipendenze logiche tra i moduli del framework.
-
-```mermaid
-graph TD
-    M_ZONE --> M_ASSESS
-    M_ASSESS --> M_NETWORK
-    M_ASSESS --> M_MOD
-    M_DATA_QUALITY -.->|prerequisite| M_MODEL_QA
-    M_DATA_QUALITY -.->|prerequisite| M_LIMITS
-    M_DATA_QUALITY -.->|prerequisite| M_EXPOSURE
-    M_MOD --> M_MODEL_QA
-    M_MODEL_QA --> M_REPR
-    M_MODEL_QA --> M_LIMITS
-    M_REPR --> M_LIMITS
-    M_NETWORK <-->|feedback| M_REPR
-    M_LIMITS --> M_EXPOSURE
 ```
 
-M_DATA_QUALITY è un modulo trasversale che garantisce la qualità dei dati per MODEL_QA, LIMITS ed EXPOSURE.
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
+
+```
 
 ---
 
 ## Descrizione dei moduli
 
-### M_ZONE — Zoning
+### M_ZONE — Suddivisione territoriale
 Definisce la suddivisione del territorio in zone e agglomerati.
 
 ---
 
-### M_ASSESS — Valutazione
+### M_ASSESS — Regime di valutazione
 Determina il regime di valutazione in base alle soglie.
 
 ---
@@ -47,34 +33,33 @@ Verifica l’adeguatezza della rete di monitoraggio.
 
 ---
 
-### M_MOD — Modellistica
+### M_MOD — Applicazioni modellistiche
 Gestisce le applicazioni modellistiche.
 
 ---
 
-### M_MODEL_QA — Garanzia qualità modello
+### M_MODEL_QA — Garanzia qualità modelli
 Valida le prestazioni del modello.
 
 ---
 
-### M_REPR — Rappresentatività
+### M_REPR — Rappresentatività spaziale
 Definisce le aree di rappresentatività dei punti di misura.
 
 ---
 
-### M_LIMITS — Conformità
+### M_LIMITS — Conformità ai valori limite
 Verifica la conformità ai valori limite.
 
 ---
 
-### M_EXPOSURE — Esposizione
+### M_EXPOSURE — Indicatore di esposizione media
 Calcola l’indicatore di esposizione (AEI).
 
 ---
 
 ## Flusso logico
 
-0. Si verifica la qualità dei dati (M_DATA_QUALITY)  
 1. Il territorio è suddiviso in zone (M_ZONE)  
 2. Viene determinato il regime di valutazione (M_ASSESS)  
 3. Si verifica l’adeguatezza della rete (M_NETWORK)  
@@ -95,7 +80,7 @@ Calcola l’indicatore di esposizione (AEI).
 
 ---
 
-### Rappresentatività e limiti
+### Rappresentatività e conformità
 
 - determina dove una misura è valida
 - influenza il calcolo della conformità
@@ -136,7 +121,7 @@ compliance status per zone e inquinante
 
 ---
 
-## Caratteristiche dell’architettura
+## Caratteristiche dell'architettura
 
 - modulare
 - estendibile
@@ -146,7 +131,7 @@ compliance status per zone e inquinante
 
 ---
 
-## Nota
+## Note
 
 Il framework è progettato per essere:
 

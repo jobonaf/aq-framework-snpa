@@ -26,7 +26,7 @@ coverage = percentuale dati validi
 uncertainty = incertezza di misura
 
 MIN_coverage, MAX_uncertainty =
-valori da tables/data_quality.md
+valori da tables/t_data_quality.md
 
 ```
 
@@ -65,7 +65,7 @@ i dati devono essere esclusi
 
 ---
 
-### Dati indicativi
+### Misure indicative
 
 ```
 
@@ -76,7 +76,7 @@ incertezza maggiore consentita
 
 ---
 
-### Integrazione con modellistica
+### Integrazione con la modellistica
 
 ```
 
@@ -93,4 +93,4 @@ La qualità dei dati condiziona tutte le valutazioni successive.
 
 - [M_MODEL_QA](model_qa.md): la validazione modellistica richiede dati di qualità adeguata.
 - [M_LIMITS](limits.md): solo dati validi possono essere usati per la conformità.
-- [Obiettivi di qualità dei dati](../tables/data_quality.md): specificano copertura e incertezza massime.
+- [Obiettivi di qualità dei dati](../tables/t_data_quality.md): specificano copertura e incertezza massime.

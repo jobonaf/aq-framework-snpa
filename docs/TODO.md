@@ -186,13 +186,13 @@ senza ristrutturazioni profonde.
 
 **Riferimenti normativi**
 
-- Art. 8 Directive (EU) 2024/2881
-- Annex II (assessment thresholds)
+- Art. 8 Direttiva (UE) 2024/2881
+- Allegato II (soglie di valutazione)
 
 **Stato**
 
-- ⚠️ In corso (tabella creata, valori da definire)
-- ⚠️ Citazione implicita in M_ASSESS
+- ✅ Formalizzate in [T_ASSESS_THRESHOLDS](../tables/t_assess_thresholds.md)
+- ✅ Collegate a M_ASSESS (link aggiornati)
 
 **Descrizione**
 La Direttiva prevede soglie di valutazione per classificare le zone e determinare
@@ -202,18 +202,12 @@ Tali soglie:
 
 - non coincidono con i valori limite
 - sono utilizzate esclusivamente per la scelta dei metodi di assessment
-- possono variare per inquinante e metrica
+- variano per inquinante e metrica (annuale, giornaliera, oraria, 8h)
 
-**Azione necessaria**
+**Nota di verifica**
 
-- introdurre una tabella dedicata: `tables/assess_thresholds.md`
-
-**Possibile contenuto della tabella**
-
-- inquinante
-- metrica (annuale, giornaliera, oraria, 8h)
-- soglia di valutazione
-- riferimento normativo
+I valori numerici in `T_ASSESS_THRESHOLDS` devono essere verificati sul testo
+ufficiale dell'Allegato II prima dell'implementazione definitiva.
 
 **Moduli impattati**
 

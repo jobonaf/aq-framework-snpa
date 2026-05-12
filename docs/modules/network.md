@@ -83,7 +83,7 @@ Tempistiche:
 
 ---
 
-### Spostamento stazioni
+### Spostamento delle stazioni
 
 ```
 
@@ -140,5 +140,5 @@ La progettazione e la verifica della rete dipendono da criteri normativi e da al
 
 - [M_REPR](repr.md): ogni stazione deve avere un’area di rappresentatività definita.
 - [M_MOD](modelling.md): la modellistica validata consente la riduzione della rete o l’individuazione di nuove stazioni.
-- [Numero minimo di stazioni](../tables/network.md): requisiti quantitativi basati sulla popolazione.
-- [Criteri di posizionamento](../tables/siting.md): requisiti tecnici per la validità delle stazioni.
+- [Numero minimo di stazioni](../tables/t_min_stations.md): requisiti quantitativi basati sulla popolazione.
+- [Criteri di posizionamento](../tables/t_siting.md): requisiti tecnici per la validità delle stazioni.

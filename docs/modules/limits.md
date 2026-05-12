@@ -1,4 +1,4 @@
-# M_LIMITS — Valori limite e conformità
+# M_LIMITS — Conformità ai valori limite
 
 ## Riferimenti normativi
 
@@ -36,7 +36,7 @@ C_metric(x, t) = concentrazione per metrica specifica
 (annuale, giornaliera, oraria, 8h)
 
 LV(pollutant, metric, year) =
-valore normativo ([vedi tabella limits](../tables/limits.md))
+valore normativo ([vedi tabella limits](../tables/t_limit_values.md))
 
 N_exceed =
 numero di superamenti
@@ -50,7 +50,7 @@ massimo numero consentito
 
 ## Logica
 
-### Selezione valore applicabile
+### Selezione del valore applicabile
 
 ```
 
@@ -62,7 +62,7 @@ else LV_2030
 
 ---
 
-### Conformità media
+### Conformità alla media
 
 ```
 
@@ -75,7 +75,7 @@ C_metric ≤ APPLICABLE_LV
 
 ---
 
-### Conformità per superamenti
+### Conformità al conteggio dei superamenti
 
 ```
 
@@ -163,7 +163,7 @@ AND measurement_exceedance:
 
 ---
 
-#### Caso 2 — conflitto misura-modello
+#### Caso 2 — conflitto misura–modello
 
 ```
 
@@ -175,7 +175,7 @@ AND model_no_exceedance:
 
 ---
 
-#### Caso 3 — modello con superamento interno AREA_REPR
+#### Caso 3 — superamento modellistico interno ad AREA_REPR
 
 ```
 
@@ -188,7 +188,7 @@ AND measurement_no_exceedance:
 
 ---
 
-#### Caso 4 — modello fuori rete
+#### Caso 4 — superamento modellistico fuori dalla rete
 
 ```
 
@@ -200,7 +200,7 @@ if model_exceedance outside all AREA_REPR:
 
 ---
 
-## Conteggio superamenti
+## Conteggio dei superamenti
 
 Applicabile a:
 
@@ -291,7 +291,7 @@ La verifica di conformità integra tutti i risultati precedenti.
 - [M_REPR](repr.md): determina la validità spaziale delle misure.
 - [M_MOD](modelling.md): individua superamenti al di fuori della rete.
 - [M_MODEL_QA](model_qa.md): condiziona l’uso dei risultati modellistici.
-- [Valori limite](../tables/limits.md): definiscono i criteri di conformità normativa.
+- [Valori limite](../tables/t_limit_values.md): definiscono i criteri di conformità normativa.
 
 ---
 

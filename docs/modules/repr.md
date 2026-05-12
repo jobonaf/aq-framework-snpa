@@ -29,7 +29,7 @@ La rappresentatività spaziale definisce l’area geografica in cui le concentra
 
 C_sp = concentrazione media annuale nel punto di campionamento
 
-T_min = tolleranza minima ([vedi tabella repr_tolerance](../tables/repr_tolerance.md))
+T_min = tolleranza minima ([vedi tabella repr_tolerance](../tables/t_repr_tolerance.md))
 
 Δ = max(0.15 * C_sp, T_min)
 
@@ -66,7 +66,7 @@ AREA_REPR(sp) =
 
 ## Procedura operativa
 
-### 1. Determinazione valore centrale
+### 1. Determinazione del valore centrale
 
 ```
 
@@ -82,9 +82,9 @@ Alternative possibili (se giustificate):
 
 ---
 
-### 2. Identificazione area preliminare
+### 2. Identificazione preliminare dell'area
 
-#### Caso misure
+#### Caso con misure
 
 ```
 
@@ -95,7 +95,7 @@ AREA_meas =
 
 ---
 
-#### Caso modellistica
+#### Caso con modellistica
 
 ```
 
@@ -110,7 +110,7 @@ AREA_model =
 
 ---
 
-### 3. Refinement (obbligatorio)
+### 3. Affinamento (obbligatorio)
 
 L’area preliminare deve essere raffinata applicando:
 
@@ -129,7 +129,7 @@ x ∈ zone
 
 ---
 
-#### Coerenza con tipo di stazione
+#### Coerenza con il tipo di stazione
 
 Escludere:
 
@@ -167,7 +167,7 @@ Obbligatorio nei casi:
 
 ---
 
-## Costruzione della mappa di zona
+## Mappa di rappresentatività della zona
 
 Per ogni zona e inquinante:
 
@@ -180,7 +180,7 @@ MAP_REPR =
 
 ---
 
-### Gestione sovrapposizioni
+### Gestione delle sovrapposizioni
 
 Caso:
 
@@ -203,7 +203,7 @@ Criteri:
 
 ---
 
-### Caso critico (atti di esecuzione)
+### Caso critico (Implementing Decision)
 
 ```
 
@@ -225,7 +225,7 @@ MODEL_REVIEW_REQUIRED = True
 
 ## Uso nella valutazione
 
-### Interazione con misure
+### Interazione con le misure
 
 ```
 
@@ -250,7 +250,7 @@ ADDITIONAL_STATION_REQUIRED = True
 
 ---
 
-### Consistenza modello-misure
+### Coerenza modello–misure
 
 ```
 
@@ -268,7 +268,7 @@ La rappresentatività spaziale collega misure, modellistica e territorio.
 - [M_NETWORK](network.md): determina la copertura spaziale effettiva della rete.
 - [M_MOD](modelling.md): il modello fornisce il campo di concentrazione continuo.
 - [M_LIMITS](limits.md): stabilisce se un superamento è attribuibile a una stazione.
-- [Tolleranze di rappresentatività](../tables/repr_tolerance.md): definiscono l’intervallo di concentrazione accettabile.
+- [Tolleranze di rappresentatività](../tables/t_repr_tolerance.md): definiscono l’intervallo di concentrazione accettabile.
 
 ---
 

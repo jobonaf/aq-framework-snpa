@@ -53,7 +53,7 @@ else C_model(x)
 
 ---
 
-### Dataset per assessment
+### Dataset per la valutazione
 
 ```
 
@@ -100,7 +100,7 @@ la modellistica può essere utilizzata insieme alle misure
 
 ---
 
-### Uso sotto la soglia
+### Uso sotto soglia
 
 ```
 
@@ -111,7 +111,7 @@ la modellistica può essere metodo principale
 
 ---
 
-### Uso sopra valori limite (atti di esecuzione)
+### Uso sopra i valori limite (Implementing Decision)
 
 ```
 
@@ -123,7 +123,7 @@ modellistica diventa obbligatoria (dopo periodo di transizione)
 
 ---
 
-## Requisiti tecnici (atti di esecuzione)
+## Requisiti tecnici (Implementing Decision)
 
 Un modello è conforme se soddisfa:
 
@@ -166,7 +166,7 @@ rappresentare la variabilità
 
 ---
 
-#### Background
+#### Concentrazioni di fondo
 
 ```
 
@@ -189,7 +189,7 @@ Il modello deve catturare:
 
 ---
 
-## Uso nei superamenti
+## Uso nella valutazione dei superamenti
 
 ---
 
@@ -204,7 +204,7 @@ if model_exceedance AND measurement_exceedance:
 
 ---
 
-### Caso 2 — superamenti fuori copertura
+### Caso 2 — superamenti fuori dalla copertura
 
 ```
 
@@ -215,7 +215,7 @@ if model_exceedance outside all AREA_REPR:
 
 ---
 
-### Caso 3 — conflitto modello-misura
+### Caso 3 — conflitto modello–misura
 
 ```
 
@@ -266,7 +266,7 @@ La modellistica è integrata con le misure e soggetta a vincoli di qualità.
 - [M_MODEL_QA](model_qa.md): solo modelli validati possono essere utilizzati.
 - [M_REPR](repr.md): i risultati modellistici sono utilizzati per la determinazione della rappresentatività spaziale.
 - [M_LIMITS](limits.md): il modello contribuisce all’identificazione delle aree di superamento.
-- [Obiettivi di qualità dei dati](../tables/data_quality.md): definiscono i limiti di incertezza accettabili.
+- [Obiettivi di qualità dei dati](../tables/t_data_quality.md): definiscono i limiti di incertezza accettabili.
 
 ---
 

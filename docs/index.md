@@ -1,6 +1,6 @@
 # AQ Framework — SNPA
 
-## Framework di conformità formale per la qualità dell’aria ambiente  
+## Formal Compliance Framework for Ambient Air Quality  
 Direttiva (UE) 2024/2881
 
 ---
@@ -36,9 +36,13 @@ Il sistema è organizzato in:
 
 ---
 
-## Pipeline logica
+## Logical Pipeline
 
-La pipeline logica è rappresentata graficamente in `docs/architecture.md` tramite un diagramma Mermaid.
+```
+
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
+
+```
 
 ---
 

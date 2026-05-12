@@ -1,4 +1,4 @@
-# M_MODEL_QA — Garanzia qualità modelli e validazione
+# M_MODEL_QA — Garanzia qualità e validazione modelli
 
 ## Riferimenti normativi
 
@@ -53,7 +53,7 @@ MQI ≤ 1
 
 ---
 
-### Caso con numero limitato di stazioni
+### Caso: numero limitato di stazioni
 
 ```
 
@@ -193,7 +193,7 @@ La validazione del modello è un prerequisito per l’utilizzo regolatorio dei r
 - [M_MOD](modelling.md): la validazione abilita o inibisce l’uso del modello.
 - [M_REPR](repr.md): solo modelli validati possono essere usati per la rappresentatività spaziale.
 - [M_LIMITS](limits.md): i superamenti modellistici sono validi solo se il modello è validato.
-- [Qualità dei dati](../tables/data_quality.md): definisce i requisiti per i dati di validazione.
+- [Qualità dei dati](../tables/t_data_quality.md): definisce i requisiti per i dati di validazione.
 ``
 
 ---

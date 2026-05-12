@@ -43,11 +43,13 @@ La navigazione è gestita tramite Read the Docs / MkDocs.
 
 ## Architettura logica
 
-Il framework segue una pipeline coerente con la Direttiva.
+Il framework segue una pipeline coerente con la Direttiva:
 
-La struttura logica dei moduli è rappresentata in `docs/architecture.md` tramite un diagramma Mermaid.
+```
 
-M_DATA_QUALITY è un prerequisito trasversale che supporta la validazione dei dati per MODEL_QA, LIMITS ed EXPOSURE.
+ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
+
+```
 
 Ogni modulo ha dipendenze esplicite dagli altri moduli e dalle tabelle normative.
 
