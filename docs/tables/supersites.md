@@ -7,4 +7,4 @@
 | Black carbon | BC | giornaliero |
 | Particelle ultrafini | UFP | continuo |
 | Chimica PM | ioni, metalli | giornaliero |
-| Meteorologia | temperature, wind | continuous |
+| Meteorologia | temperatura, vento | continuo |

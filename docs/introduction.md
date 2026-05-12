@@ -40,6 +40,7 @@ Ogni componente è rappresentato da un modulo M_*:
 - M_MOD → modellistica
 - M_REPR → rappresentatività
 - M_LIMITS → conformità
+- M_DATA_QUALITY → qualità dati
 
 ---
 

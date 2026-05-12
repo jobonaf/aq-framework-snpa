@@ -8,6 +8,7 @@ theme:
 
 plugins:
   - search
+  - mermaid2
 
 nav:
   - Home: index.md
@@ -30,6 +31,7 @@ nav:
   - Tabelle:
       - Valori limite: tables/limits.md
       - Numero stazioni: tables/network.md
+      - Soglie di valutazione: tables/assess_thresholds.md
       - Criteri di posizionamento: tables/siting.md
       - Tolleranze rappresentatività: tables/repr_tolerance.md
       - Qualità dati: tables/data_quality.md

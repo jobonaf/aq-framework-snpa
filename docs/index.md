@@ -38,11 +38,7 @@ Il sistema è organizzato in:
 
 ## Pipeline logica
 
-```
-
-ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
-
-```
+La pipeline logica è rappresentata graficamente in `docs/architecture.md` tramite un diagramma Mermaid.
 
 ---
 

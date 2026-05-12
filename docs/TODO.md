@@ -191,7 +191,7 @@ senza ristrutturazioni profonde.
 
 **Stato**
 
-- ❌ NON formalizzate in tabella
+- ⚠️ In corso (tabella creata, valori da definire)
 - ⚠️ Citazione implicita in M_ASSESS
 
 **Descrizione**
