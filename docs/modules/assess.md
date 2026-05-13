@@ -13,11 +13,13 @@
 Il modulo determina il **regime di valutazione** della qualità dell’aria
 per ciascun inquinante e zona.
 
-Il regime stabilisce se la valutazione deve basarsi su:
-- misure fisse,
-- misure indicative,
-- modellistica,
-- stime oggettive.
+Il regime di valutazione stabilisce
+quali metodi devono o possono essere utilizzati:
+
+- misure fisse
+- misure indicative
+- modellistica
+- stime oggettive
 
 ---
 
@@ -25,39 +27,48 @@ Il regime stabilisce se la valutazione deve basarsi su:
 
 ```
 
-TH(p) = soglia di valutazione per l’inquinante p,
+TH(p) =
+soglia di valutazione per l’inquinante p,
 definita in T\_ASSESS\_THRESHOLDS
 
-C(p, y) = valore di concentrazione rilevante
-per l’inquinante p nell’anno y,
+```
+```
+
+C(p, y) =
+valore di concentrazione dell’inquinante p
+nell’anno civile y,
 calcolato secondo il periodo di mediazione previsto
+
+```
+```
+
+ASSESSMENT\_TYPE(p, z) =
+regime di valutazione per l’inquinante p
+nella zona z
 
 ```
 
 ---
 
-## Regole di classificazione
+## Requisiti normativi
 
 ### REQ-ASSESS-CLASSIFICATION
 
-- Fonte: Art. 8 Dir. 2024/2881 + Allegato II
-- Stato: STABLE
-- Tipo: obbligatorio
-- Dipendenze: T_ASSESS_THRESHOLDS
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881; Allegato II |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_ASSESS_THRESHOLDS |
 
-**Regola**
-
+**Regola**  
 Per ciascun inquinante, una zona è classificata **sopra soglia**
 se il valore di concentrazione supera la soglia di valutazione
-in **almeno 3 degli ultimi 5 anni civili**.
+in almeno **tre dei cinque anni civili precedenti**.
 
-Il superamento è valutato secondo il periodo di mediazione
-specificato per l’inquinante.
-
-**Criterio di accettazione**
-
-Dato un inquinante e una zona, il sistema restituisce
-`ABOVE_THRESHOLD = true` se:
+**Criterio di accettazione**  
+Dato un inquinante `p` e una zona `z`,
+il sistema restituisce `ABOVE_THRESHOLD = true` se:
 
 ```
 
@@ -65,11 +76,54 @@ COUNT{ y ∈ ultimi\_5\_anni | C(p, y) > TH(p) } ≥ 3
 
 ```
 
+**Pseudo-code**  
+Descrittivo, non eseguibile.
+
 ---
 
-## Determinazione del regime di valutazione
+### REQ-ASSESS-TIME_WINDOW
 
-### Regola operativa
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+La classificazione sopra o sotto soglia è effettuata
+utilizzando una finestra mobile di **cinque anni civili**.
+
+Gli anni non devono essere consecutivi.
+
+**Criterio di accettazione**  
+Dato un insieme di cinque anni civili,
+il sistema valuta la condizione di superamento
+indipendentemente dall’ordine temporale.
+
+**Pseudo-code**  
+Descrittivo, non eseguibile.
+
+---
+
+### REQ-ASSESS-REGIME_DEFINITION
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-ASSESS-CLASSIFICATION |
+
+**Regola**  
+Se una zona è classificata sopra soglia per un inquinante,
+il regime di valutazione è basato su **misure fisse**.
+
+Se una zona è classificata sotto soglia,
+il regime di valutazione può basarsi su
+modellistica o stima oggettiva.
+
+**Criterio di accettazione**  
 
 ```
 
@@ -80,36 +134,37 @@ ASSESSMENT\_TYPE = modelOrObjectiveEstimation
 
 ```
 
----
-
-## Regole operative
-
-### Zone sopra soglia
-
-- misure fisse obbligatorie
-- modellistica ammessa solo in supporto
-- misure indicative utilizzabili come integrazione
+**Pseudo-code**  
+Descrittivo, non eseguibile.
 
 ---
 
-### Zone sotto soglia
+### REQ-ASSESS-STRICTEST_PREVAILS
 
-- modellistica come metodo principale
-- misure fisse non obbligatorie
-- stime oggettive ammesse
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-ASSESS-REGIME_DEFINITION |
 
----
-
-## Principio di prevalenza
-
+**Regola**  
 Se per uno stesso inquinante risultano applicabili
-più condizioni di valutazione (es. salute umana e vegetazione),
-si applica **il regime più restrittivo**.
+più condizioni di valutazione,
+si applica il **regime più restrittivo**.
+
+**Criterio di accettazione**  
+Dato un insieme di regimi potenzialmente applicabili,
+il sistema seleziona quello con il livello di obbligo più elevato.
+
+**Pseudo-code**  
+Descrittivo, non eseguibile.
 
 ---
 
 ## Moduli e tabelle correlati
 
-- M_NETWORK — il numero minimo di stazioni dipende dal regime
-- M_MOD — la modellistica è consentita o limitata dal regime
-- T_ASSESS_THRESHOLDS — fornisce le soglie normative
+- `T_ASSESS_THRESHOLDS` — definisce le soglie normative
+- `M_NETWORK` — utilizza il regime di valutazione
+- `M_MOD` — abilita o limita l’uso della modellistica
+- `M_LIMITS` — utilizza il regime come contesto valutativo
