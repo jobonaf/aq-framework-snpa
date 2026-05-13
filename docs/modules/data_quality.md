@@ -3,23 +3,23 @@
 ## Riferimenti normativi
 
 - Direttiva (UE) 2024/2881, Allegato V
-- Art. 8 (valutazione della qualità dell’aria)
+- Art. 8 Direttiva (UE) 2024/2881
 
 ---
 
 ## Descrizione
 
-Il modulo definisce le **condizioni di validità dei dati**
+Il modulo definisce le **condizioni normative di validità dei dati**
 utilizzati per la valutazione della qualità dell’aria.
 
 La qualità dei dati condiziona:
 
 - la verifica di conformità (`M_LIMITS`)
-- la determinazione della rappresentatività (`M_REPR`)
+- la rappresentatività spaziale (`M_REPR`)
 - la validazione delle applicazioni modellistiche (`M_MODEL_QA`)
 
-Il modulo **non** disciplina le procedure di laboratorio,
-accreditamento o QA/QC istituzionale.
+Il modulo **non disciplina** aspetti di governance istituzionale
+(laboratori, accreditamento, JRC).
 
 ---
 
@@ -27,15 +27,16 @@ accreditamento o QA/QC istituzionale.
 
 ```
 
-coverage(p, m) = percentuale di dati validi
-per l’inquinante p
-e la metrica m
+coverage(p, m) =
+percentuale di dati validi
+per l’inquinante p e la metrica m
 
 ```
 ```
 
-uncertainty(p, m) = incertezza del dato
-espressa con livello di confidenza 95 %
+uncertainty(p, m) =
+incertezza del dato
+(livello di confidenza 95 %)
 
 ```
 ```
@@ -55,101 +56,192 @@ AND (uncertainty ≤ MAX\_uncertainty)
 
 ---
 
-## Ambito di applicazione
+## Requisiti normativi
 
-Le regole di qualità dei dati si applicano a:
+### REQ-DATA-VALIDITY_CRITERIA
 
-- misurazioni in siti fissi
-- misurazioni indicative
-- dati utilizzati per la valutazione e la validazione modellistica
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_DATA_QUALITY |
 
-Le regole **non si applicano** a:
+**Regola**  
+Un dato può essere utilizzato per la valutazione della qualità dell’aria
+solo se soddisfa i requisiti minimi di copertura e di incertezza
+definiti dalla normativa.
 
-- AOT40
-- AEI / esposizione media
-- soglie di allarme e di informazione
-- livelli critici per la vegetazione e gli ecosistemi
-
----
-
-## Regole di validità dei dati
-
-### Regola generale
+**Criterio di accettazione**
 
 ```
 
-if DATA\_VALID(p, m) = false:
+DATA\_VALID(p, m) =
+(coverage ≥ MIN\_coverage)
+AND (uncertainty ≤ MAX\_uncertainty)
+
+```
+
+---
+
+### REQ-DATA-EXCLUSION_IF_INVALID
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-DATA-VALIDITY_CRITERIA |
+
+**Regola**  
+I dati che non soddisfano i requisiti di qualità
+sono esclusi dalle valutazioni successive.
+
+**Criterio di accettazione**
+
+```
+
+if DATA\_VALID = false:
 data excluded from assessment
 
 ```
 
 ---
 
-### Distinzione per tipologia di misura
+### REQ-DATA-SCOPE_OF_APPLICATION
 
-- **misure fisse**  
-  → requisiti più stringenti di copertura e incertezza
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
-- **misure indicative**  
-  → requisiti meno stringenti, come definiti in `T_DATA_QUALITY`
+**Regola**  
+I requisiti di qualità dei dati si applicano a:
 
-Il tipo di misura è definito nel contesto del modulo che utilizza i dati.
+- misurazioni in siti fissi
+- misurazioni indicative
+- dati utilizzati per la validazione modellistica
+
+**Criterio di accettazione**  
+Il tipo di dato è correttamente classificato
+prima della verifica di qualità.
 
 ---
 
-## Lungo termine vs breve termine
+### REQ-DATA-EXCLUDED_METRICS
 
-Le verifiche di qualità dei dati sono effettuate separatamente per:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+I requisiti di incertezza e copertura **non si applicano** a:
+
+- AOT40
+- AEI / indicatore di esposizione media
+- soglie di allarme e di informazione
+- livelli critici per la vegetazione e gli ecosistemi
+
+**Criterio di accettazione**  
+Le metriche escluse non sono sottoposte
+a verifica di qualità dei dati.
+
+---
+
+### REQ-DATA-LONG_SHORT_TERM
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_DATA_QUALITY |
+
+**Regola**  
+La qualità dei dati è verificata separatamente per:
 
 - concentrazioni a lungo termine (medie annue)
-- concentrazioni a breve termine (orari, 8 ore, 24 ore)
+- concentrazioni a breve termine (oraria, 8 ore, 24 ore)
 
-La metrica applicabile è quella definita
+**Criterio di accettazione**  
+La metrica applicabile è quella prevista
 dalla normativa per ciascun inquinante.
 
 ---
 
-## Regole temporali (transizione normativa)
+### REQ-DATA-TEMPORAL_TRANSITION
 
-- Prima del 2030 si applicano le percentuali massime di incertezza
-  previste per il periodo transitorio.
-- A partire dal 2030, l’incertezza dei dati non supera
-  il valore assoluto o relativo, se superiore,
-  definito in `T_DATA_QUALITY`.
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_DATA_QUALITY |
+
+**Regola**  
+I requisiti di incertezza dei dati
+tengono conto delle disposizioni transitorie
+previste prima e dopo il 2030.
+
+**Criterio di accettazione**  
+Il confronto dell’incertezza utilizza
+i valori normativi validi per l’anno considerato.
 
 ---
 
-## Copertura dei dati
+### REQ-DATA-INCOMPLETE_COVERAGE
 
-La copertura minima dei dati:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
-- è valutata sull’intero anno civile
-- deve essere garantita anche su sotto‑periodi rilevanti
-  (trimestre, mese, settimana, giorno),
-  secondo quanto previsto dalla normativa
+**Regola**  
+La valutazione della conformità può essere effettuata
+anche in presenza di copertura dei dati incompleta,
+se i dati disponibili consentono
+una valutazione conclusiva.
+
+**Criterio di accettazione**  
+Una non conformità può essere segnalata
+anche se la copertura minima non è raggiunta,
+purché i dati validi siano sufficienti.
 
 ---
 
-## Campionamento non continuo
+### REQ-DATA-RANDOM_SAMPLING
 
-Per inquinanti con copertura minima inferiore all’80 %:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
-- è ammesso il campionamento non continuo o casuale
-- a condizione che l’incertezza complessiva
-  soddisfi gli obiettivi di qualità dei dati
+**Regola**  
+Per inquinanti con copertura minima inferiore all’80 %,
+è ammesso l’uso di campionamento non continuo o casuale,
+a condizione che l’incertezza complessiva
+soddisfi gli obiettivi di qualità dei dati.
+
+**Criterio di accettazione**  
+L’uso del campionamento casuale
+è documentato e giustificato.
 
 ---
 
 ## Interazioni con altri moduli
 
-- `M_LIMITS`  
-  → utilizza solo dati validi per la conformità
-
-- `M_REPR`  
-  → utilizza solo dati validi per la rappresentatività
-
-- `M_MODEL_QA`  
-  → utilizza solo dati validi per la validazione dei modelli
+- `M_LIMITS` — utilizza solo dati validi per la conformità
+- `M_REPR` — utilizza solo dati validi per la rappresentatività
+- `M_MODEL_QA` — utilizza solo dati validi per la validazione dei modelli
 
 ---
 
@@ -171,8 +263,6 @@ valid (boolean)
 
 ## Note
 
-- La valutazione della qualità dei dati
-  non impedisce la segnalazione di una non conformità
-  se i dati disponibili sono sufficienti
-  per una valutazione conclusiva, anche in presenza
-  di copertura incompleta, come previsto dall’Allegato V.
+- Il modulo definisce **requisiti minimi normativi**.
+- La validità dei dati non sostituisce
+  il giudizio esperto nei casi borderline.
