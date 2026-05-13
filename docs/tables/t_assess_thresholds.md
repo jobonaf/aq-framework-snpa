@@ -8,30 +8,25 @@ Usata da: [M_ASSESS](../modules/assess.md)
 
 ## Soglie di valutazione
 
-La soglia di valutazione è l'unica soglia prevista dalla Dir. 2024/2881 per ciascun
-inquinante e metrica (a differenza della Dir. 2008/50, che prevedeva una soglia
-superiore e una inferiore). Una zona si classifica **sopra soglia** se la
-concentrazione ha superato la soglia in almeno 3 dei 5 anni precedenti.
-
-| Inquinante | Metrica (`reportingMetric`) | Soglia [µg/m³] | % del VL 2030 |
-|---|---|---|---|
-| PM2.5 | `P1Y` — media annuale | 10 | 100% |
-| PM2.5 | `P1D` — media giornaliera | 15 | 60% |
-| PM10 | `P1Y` — media annuale | 15 | 75% |
-| PM10 | `P1D` — media giornaliera | 30 | 67% |
-| NO2 | `P1Y` — media annuale | 10 | 50% |
-| NO2 | `P1D` — media giornaliera | 25 | 50% |
-| NO2 | `P1H` — media oraria | 100 | 50% |
-| SO2 | `P1D` — media giornaliera | 25 | 63% |
-| SO2 | `P1H` — media oraria | 150 | 43% |
-| O3 | `P8H` — massima media mobile 8h | 100 | 83% |
-| BaP | `P1Y` — media annuale [ng/m³] | 0,5 | 50% |
-| C6H6 (benzene) | `P1Y` — media annuale | 2 | 59% |
-| CO | `P8H` — massima media mobile 8h [µg/m³] | 5.000 | 50% |
-| As | `P1Y` — media annuale [ng/m³] | 3,6 | 60% |
-| Cd | `P1Y` — media annuale [ng/m³] | 3 | 60% |
-| Ni | `P1Y` — media annuale [ng/m³] | 12 | 60% |
-| Pb | `P1Y` — media annuale | 0,25 | 50% |
+| Inquinante | Metrica | Soglia | Unità di misura |
+|------------|--------------------------|--------|----------------|
+| PM₂.₅     | Media annuale (P1Y)     | 10     | µg/m³          |
+| PM₂.₅     | Media giornaliera (P1D) | 15     | µg/m³          |
+| PM₁₀      | Media annuale (P1Y)     | 15     | µg/m³          |
+| PM₁₀      | Media giornaliera (P1D) | 30     | µg/m³          |
+| NO₂       | Media annuale (P1Y)     | 10     | µg/m³          |
+| NO₂       | Media giornaliera (P1D) | 25     | µg/m³          |
+| NO₂       | Media oraria (P1H)      | 100    | µg/m³          |
+| SO₂       | Media giornaliera (P1D) | 25     | µg/m³          |
+| SO₂       | Media oraria (P1H)      | 150    | µg/m³          |
+| O₃        | Max media mobile 8h (P8H)| 100   | µg/m³          |
+| B(a)P     | Media annuale (P1Y)     | 0,5    | ng/m³          |
+| Benzene   | Media annuale (P1Y)     | 2      | µg/m³          |
+| CO        | Max media mobile 8h (P8H)| 5      | mg/m³          |
+| As        | Media annuale (P1Y)     | 3,6    | ng/m³          |
+| Cd        | Media annuale (P1Y)     | 3      | ng/m³          |
+| Ni        | Media annuale (P1Y)     | 12     | ng/m³          |
+| Pb        | Media annuale (P1Y)     | 0,25   | µg/m³          |
 
 ---
 
