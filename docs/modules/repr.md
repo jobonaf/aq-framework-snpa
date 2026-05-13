@@ -12,14 +12,19 @@
 
 ## Descrizione
 
-La rappresentatività spaziale definisce l’area geografica in cui le concentrazioni osservate o modellate in un punto di campionamento sono rappresentative entro una tolleranza definita.
+Il modulo definisce la **rappresentatività spaziale** dei punti di campionamento,
+ossia l’area geografica in cui le concentrazioni osservate o modellate in un punto
+sono rappresentative entro una tolleranza definita.
 
-È utilizzata per:
+La rappresentatività spaziale è utilizzata per:
 
-- valutazione della qualità dell’aria
-- interpretazione dei superamenti
-- ottimizzazione della rete di monitoraggio
-- integrazione tra misure e modellistica
+- collegare misure puntuali e territorio
+- interpretare correttamente i risultati delle misure
+- supportare la progettazione e la verifica della rete di monitoraggio
+- integrare misure e modellistica
+
+Il modulo **non** verifica la conformità ai valori limite
+e **non** valuta l’adeguatezza complessiva della rete.
 
 ---
 
@@ -27,38 +32,53 @@ La rappresentatività spaziale definisce l’area geografica in cui le concentra
 
 ```
 
-C_sp = concentrazione media annuale nel punto di campionamento
-
-T_min = tolleranza minima ([vedi tabella repr_tolerance](../tables/t_repr_tolerance.md))
-
-Δ = max(0.15 * C_sp, T_min)
-
-interval = \[C_sp - Δ, C_sp + Δ]
+C\_sp = valore centrale di concentrazione
+nel punto di campionamento sp,
+calcolato secondo la metrica normativa applicabile
 
 ```
 ```
 
-C(x) = concentrazione nella localizzazione x
-(misurata o modellata)
+T\_min(p) = tolleranza minima per l’inquinante p,
+definita in T\_REPR\_TOLERANCE
+
+```
+```
+
+Δ(sp, p) = max(0.15 × C\_sp, T\_min(p))
+
+```
+```
+
+interval(sp, p) = \[C\_sp − Δ, C\_sp + Δ]
+
+```
+```
+
+C(x, p) = concentrazione dell’inquinante p
+nella localizzazione x,
+misurata o modellata
 
 ```
 
 ---
 
-## Logica
+## Logica di base
 
-### Regola di base
-
-```
-
-REPRESENTED(x, sp) =
-C(x) ∈ interval(sp)
+Una localizzazione appartiene all’area di rappresentatività
+di un punto di campionamento se la concentrazione rientra
+nell’intervallo di tolleranza definito.
 
 ```
+
+REPRESENTED(x, sp, p) =
+C(x, p) ∈ interval(sp, p)
+
+```
 ```
 
-AREA_REPR(sp) =
-{ x ∈ zone | REPRESENTED(x, sp) }
+AREA\_REPR(sp, p) =
+{ x ∈ zone | REPRESENTED(x, sp, p) }
 
 ```
 
@@ -70,49 +90,51 @@ AREA_REPR(sp) =
 
 ```
 
-C_sp = annual_mean(sp)
+C\_sp = valore centrale misurato nel punto sp
 
 ```
 
-Alternative possibili (se giustificate):
+Il valore centrale e la metrica utilizzata
+sono quelli **definiti dalla normativa applicabile**
+per lo specifico inquinante (es. media annua, media su 8 ore).
 
-- percentili
-- medie stagionali
-- metriche specifiche (es. O3 8h, AOT40)
+Il modulo **non decide** quale metrica utilizzare.
 
 ---
 
-### 2. Identificazione preliminare dell'area
+### 2. Identificazione preliminare dell’area
 
-#### Caso con misure
+#### Caso basato su misure
 
 ```
 
-AREA_meas =
-{ x | C_meas(x) ∈ interval }
+AREA\_prelim =
+{ x | C\_meas(x, p) ∈ interval(sp, p) }
 
 ```
 
 ---
 
-#### Caso con modellistica
+#### Caso basato su modellistica
 
 ```
 
 grid = model(zone)
 
-AREA_model =
-{ cell ∈ grid | C_model(cell) ∈ interval }
+AREA\_prelim =
+{ cell ∈ grid | C\_model(cell, p) ∈ interval(sp, p) }
 
 ```
 
-⚠ Uso consentito solo se il modello è valido ([vedi M_MODEL_QA](../model_qa.md))
+L’uso della modellistica è consentito **solo se il modello è validato**
+(secondo `M_MODEL_QA`).
 
 ---
 
-### 3. Affinamento (obbligatorio)
+### 3. Affinamento obbligatorio dell’area
 
-L’area preliminare deve essere raffinata applicando:
+L’area preliminare deve essere affinata applicando
+criteri spaziali, tipologici ed emissivi.
 
 ---
 
@@ -124,17 +146,17 @@ x ∈ zone
 
 ```
 
-- inclusi domini non contigui
-- limitazione ai confini amministrativi
+- l’area è limitata ai confini della zona
+- possono esistere domini non contigui
 
 ---
 
 #### Coerenza con il tipo di stazione
 
-Escludere:
+Sono escluse localizzazioni non coerenti con la tipologia del punto:
 
-- siti traffico per stazioni background
-- siti industriali non coerenti
+- siti di traffico per stazioni di fondo
+- siti industriali non rappresentativi
 
 ---
 
@@ -142,7 +164,8 @@ Escludere:
 
 ```
 
-escludi x dove emission_profile(x) differisce significativamente
+escludi x dove emission\_profile(x)
+differisce significativamente da emission\_profile(sp)
 
 ```
 
@@ -150,125 +173,117 @@ escludi x dove emission_profile(x) differisce significativamente
 
 #### Vincoli locali
 
-Possibile limitazione a:
+L’area può essere ulteriormente limitata in presenza di:
 
-- area urbana
-- area di interesse specifico
+- contesti urbani complessi
+- discontinuità morfologiche
+- vincoli amministrativi specifici
 
 ---
 
 #### Giudizio esperto
 
-Obbligatorio nei casi:
+Il giudizio esperto è richiesto nei casi di:
 
 - forte eterogeneità spaziale
 - orografia complessa
 - condizioni di dispersione non uniformi
 
+Il giudizio deve essere documentato.
+
 ---
 
 ## Mappa di rappresentatività della zona
 
-Per ogni zona e inquinante:
+Per ciascuna zona e inquinante è definita una mappa di rappresentatività:
 
 ```
 
-MAP_REPR =
-{ AREA_REPR(sp) per tutte le stazioni }
+MAP\_REPR(p, z) =
+{ AREA\_REPR(sp, p) per tutti i punti sp }
 
 ```
+
+La mappa descrive la **copertura spaziale delle misure**,
+ma **non valuta** l’adeguatezza della rete,
+che è responsabilità di `M_NETWORK`.
 
 ---
 
-### Gestione delle sovrapposizioni
+## Gestione delle sovrapposizioni
 
-Caso:
-
-```
-
-x ∈ AREA_REPR(sp1) AND x ∈ AREA_REPR(sp2)
-
-```
-```
-
-assegnare al punto più rappresentativo
+Se una localizzazione appartiene a più aree di rappresentatività:
 
 ```
 
-Criteri:
+x ∈ AREA\_REPR(sp1) AND x ∈ AREA\_REPR(sp2)
 
-- tipo stazione
-- profilo emissivo
-- livello concentrazione
+```
+
+l’assegnazione avviene sulla base di criteri qualitativi:
+
+- tipologia del punto
+- coerenza emissiva
+- livello di concentrazione
 
 ---
 
-### Caso critico (Implementing Decision)
+## Casi critici
+
+### Incoerenza tra campo di concentrazione e aree di rappresentatività
+
+Se una concentrazione modellata risulta:
+
+- significativamente superiore ai valori osservati
+- non coerente con alcuna AREA_REPR
+
+allora:
 
 ```
 
-if C(x) > LIMIT_VALUE
-AND nessuna stazione ha superamento:
-x non assegnato a nessuna AREA_REPR
+area non assegnabile
+MODEL\_REVIEW\_REQUIRED = true
 
 ```
 
-Conseguenze:
-
-```
-
-MODEL_REVIEW_REQUIRED = True
-
-```
+Il caso richiede la revisione del modello o della rete,
+ma **non implica automaticamente una non conformità**.
 
 ---
 
-## Uso nella valutazione
+## Uso nei moduli a valle
 
-### Interazione con le misure
+### Interazione con M_NETWORK
+
+Se una concentrazione rilevante cade al di fuori
+di tutte le aree di rappresentatività:
+
+```
+
+ADDITIONAL\_STATION\_REQUIRED = true
 
 ```
 
-if model_exceedance ∈ AREA_REPR
-AND measurement non supera:
-→ non considerare superamento
-
-```
+La decisione sull’introduzione di nuove stazioni
+è responsabilità di `M_NETWORK`.
 
 ---
 
-### Nuove stazioni
+### Interazione con M_LIMITS
 
-```
-
-if exceedance outside all AREA_REPR:
-ADDITIONAL_STATION_REQUIRED = True
-
-```
-
-→ [vedi M_NETWORK](../network.md)
-
----
-
-### Coerenza modello–misure
-
-```
-
-if model ≠ measurement (fuori incertezza):
-MODEL_REVIEW_REQUIRED = True
-
-```
+La rappresentatività spaziale determina **dove**
+una misura è valida, ma **non valuta** il superamento
+dei valori limite, che è responsabilità di `M_LIMITS`.
 
 ---
 
 ## Moduli e tabelle correlati
 
-La rappresentatività spaziale collega misure, modellistica e territorio.
-
-- [M_NETWORK](network.md): determina la copertura spaziale effettiva della rete.
-- [M_MOD](modelling.md): il modello fornisce il campo di concentrazione continuo.
-- [M_LIMITS](limits.md): stabilisce se un superamento è attribuibile a una stazione.
-- [Tolleranze di rappresentatività](../tables/t_repr_tolerance.md): definiscono l’intervallo di concentrazione accettabile.
+- M_ASSESS — definisce il regime di valutazione
+- M_NETWORK — valuta l’adeguatezza della rete
+- M_MOD — fornisce il campo di concentrazione continuo
+- M_MODEL_QA — valida l’uso della modellistica
+- T_REPR_TOLERANCE — definisce le tolleranze normative
 
 ---
 
@@ -277,12 +292,12 @@ La rappresentatività spaziale collega misure, modellistica e territorio.
 ```
 
 representativeness:
-station_id
+station\_id
+pollutant
 geometry (polygon / multipolygon)
-central_value (C_sp)
-tolerance (Δ)
-method:
-measurement | modelling | hybrid
+central\_value
+tolerance
+method = measurement | modelling | hybrid
 
 ```
 
@@ -290,15 +305,9 @@ measurement | modelling | hybrid
 
 ## Frequenza di aggiornamento
 
-```
+La rappresentatività spaziale deve essere aggiornata:
 
-update at least every 5 years
-
-```
-
-oppure quando:
-
-- cambia la rete
-- cambiano le emissioni
-- variazioni meteorologiche significative
-
+- almeno ogni 5 anni
+- in caso di modifica della rete
+- in presenza di variazioni emissive significative
+- in caso di cambiamenti rilevanti nelle condizioni di dispersione

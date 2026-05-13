@@ -1,7 +1,7 @@
-
 # M_NETWORK — Rete di monitoraggio
 
 ## Riferimenti normativi
+
 - Art. 9 Direttiva (UE) 2024/2881
 - Allegato III (numero minimo di stazioni)
 - Allegato IV (criteri di posizionamento)
@@ -10,14 +10,15 @@
 
 ## Descrizione
 
-Il modulo verifica l’adeguatezza della rete di monitoraggio per ciascun inquinante e zona.
+Il modulo verifica l’adeguatezza della rete di monitoraggio
+per ciascun inquinante e zona.
 
 La rete deve garantire:
 
-- numero minimo di punti di campionamento
-- copertura adeguata delle aree rappresentative
-- rappresentazione dei livelli massimi di concentrazione
-- coerenza con il regime di valutazione (M_ASSESS)
+- un numero minimo di punti di campionamento
+- una copertura spaziale adeguata
+- la rappresentazione dei livelli di concentrazione rilevanti
+- coerenza con il regime di valutazione definito in `M_ASSESS`
 
 ---
 
@@ -25,23 +26,33 @@ La rete deve garantire:
 
 ```
 
-N_active = numero stazioni attive
+N\_active(p, z) = numero di stazioni attive
+per l’inquinante p nella zona z
 
-N_min = numero minimo richiesto (Tabella network)
+N\_min(p, z) = numero minimo di stazioni richiesto,
+definito in T\_MIN\_STATIONS
 
-VALID(station) = rispetto criteri di posizionamento (Allegato IV)
+VALID(st) = stazione conforme ai criteri di posizionamento
+(T\_SITING)
+
+ASSESSMENT\_TYPE(p, z) = regime di valutazione
+definito in M\_ASSESS
 
 ```
 
 ---
 
-## Logica
+## Verifica di adeguatezza della rete
+
+### Regola base
+
+Una rete è considerata **adeguata** se:
 
 ```
 
-NETWORK_OK =
-(N_active ≥ N_min)
-AND ∀ st : VALID(st)
+NETWORK\_OK(p, z) =
+(N\_active(p, z) ≥ N\_min(p, z))
+AND ∀ st ∈ stations : VALID(st)
 
 ```
 
@@ -49,96 +60,112 @@ AND ∀ st : VALID(st)
 
 ## Regole operative
 
-### Riduzione della rete
+### Riduzione del numero minimo di stazioni
+
+La Direttiva consente una riduzione del numero minimo di stazioni
+in presenza di specifiche condizioni normative.
+
+#### Condizione abilitante
 
 ```
 
-if ABOVE_THRESHOLD
-AND C_ann ≤ LIMIT_VALUE:
-→ N_min_eff = ceil(N_min * 0.5)
+if ASSESSMENT\_TYPE = fixedMeasurements
+AND modellistica validata disponibile:
+riduzione ammessa
 
 ```
 
-Condizioni:
+#### Regola
 
-- uso di modellistica validata ([vedi M_MODEL_QA](../model_qa.md))
-- oppure integrazione con misure indicative
-- mantenimento adeguata informazione spaziale
+```
+
+N\_min\_eff = ceil(0.5 × N\_min)
+
+```
+
+#### Vincoli
+
+- la modellistica deve essere validata (`M_MODEL_QA`)
+- la copertura spaziale deve rimanere adeguata
+- la riduzione non deve compromettere l’informazione sui livelli massimi
 
 ---
 
-### Nuove stazioni
+### Introduzione di nuove stazioni
+
+Se la modellistica individua aree con concentrazioni elevate
+non coperte dalle aree di rappresentatività esistenti:
 
 ```
 
-if model_exceedance outside all AREA_REPR:
-→ ADDITIONAL_STATION_REQUIRED = True
+if exceedance detected
+AND outside all AREA\_REPR:
+ADDITIONAL\_STATION\_REQUIRED = true
 
 ```
 
-Tempistiche:
+#### Tempistiche indicative
 
-- 1 anno (misure indicative)
-- 2 anni (misure fisse)
+- misure indicative: entro 1 anno
+- misure fisse: entro 2 anni
 
 ---
 
 ### Spostamento delle stazioni
 
-```
-
-RELOCATION_FORBIDDEN =
-∃ y negli ultimi 3 anni :
-C(station, y) > LIMIT_VALUE
+Lo spostamento di una stazione è vietato se la stazione
+ha registrato superamenti rilevanti negli ultimi tre anni.
 
 ```
 
-Eccezione:
+RELOCATION\_FORBIDDEN =
+∃ y ∈ ultimi\_3\_anni :
+exceedance detected
 
 ```
 
-if new_location ∈ same AREA_REPR:
+#### Eccezione
+
+```
+
+if new\_location ∈ same AREA\_REPR:
 relocation allowed
 
 ```
 
 ---
 
-### Copertura spaziale
+## Copertura spaziale
+
+La rete deve garantire la copertura dell’intera zona:
 
 ```
 
-NETWORK_COVERAGE =
-union(AREA_REPR(stations))
+NETWORK\_COVERAGE =
+union(AREA\_REPR(stations))
 
-```
-
-Condizione implicita:
-
-```
-
-zone ⊆ NETWORK_COVERAGE
+zone ⊆ NETWORK\_COVERAGE
 
 ```
 
 ---
 
-### Punti critici
+## Punti critici
 
-La rete deve garantire copertura di:
+La rete deve includere punti di campionamento rappresentativi di:
 
 - aree ad alta concentrazione
 - zone trafficate
 - aree industriali
-- zone ad alta esposizione della popolazione
+- aree ad elevata esposizione della popolazione
 
 ---
 
 ## Moduli e tabelle correlati
 
-La progettazione e la verifica della rete dipendono da criteri normativi e da altri moduli.
-
-- [M_REPR](repr.md): ogni stazione deve avere un’area di rappresentatività definita.
-- [M_MOD](modelling.md): la modellistica validata consente la riduzione della rete o l’individuazione di nuove stazioni.
-- [Numero minimo di stazioni](../tables/t_min_stations.md): requisiti quantitativi basati sulla popolazione.
-- [Criteri di posizionamento](../tables/t_siting.md): requisiti tecnici per la validità delle stazioni.
+- M_ASSESS — definisce il regime di valutazione
+- M_REPR — definisce le aree di rappresentatività
+- M_MOD — supporta l’individuazione di aree non coperte
+- M_MODEL_QA — abilita la riduzione della rete
+- T_MIN_STATIONS — requisiti quantitativi
+- T_SITING — criteri di posizionamento
