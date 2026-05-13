@@ -83,7 +83,36 @@ La rappresentatività spaziale:
 
 ---
 
-## Stato della specifica
+## Panoramica dei contenuti
+
+### Moduli logici
+I 9 moduli M_* descrivono il flusso logico di decisione:
+
+1. **M_ZONE** — Classificazione territoriale (urbana, rurale, di fondo)
+2. **M_ASSESS** — Scelta del regime di valutazione (fisso, modellistico, misto)
+3. **M_NETWORK** — Progettazione della rete di monitoraggio
+4. **M_MOD** — Impostazione delle applicazioni modellistiche
+5. **M_MODEL_QA** — Validazione e verifica di qualità dei modelli
+6. **M_REPR** — Calcolo della rappresentatività spaziale
+7. **M_LIMITS** — Verifica della conformità ai valori limite
+8. **M_EXPOSURE** — Calcolo dell'indicatore di esposizione media
+9. **M_DATA_QUALITY** (trasversale) — Qualità e completezza dei dati
+
+### Tabelle normative
+Le 12 tabelle T_* contengono i parametri direttivamente prescritti:
+
+- **T_ASSESS_THRESHOLDS** — Soglie di valutazione per regime
+- **T_ALERT_THRESHOLDS** — Soglie di allarme e informazione
+- **T_LIMIT_VALUES** — Valori limite per inquinanti
+- **T_MIN_STATIONS** — Numero minimo stazioni per zone
+- **T_SITING** — Criteri di posizionamento stazioni
+- **T_ADVANCED_MONITORING** — Obblighi di monitoraggio rafforzato
+- **T_DATA_QUALITY** — Requisiti di completezza e validità
+- **T_REPR_TOLERANCE** — Tolleranze di rappresentatività spaziale
+- **T_EXPOSURE_OBLIGATIONS** — Obblighi di riduzione dell'esposizione
+- **T_NATURAL_EVENTS** — Tipi e criteri di eventi naturali eccezionali
+- **T_SUPERSITES** — Parametri speciali per supersiti
+- **T_EIONET** — Vocabolari e standard interoperativi
 
 La presente versione:
 

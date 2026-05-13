@@ -217,103 +217,106 @@ ufficiale dell'Allegato II prima dell'implementazione definitiva.
 
 ---
 
-## 9. Soglie di informazione e di allerta
+## ✅ 9. Soglie di informazione e di allerta
 
 **Riferimenti normativi**
 
-- Art. 19 Directive (EU) 2024/2881
-- Annex I (specifico per O₃ e altri inquinanti)
+*   Art. 19 Directive (EU) 2024/2881
+*   Allegato I (specifico per O₃ e altri inquinanti)
 
 **Stato**
 
-- ❌ NON documentate
+*   ✅ Formalizzate in `T_ALERT_THRESHOLDS`
+*   ⚠️ Non ancora collegate a un modulo dedicato
 
 **Descrizione**
 La Direttiva prevede soglie di:
 
-- informazione
-- allerta
+*   informazione
+*   allerta
 
 attivate in caso di concentrazioni elevate, indipendentemente dalla conformità ai
 valori limite.
 
 Queste soglie sono rilevanti per:
 
-- comunicazione al pubblico
-- misure temporanee
-- gestione degli episodi acuti
+*   comunicazione al pubblico
+*   misure temporanee
+*   gestione degli episodi acuti
 
-**Azione necessaria**
+**Tabelle**
 
-- decidere se includerle nel framework v0.2
-- eventuale tabella: `tables/alert_thresholds.md`
+*   `tables/t_alert_thresholds.md`
 
 **Possibili moduli futuri**
 
-- M_PUBLIC_INFO
-- M_EPISODES (eventi acuti)
+*   `M_PUBLIC_INFO`
+*   `M_EPISODES`
 
 ---
 
-## 10. Soglie e criteri per eventi naturali ed eccezionali
+## ✅ 10. Soglie e criteri per eventi naturali ed eccezionali
 
 **Riferimenti normativi**
 
-- Art. 16 Directive (EU) 2024/2881
-- Linee guida Commissione (polveri sahariane, eventi naturali)
+*   Art. 16 Directive (EU) 2024/2881
+*   Linee guida Commissione (polveri sahariane, eventi naturali)
 
 **Stato**
 
-- ⚠️ Citati in M_LIMITS
-- ❌ NON strutturati
+*   ✅ Strutturati in forma tabellare
+*   ⚠️ Processo decisionale non ancora modellato
 
 **Descrizione**
 La Direttiva consente l’esclusione di alcuni superamenti dal calcolo della
 conformità quando attribuibili a:
 
-- sorgenti naturali
-- eventi eccezionali
+*   sorgenti naturali
+*   eventi eccezionali
 
-Mancano:
+La tabella fornisce una prima classificazione dei casi e dei requisiti minimi
+di documentazione.
 
-- criteri quantitativi
-- soglie operative
-- strutturazione formale del processo
+**Tabelle**
 
-**Azione necessaria**
-
-- valutare una tabella concettuale: `tables/natural_events.md`
+*   `tables/t_natural_events.md`
 
 **Moduli impattati**
 
-- M_LIMITS
-- futuri moduli su piani aria e deroghe
+*   `M_LIMITS`
+*   futuri moduli su piani aria e deroghe
 
 ---
 
-## 11. Soglie per obblighi rafforzati (monitoraggio avanzato)
+## ✅ 11. Soglie per obblighi rafforzati (monitoraggio avanzato)
 
 **Riferimenti normativi**
 
-- Art. 9
-- Art. 10
-- riferimenti indiretti ai supersiti
+*   Art. 9
+*   Art. 10
+*   riferimenti indiretti ai supersiti
 
 **Stato**
 
-- ❌ NON documentate
+*   ✅ Formalizzate come criteri tabellari
+*   ❌ Non ancora integrate in un modulo logico
 
 **Descrizione**
 La Direttiva introduce obblighi rafforzati di monitoraggio in presenza di:
 
-- concentrazioni elevate persistenti
-- contesti emissivi complessi
-- popolazione esposta significativa
+*   concentrazioni elevate persistenti
+*   contesti emissivi complessi
+*   popolazione esposta significativa
 
 Questi obblighi non sono sempre legati a valori limite,
 ma a combinazioni di fattori.
 
-**Azione necessaria**
+**Tabelle**
 
-- chiarire se formalizzare: soglie e criteri qualitativi
-- possibile estensione del framework: M_SUPERSITE e M_ADVANCED_MONITORING
+*   `tables/t_advanced_monitoring.md`
+
+**Possibili moduli futuri**
+
+*   `M_SUPERSITE`
+*   `M_ADVANCED_MONITORING`
+

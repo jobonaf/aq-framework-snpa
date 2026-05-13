@@ -26,32 +26,32 @@ con l’obiettivo di supportare:
 
 La documentazione è organizzata in tre livelli principali:
 
-- **Moduli** (`docs/modules/`)  
-  Descrivono la logica operativa della Direttiva  
-  (rete, modellistica, rappresentatività, limiti, esposizione, qualità dati).
+### Moduli logici (`docs/modules/`)
+Descrivono la logica operativa e i processi decisionali della Direttiva:
+- **M_ZONE** — Suddivisione territoriale e caratterizzazione
+- **M_ASSESS** — Regime di valutazione (fixed, model-based, combined)
+- **M_NETWORK** — Rete di monitoraggio (adequacy e placement)
+- **M_MOD** — Applicazioni modellistiche
+- **M_MODEL_QA** — Garanzia qualità dei modelli
+- **M_REPR** — Rappresentatività spaziale
+- **M_LIMITS** — Conformità ai valori limite
+- **M_EXPOSURE** — Indicatore di esposizione media
+- **M_DATA_QUALITY** — Qualità dei dati (transversale)
 
-- **Tabelle** (`docs/tables/`)  
-  Contengono i parametri normativi:  
-  valori limite, soglie, requisiti tecnici, vocabolari.
+### Tabelle normative (`docs/tables/`)
+Contengono i parametri, le soglie e i vocabolari richiesti dalla Direttiva:
+- **Valutazione**: soglie di valutazione, soglie di allarme
+- **Monitoraggio**: numero minimo stazioni, criteri di posizionamento, obblighi avanzati
+- **Qualità e conformità**: valori limite, qualità dati, tolleranze di rappresentatività
+- **Esposizione**: obblighi di riduzione dell'esposizione, eventi naturali eccezionali
+- **Interoperabilità**: vocabolari EIONET, parametri supersiti
 
-- **Pagine di contesto**  
-  Introduzione e architettura del framework.
+### Documentazione contestuale
+- Introduzione e architettura
+- TODO e roadmap
+- Linee guida per contribuire
 
-La navigazione è gestita tramite Read the Docs / MkDocs.
-
----
-
-## Architettura logica
-
-Il framework segue una pipeline coerente con la Direttiva:
-
-```
-
-ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
-
-```
-
-Ogni modulo ha dipendenze esplicite dagli altri moduli e dalle tabelle normative.
+La navigazione completa è disponibile su **[Read the Docs / MkDocs](https://readthedocs.org)**.
 
 ---
 
