@@ -1,8 +1,8 @@
-# M_LIMITS — Verifica di conformità
+# M_LIMITS — Verifica di conformità ai valori normativi
 
 ## Riferimenti normativi
 
-- Direttiva (UE) 2024/2881, Allegato I (standard di qualità dell’aria)
+- Direttiva (UE) 2024/2881, Allegato I (valori limite e valori‑obiettivo)
 - Art. 8 (valutazione)
 - Art. 16 (fonti naturali)
 - Art. 17 (superamenti)
@@ -13,17 +13,17 @@
 
 ## Descrizione
 
-Il modulo verifica la **conformità** della qualità dell’aria
-ai valori normativi definiti nell’Allegato I della Direttiva.
+Il modulo verifica la **conformità normativa** della qualità dell’aria
+ai valori limite (LV) e ai valori‑obiettivo (TV) definiti nell’Allegato I.
 
-La verifica di conformità è effettuata:
+La verifica è effettuata:
 
 - per inquinante
 - per metrica normativa
 - su base zonale
 
-Il modulo **non definisce** piani di qualità dell’aria,
-né pianifica misure correttive.
+Il modulo **non** definisce piani di qualità dell’aria
+e **non** pianifica misure correttive.
 
 ---
 
@@ -31,21 +31,25 @@ né pianifica misure correttive.
 
 ```
 
-C(p, x, t) = concentrazione dell’inquinante p
+C(p, x, t) =
+concentrazione dell’inquinante p
 nella localizzazione x
 al tempo t
 
 ```
 ```
 
-METRIC(p) = metrica normativa applicabile
+METRIC(p) =
+metrica normativa applicabile
+per l’inquinante p,
+definita in T\_LIMIT\_VALUES
+
+```
+```
+
+LV(p) =
+valore normativo (LV o TV)
 per l’inquinante p
-(definita in T\_LIMIT\_VALUES)
-
-```
-```
-
-LV(p) = valore normativo per l’inquinante p
 e la metrica METRIC(p),
 definito in T\_LIMIT\_VALUES
 
@@ -59,30 +63,75 @@ C(p, x, t) > LV(p)
 
 ---
 
-## Determinazione della concentrazione
+## Requisiti normativi
 
-### Regola di integrazione spaziale
+### REQ-LIMITS-SPATIAL_INTEGRATION
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_REPR, M_MODEL_QA |
+
+**Regola**  
+La concentrazione da utilizzare per la verifica di conformità
+è determinata integrando misure e modellistica
+in funzione della rappresentatività spaziale.
+
+**Criterio di accettazione**
 
 ```
 
 if x ∈ AREA\_REPR:
 C(p, x, t) = measurement
-else if VALID\_MODEL:
+else if VALID\_MODEL = true:
 C(p, x, t) = model
 else:
 concentration undefined
 
 ```
 
-La rappresentatività spaziale è definita in `M_REPR`.
+---
+
+### REQ-LIMITS-DATA_VALIDITY
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_DATA_QUALITY |
+
+**Regola**  
+Solo dati che soddisfano i requisiti di qualità
+possono essere utilizzati per la verifica di conformità.
+
+**Criterio di accettazione**
+
+```
+
+use only data where DATA\_VALID = true
+
+```
 
 ---
 
-## Regole di conformità
+### REQ-LIMITS-MEAN_COMPLIANCE
 
-### Conformità per metriche senza conteggio
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato I Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_LIMIT_VALUES |
 
-Per metriche valutate come media (es. media annua):
+**Regola**  
+Per le metriche valutate come media (es. media annua),
+la conformità è verificata confrontando il valore medio
+con il valore normativo applicabile.
+
+**Criterio di accettazione**
 
 ```
 
@@ -93,9 +142,21 @@ mean(C(p)) ≤ LV(p)
 
 ---
 
-### Conformità per metriche con conteggio
+### REQ-LIMITS-EXCEEDANCE_COMPLIANCE
 
-Per metriche che prevedono un numero massimo di superamenti:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato I Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_LIMIT_VALUES |
+
+**Regola**  
+Per le metriche che prevedono un numero massimo di superamenti,
+la conformità è verificata confrontando il numero di superamenti
+con il massimo consentito.
+
+**Criterio di accettazione**
 
 ```
 
@@ -104,11 +165,25 @@ COUNT{ EXCEEDANCE(p, t) } ≤ MAX\_EXCEED(p)
 
 ```
 
-Il valore `MAX_EXCEED(p)` è definito in `T_LIMIT_VALUES`.
+dove `MAX_EXCEED(p)` è definito in `T_LIMIT_VALUES`.
 
 ---
 
-### Conformità complessiva
+### REQ-LIMITS-OVERALL_COMPLIANCE
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato I Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-LIMITS-MEAN_COMPLIANCE, REQ-LIMITS-EXCEEDANCE_COMPLIANCE |
+
+**Regola**  
+La conformità complessiva per un inquinante
+è verificata solo se sono soddisfatte
+tutte le condizioni applicabili.
+
+**Criterio di accettazione**
 
 ```
 
@@ -120,66 +195,85 @@ AND COMPLIANT\_EXCEEDANCE(p)
 
 ---
 
-## Trattamento dei dati
+### REQ-LIMITS-NATURAL_SOURCES
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 16 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+I superamenti attribuibili a fonti naturali
+possono essere esclusi dalla verifica di conformità
+se adeguatamente documentati e accettati.
+
+**Criterio di accettazione**
 
 ```
 
-use only data where DATA\_VALID = true
-
-```
-
-La validità dei dati è definita in `M_DATA_QUALITY`.
-
----
-
-## Fonti naturali (Art. 16)
-
-Se un superamento è attribuito a fonti naturali documentate:
-
-```
-
+if exceedance attributable to natural sources:
 EXCLUDED\_FROM\_COMPLIANCE = true
 
 ```
 
-L’attribuzione deve essere:
+---
 
-- identificata
-- quantificata
-- documentata
-- accettata dalla Commissione
+### REQ-LIMITS-EXCEPTIONAL_EVENTS
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 16 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+Eventi eccezionali possono essere esclusi
+dal conteggio dei superamenti
+se previsti dalla normativa e documentati.
+
+**Criterio di accettazione**  
+L’evento è identificato e motivato
+con riferimento normativo.
 
 ---
 
-## Eventi eccezionali
+### REQ-LIMITS-DEROGATION_RECORD
 
-Eventi eccezionali possono essere esclusi dal conteggio dei superamenti
-se previsti dalla normativa e adeguatamente documentati.
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 18 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
----
+**Regola**  
+In presenza di una proroga temporale concessa,
+la non conformità è registrata come temporaneamente ammessa.
 
-## Deroghe temporali (Art. 18)
-
-Se è concessa una proroga temporale:
+**Criterio di accettazione**
 
 ```
 
+if extension granted:
 TEMPORARY\_NON\_COMPLIANCE\_ALLOWED = true
 
 ```
 
-Il modulo **registra** la deroga,
-ma **non valuta** la validità del piano associato.
+Il modulo registra la deroga
+ma **non valuta** il piano associato.
 
 ---
 
 ## Interazioni con altri moduli
 
-- M_REPR — definisce dove una misura è valida
-- M_MOD — fornisce il campo di concentrazione
-- M_MODEL_QA — abilita l’uso del modello
-- M_DATA_QUALITY — valida i dati
-- M_NETWORK — può essere attivato in caso di lacune di copertura
+- `M_REPR` — definisce la validità spaziale delle misure
+- `M_MOD` — fornisce il campo di concentrazione
+- `M_MODEL_QA` — abilita l’uso della modellistica
+- `M_DATA_QUALITY` — valida i dati
+- `M_NETWORK` — può essere attivato in caso di lacune di copertura
 
 ---
 
