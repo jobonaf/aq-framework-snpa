@@ -10,14 +10,14 @@
 
 ## Descrizione
 
-Il modulo determina il regime di valutazione della qualità dell’aria per ciascun inquinante e zona.
+Il modulo determina il **regime di valutazione** della qualità dell’aria
+per ciascun inquinante e zona.
 
-Definisce se utilizzare:
-
-- misure fisse
-- misure indicative
-- modellistica
-- stime oggettive
+Il regime stabilisce se la valutazione deve basarsi su:
+- misure fisse,
+- misure indicative,
+- modellistica,
+- stime oggettive.
 
 ---
 
@@ -25,55 +25,58 @@ Definisce se utilizzare:
 
 ```
 
-C_y = concentrazione annuale per anno y
+TH(p) = soglia di valutazione per l’inquinante p,
+definita in T\_ASSESS\_THRESHOLDS
 
-TH = soglia di valutazione (tables/t_assess_thresholds.md)
+C(p, y) = valore di concentrazione rilevante
+per l’inquinante p nell’anno y,
+calcolato secondo il periodo di mediazione previsto
 
 ```
 
 ---
 
-#### REQ-ASSESS-THRESHOLD_CLASSIFICATION
+## Regole di classificazione
 
-- Fonte: Art. 8 Dir. 2024/2881 [+ Allegato II]
-- Stato: DRAFT
+### REQ-ASSESS-CLASSIFICATION
+
+- Fonte: Art. 8 Dir. 2024/2881 + Allegato II
+- Stato: STABLE
 - Tipo: obbligatorio
-- Dipendenze: tables/t_assess_thresholds.md
+- Dipendenze: T_ASSESS_THRESHOLDS
 
 **Regola**
-La zona è classificata come sopra soglia quando, per un inquinante e una metrica,
-il numero di anni nei quali la concentrazione supera la soglia è almeno 3 nei 5 anni precedenti.
+
+Per ciascun inquinante, una zona è classificata **sopra soglia**
+se il valore di concentrazione supera la soglia di valutazione
+in **almeno 3 degli ultimi 5 anni civili**.
+
+Il superamento è valutato secondo il periodo di mediazione
+specificato per l’inquinante.
 
 **Criterio di accettazione**
-Dato un inquinante, una zona e i valori di concentrazione annuali/periodiche,
-il sistema restituisce ABOVE_THRESHOLD=true se COUNT{ y ∈ ultimi_5_anni | C_y > TH } ≥ 3.
 
-**Pseudocode**
-ABOVE_THRESHOLD = COUNT{ y ∈ ultimi_5_anni where C_y > TH } ≥ 3
-
----
-
-## Logica
-
-### Classificazione della zona
+Dato un inquinante e una zona, il sistema restituisce
+`ABOVE_THRESHOLD = true` se:
 
 ```
 
-ABOVE_THRESHOLD =
-count(y ∈ ultimi_5_anni where C_y > TH) ≥ 3
+COUNT{ y ∈ ultimi\_5\_anni | C(p, y) > TH(p) } ≥ 3
 
 ```
 
 ---
 
-### Determinazione del regime di valutazione
+## Determinazione del regime di valutazione
+
+### Regola operativa
 
 ```
 
-if ABOVE_THRESHOLD:
-ASSESSMENT_TYPE = fixedMeasurements
+if ABOVE\_THRESHOLD:
+ASSESSMENT\_TYPE = fixedMeasurements
 else:
-ASSESSMENT_TYPE = modelOrObjectiveEstimation
+ASSESSMENT\_TYPE = modelOrObjectiveEstimation
 
 ```
 
@@ -83,49 +86,30 @@ ASSESSMENT_TYPE = modelOrObjectiveEstimation
 
 ### Zone sopra soglia
 
-- uso obbligatorio di misure fisse
-- modellistica utilizzabile in supporto
-- possibile integrazione con misure indicative
+- misure fisse obbligatorie
+- modellistica ammessa solo in supporto
+- misure indicative utilizzabili come integrazione
 
 ---
 
 ### Zone sotto soglia
 
-- modellistica può essere metodo principale
-- misure non obbligatorie
-- uso di stime oggettive consentito
+- modellistica come metodo principale
+- misure fisse non obbligatorie
+- stime oggettive ammesse
 
 ---
 
-### Uso combinato (Implementing Decision)
+## Principio di prevalenza
 
-```
-
-ASSESSMENT_DATA =
-combinazione di:
-misure
-modellistica
-misure indicative
-
-```
-
----
-
-### Transizione (Implementing Decision)
-
-```
-
-dopo gli atti di esecuzione:
-modellistica diventa componente principale
-
-```
+Se per uno stesso inquinante risultano applicabili
+più condizioni di valutazione (es. salute umana e vegetazione),
+si applica **il regime più restrittivo**.
 
 ---
 
 ## Moduli e tabelle correlati
 
-Il regime di valutazione definisce quali metodi possono o devono essere utilizzati.
-
-- [M_NETWORK](network.md): il numero minimo di stazioni dipende dalla classificazione sopra/sotto soglia.
-- [M_MOD](modelling.md): la modellistica è obbligatoria o opzionale in funzione del regime.
-- [Tabelle delle soglie di valutazione](../tables/t_assess_thresholds.md): definiscono i valori di riferimento per la classificazione delle zone.
+- M_NETWORK — il numero minimo di stazioni dipende dal regime
+- M_MOD — la modellistica è consentita o limitata dal regime
+- T_ASSESS_THRESHOLDS — fornisce le soglie normative
