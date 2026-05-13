@@ -10,7 +10,7 @@
 
 ## Descrizione
 
-Il modulo definisce i **criteri normativi di validazione**
+Il modulo definisce i **requisiti normativi di validazione**
 delle applicazioni di modellizzazione della qualità dell’aria.
 
 Un modello validato è **condizione necessaria**
@@ -21,10 +21,8 @@ per l’utilizzo dei risultati nei moduli:
 - `M_LIMITS` — verifica di conformità
 - `M_NETWORK` — decisioni sulla rete di monitoraggio
 
-Il modulo **non disciplina**:
-- accreditamenti istituzionali
-- programmi di interconfronto
-- governance della modellistica
+Il modulo **non disciplina** aspetti di governance istituzionale
+(accreditamento, JRC, interconfronti UE).
 
 ---
 
@@ -68,14 +66,7 @@ utilizzati per la validazione
 
 ---
 
-## Definizione dell’indicatore di qualità della modellizzazione (MQI)
-
-L’indicatore di qualità della modellizzazione (**MQI**)
-è definito, per ciascun punto di campionamento `sp`,
-come il rapporto tra l’errore della modellizzazione
-e l’incertezza complessiva associata.
-
-### Definizione formale
+## Indicatore di qualità della modellizzazione (MQI)
 
 ```
 
@@ -89,89 +80,130 @@ sqrt( U\_model(sp)^2 + U\_meas(sp)^2 )
 dove:
 
 - `RMSE(sp)` è l’errore quadratico medio tra
-  i valori modellati e quelli osservati nel punto `sp`,
+  valori modellati e osservati nel punto `sp`,
   calcolato sull’intero periodo di valutazione;
+- `U_model(sp)` è l’incertezza della modellizzazione;
+- `U_meas(sp)` è l’incertezza delle misurazioni.
 
-- `U_model(sp)` è l’incertezza dell’applicazione di modellizzazione;
+Il MQI è calcolato:
 
-- `U_meas(sp)` è l’incertezza delle misurazioni,
-  determinata in conformità a `M_DATA_QUALITY`.
-
----
-
-## Ambito di applicazione del MQI
-
-- il MQI è calcolato utilizzando **solo osservazioni valide**
-- le osservazioni devono essere **indipendenti**
-  dai dati utilizzati come input del modello
-- il MQI è calcolato:
-  - per concentrazioni a lungo termine (medie annue)
-  - per concentrazioni a breve termine (orario, 8 ore, 24 ore),
-    secondo la metrica normativa applicabile
+- usando **solo osservazioni valide**
+- su dati **indipendenti** dall’input del modello
+- per la metrica normativa applicabile
+  (lungo o breve termine)
 
 ---
 
-## Criteri di validazione del modello
+## Requisiti normativi
 
-### Regola generale
+### REQ-MODELQA-MQI_DEFINITION
 
-Un modello soddisfa l’obiettivo di qualità della modellizzazione se:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_DATA_QUALITY |
 
-```
+**Regola**  
+La qualità di un’applicazione di modellizzazione
+è valutata mediante l’indicatore MQI,
+definito come rapporto tra errore di modellizzazione
+e incertezza complessiva.
 
-MQI ≤ 1
-
-```
-
----
-
-### Criterio di copertura della validazione
-
-Il criterio `MQI ≤ 1` deve essere soddisfatto:
-
-```
-
-in almeno il 90 % dei punti di campionamento disponibili
-
-```
-
-La verifica è effettuata:
-
-- sull’insieme dei punti che soddisfano `OBS_VALID`
-- nell’area di valutazione
-- per il periodo di riferimento considerato
+**Criterio di accettazione**  
+Il MQI è calcolato secondo la definizione normativa.
 
 ---
 
-### Caso con numero limitato di punti
+### REQ-MODELQA-MQI_THRESHOLD
 
-Se il numero di punti di validazione è inferiore a 10:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-MODELQA-MQI_DEFINITION |
+
+**Regola**  
+Un modello soddisfa l’obiettivo di qualità
+se l’indicatore MQI non supera il valore unitario.
+
+**Criterio di accettazione**
 
 ```
 
-VALID\_MODEL =
-∀ sp ∈ validation\_stations :
 MQI(sp) ≤ 1
 
 ```
 
 ---
 
-## Requisiti di validazione
+### REQ-MODELQA-COVERAGE_90_PERCENT
 
-### 1. Controllo qualità degli input
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-MODELQA-MQI_THRESHOLD |
 
-Per ogni esecuzione del modello:
+**Regola**  
+Il criterio `MQI ≤ 1` deve essere soddisfatto
+in almeno il **90 % dei punti di campionamento disponibili**
+nell’area di valutazione e nel periodo considerato.
 
-- dati di emissione
-- dati meteorologici
-- concentrazioni di background
+**Criterio di accettazione**
 
-devono essere verificati per coerenza e qualità.
+```
+
+COUNT{ sp | MQI(sp) ≤ 1 } / N\_val ≥ 0.9
+
+```
 
 ---
 
-### 2. Indipendenza dei dati di validazione
+### REQ-MODELQA-LOW_STATION_COUNT
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-MODELQA-MQI_THRESHOLD |
+
+**Regola**  
+Se il numero di punti di validazione è inferiore a 10,
+il modello è considerato valido
+solo se il criterio `MQI ≤ 1` è soddisfatto
+in **tutti** i punti disponibili.
+
+**Criterio di accettazione**
+
+```
+
+if N\_val < 10:
+∀ sp : MQI(sp) ≤ 1
+
+```
+
+---
+
+### REQ-MODELQA-DATA_INDEPENDENCE
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+I dati utilizzati per la validazione
+devono essere indipendenti dai dati
+utilizzati come input del modello.
+
+**Criterio di accettazione**
 
 ```
 
@@ -179,47 +211,23 @@ validation\_data ∩ model\_input\_data = ∅
 
 ```
 
-I dati utilizzati per:
-- calibrazione
-- assimilazione
-- ottimizzazione
-
-**non possono** essere utilizzati per la validazione.
-
 ---
 
-### 3. Selezione dei punti di validazione
+### REQ-MODELQA-DATA_VALIDITY
 
-I punti di validazione devono:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_DATA_QUALITY |
 
-- coprire la variabilità spaziale dell’area
-- includere ambienti diversi
+**Regola**  
+Solo osservazioni che soddisfano
+i requisiti di qualità dei dati
+possono essere utilizzate per la validazione.
 
-Tipologie minime raccomandate:
-
-- fondo urbano
-- traffico
-- suburbano o rurale
-
----
-
-### 4. Metodo di validazione
-
-Il metodo raccomandato è la **Leave‑One‑Out Cross‑Validation (LOOCV)**:
-
-```
-
-for each sp:
-eseguire il modello escludendo sp
-confrontare C\_model(sp) con C\_observed(sp)
-
-```
-
-Altri metodi sono ammessi se adeguatamente documentati.
-
----
-
-### 5. Requisiti sui dati di validazione
+**Criterio di accettazione**
 
 ```
 
@@ -228,24 +236,52 @@ OBS\_VALID = true
 
 ```
 
-La validità dei dati è definita in `M_DATA_QUALITY`.
+---
+
+### REQ-MODELQA-VALIDATION_METHOD
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato V Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | raccomandato |
+| Dipendenze | — |
+
+**Regola**  
+La validazione del modello utilizza
+metodi che consentono il confronto
+tra risultati modellistici e osservazioni indipendenti.
+
+Il metodo raccomandato è la
+Leave‑One‑Out Cross‑Validation (LOOCV).
+
+**Criterio di accettazione**  
+Il metodo di validazione è documentato.
 
 ---
 
-## Uso dei risultati modellistici
+### REQ-MODELQA-USAGE_CONSTRAINT
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | REQ-MODELQA-COVERAGE_90_PERCENT |
+
+**Regola**  
+I risultati di un modello non validato
+non possono essere utilizzati
+per scopi regolatori.
+
+**Criterio di accettazione**
 
 ```
 
-if NOT VALID\_MODEL:
+if VALID\_MODEL = false:
 model\_output NOT usable
 
 ```
-
-Conseguenze:
-
-- esclusione da `M_LIMITS`
-- esclusione da `M_REPR`
-- esclusione da riduzioni della rete (`M_NETWORK`)
 
 ---
 
@@ -275,7 +311,7 @@ validation\_method
 
 ## Note
 
-- Il criterio `MQI ≤ 1` deriva dall’Allegato V.
-- Il criterio del 90 % dei punti è vincolante.
+- Il criterio `MQI ≤ 1` e la soglia del 90 %
+  derivano direttamente dall’Allegato V.
 - Il modulo definisce requisiti minimi normativi
-  e non sostituisce la valutazione esperta.
+  e non sostituisce il giudizio esperto.
