@@ -67,9 +67,9 @@ Il sistema è organizzato in:
 
 ## Stato del progetto
 
-⚠ Versione: **v0.1 (prototipo)**  
-⚠ Include elementi da atti di esecuzione (bozza 2026)  
-⚠ Richiede validazione normativa (GUUE)
+✅ Versione: **v0.2 — specifica tecnica formale (core normativo)**  
+⚠ Include riferimenti a atti di esecuzione (bozza 2026)  
+⚠ Richiede verifica finale su testo consolidato GUUE
 
 ---
 

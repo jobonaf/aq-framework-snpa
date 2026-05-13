@@ -57,7 +57,7 @@ La navigazione completa è disponibile su **[Read the Docs / MkDocs](https://rea
 
 ## Stato del progetto
 
-- Versione: **v0.1 (prototipo tecnico)**
+- Versione: **v0.2 — specifica tecnica formale (core normativo)**
 - Ambito: SNPA
 - Stato normativo:
   - Direttiva (UE) 2024/2881

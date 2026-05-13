@@ -116,7 +116,6 @@ Le 12 tabelle T_* contengono i parametri direttivamente prescritti:
 
 La presente versione:
 
-- è prototipale (v0.1)
 - incorpora elementi da atti di esecuzione (bozza)
 - è soggetta a revisione
 
