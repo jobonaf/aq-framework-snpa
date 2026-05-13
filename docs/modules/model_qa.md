@@ -1,23 +1,30 @@
-# M_MODEL_QA — Garanzia qualità e validazione modelli
+# M_MODEL_QA — Validazione delle applicazioni modellistiche
 
 ## Riferimenti normativi
 
-- Atti di esecuzione (bozza 2026), Art. 3
-- Allegato V Direttiva (UE) 2024/2881 (obiettivi qualità dei dati)
-- Art. 8 Direttiva (UE) 2024/2881 (uso della modellistica)
+- Direttiva (UE) 2024/2881, Allegato V
+- Art. 8 Direttiva (UE) 2024/2881
+- Atti di esecuzione (metodologia di validazione dei modelli)
 
 ---
 
 ## Descrizione
 
-Il modulo definisce i requisiti di validazione e qualità delle applicazioni modellistiche.
+Il modulo definisce i **criteri normativi di validazione**
+delle applicazioni di modellizzazione della qualità dell’aria.
 
-La validazione è una **condizione necessaria** per l’utilizzo del modello nei moduli:
+Un modello validato è **condizione necessaria**
+per l’utilizzo dei risultati nei moduli:
 
-- M_MOD (modellistica)
-- M_REPR (rappresentatività spaziale)
-- M_LIMITS (valutazione conformità)
-- M_NETWORK (decisioni sulla rete)
+- `M_MOD` — uso della modellistica
+- `M_REPR` — rappresentatività spaziale
+- `M_LIMITS` — verifica di conformità
+- `M_NETWORK` — decisioni sulla rete di monitoraggio
+
+Il modulo **non disciplina**:
+- accreditamenti istituzionali
+- programmi di interconfronto
+- governance della modellistica
 
 ---
 
@@ -25,176 +32,230 @@ La validazione è una **condizione necessaria** per l’utilizzo del modello nei
 
 ```
 
-MQI = modelling quality indicator
+OBS\_VALID(p, m) =
+osservazioni che soddisfano i requisiti
+di qualità dei dati definiti in M\_DATA\_QUALITY
 
-OBS_VALID =
-osservazioni che soddisfano M_DATA_QUALITY
+```
+```
 
-DATA_independent =
-dataset NON utilizzati nel modello
+validation\_data =
+insieme di osservazioni indipendenti
+non utilizzate come input del modello
 
-N_val =
-numero stazioni utilizzate per validazione
+```
+```
+
+U\_meas(sp) =
+incertezza delle misurazioni nel punto sp,
+definita in T\_DATA\_QUALITY
+
+```
+```
+
+U\_model(sp) =
+incertezza dell’applicazione di modellizzazione
+nel punto sp, determinata secondo Allegato V
+
+```
+```
+
+N\_val =
+numero di punti di campionamento
+utilizzati per la validazione
 
 ```
 
 ---
 
-## Logica
+## Definizione dell’indicatore di qualità della modellizzazione (MQI)
 
-### Validità del modello
+L’indicatore di qualità della modellizzazione (**MQI**)
+è definito, per ciascun punto di campionamento `sp`,
+come il rapporto tra l’errore della modellizzazione
+e l’incertezza complessiva associata.
+
+### Definizione formale
 
 ```
 
-VALID_MODEL =
+MQI(sp) =
+RMSE(sp)
+\--------------------------------
+sqrt( U\_model(sp)^2 + U\_meas(sp)^2 )
+
+```
+
+dove:
+
+- `RMSE(sp)` è l’errore quadratico medio tra
+  i valori modellati e quelli osservati nel punto `sp`,
+  calcolato sull’intero periodo di valutazione;
+
+- `U_model(sp)` è l’incertezza dell’applicazione di modellizzazione;
+
+- `U_meas(sp)` è l’incertezza delle misurazioni,
+  determinata in conformità a `M_DATA_QUALITY`.
+
+---
+
+## Ambito di applicazione del MQI
+
+- il MQI è calcolato utilizzando **solo osservazioni valide**
+- le osservazioni devono essere **indipendenti**
+  dai dati utilizzati come input del modello
+- il MQI è calcolato:
+  - per concentrazioni a lungo termine (medie annue)
+  - per concentrazioni a breve termine (orario, 8 ore, 24 ore),
+    secondo la metrica normativa applicabile
+
+---
+
+## Criteri di validazione del modello
+
+### Regola generale
+
+Un modello soddisfa l’obiettivo di qualità della modellizzazione se:
+
+```
+
 MQI ≤ 1
 
 ```
 
 ---
 
-### Caso: numero limitato di stazioni
+### Criterio di copertura della validazione
+
+Il criterio `MQI ≤ 1` deve essere soddisfatto:
 
 ```
 
-if N_val < 10:
-VALID_MODEL =
-∀ sp ∈ validation_stations :
+in almeno il 90 % dei punti di campionamento disponibili
+
+```
+
+La verifica è effettuata:
+
+- sull’insieme dei punti che soddisfano `OBS_VALID`
+- nell’area di valutazione
+- per il periodo di riferimento considerato
+
+---
+
+### Caso con numero limitato di punti
+
+Se il numero di punti di validazione è inferiore a 10:
+
+```
+
+VALID\_MODEL =
+∀ sp ∈ validation\_stations :
 MQI(sp) ≤ 1
 
 ```
 
 ---
 
-## Requisiti operativi
+## Requisiti di validazione
 
----
+### 1. Controllo qualità degli input
 
-### 1. Controllo qualità degli input (obbligatorio)
+Per ogni esecuzione del modello:
 
-```
-
-for each model_run:
-i dataset di input devono essere controllati per qualità
-
-```
-
-Include:
-
-- emissioni
+- dati di emissione
 - dati meteorologici
 - concentrazioni di background
 
+devono essere verificati per coerenza e qualità.
+
 ---
 
-### 2. Uso di dati indipendenti
+### 2. Indipendenza dei dati di validazione
 
 ```
 
-validation_data ∩ model_input_data = ∅
+validation\_data ∩ model\_input\_data = ∅
 
 ```
 
-I dati usati per:
-
+I dati utilizzati per:
 - calibrazione
 - assimilazione
-- tuning
+- ottimizzazione
 
-NON possono essere usati per la validazione.
+**non possono** essere utilizzati per la validazione.
 
 ---
 
-### 3. Selezione dei dati di validazione
+### 3. Selezione dei punti di validazione
 
-```
+I punti di validazione devono:
 
-validation_stations must:
-coprire la variabilità spaziale
-includere ambienti diversi
+- coprire la variabilità spaziale dell’area
+- includere ambienti diversi
 
-```
+Tipologie minime raccomandate:
 
-Tipologie richieste:
-
-- background urbano
+- fondo urbano
 - traffico
-- suburbano / rurale
+- suburbano o rurale
 
 ---
 
-### 4. Metodologia di validazione
+### 4. Metodo di validazione
 
-Metodo raccomandato:
-
-```
-
-Leave-One-Out Cross-Validation (LOOCV)
+Il metodo raccomandato è la **Leave‑One‑Out Cross‑Validation (LOOCV)**:
 
 ```
-```
 
-per ogni stazione sp:
+for each sp:
 eseguire il modello escludendo sp
-confrontare model(sp) con observed(sp)
+confrontare C\_model(sp) con C\_observed(sp)
 
 ```
+
+Altri metodi sono ammessi se adeguatamente documentati.
 
 ---
 
-### 5. Requisiti sui dati
+### 5. Requisiti sui dati di validazione
 
 ```
 
-i validation_data devono soddisfare:
-OBS_VALID = True
+∀ obs ∈ validation\_data :
+OBS\_VALID = true
 
 ```
 
-dove:
-
-- OBS_VALID è definito in M_DATA_QUALITY
+La validità dei dati è definita in `M_DATA_QUALITY`.
 
 ---
 
-### 6. Modelli integrati (fusione dati)
-
-Nel caso di modelli con assimilazione dati:
+## Uso dei risultati modellistici
 
 ```
 
-solo osservazioni indipendenti usate per la validazione
-
-```
-
----
-
-### 7. Uso del modello
-
-```
-
-if NOT VALID_MODEL:
-model_output NON utilizzabile
+if NOT VALID\_MODEL:
+model\_output NOT usable
 
 ```
 
 Conseguenze:
 
-- non utilizzabile per valutazione (M_LIMITS)
-- non utilizzabile per rappresentatività (M_REPR)
-- non utilizzabile per riduzione rete (M_NETWORK)
+- esclusione da `M_LIMITS`
+- esclusione da `M_REPR`
+- esclusione da riduzioni della rete (`M_NETWORK`)
 
 ---
 
-## Moduli e tabelle correlati
+## Interazioni con altri moduli
 
-La validazione del modello è un prerequisito per l’utilizzo regolatorio dei risultati.
-
-- [M_MOD](modelling.md): la validazione abilita o inibisce l’uso del modello.
-- [M_REPR](repr.md): solo modelli validati possono essere usati per la rappresentatività spaziale.
-- [M_LIMITS](limits.md): i superamenti modellistici sono validi solo se il modello è validato.
-- [Qualità dei dati](../tables/t_data_quality.md): definisce i requisiti per i dati di validazione.
-``
+- `M_DATA_QUALITY` — definisce la validità dei dati
+- `M_MOD` — produce i risultati modellistici
+- `M_REPR` — utilizza il modello solo se validato
+- `M_LIMITS` — accetta superamenti modellistici solo se validato
+- `M_NETWORK` — consente riduzioni della rete solo se validato
 
 ---
 
@@ -202,12 +263,11 @@ La validazione del modello è un prerequisito per l’utilizzo regolatorio dei r
 
 ```
 
-model_validation:
+model\_validation:
 valid (boolean)
-MQI
-N_val
-validation_method:
-LOO | other
+MQI\_summary
+N\_val
+validation\_method
 
 ```
 
@@ -215,7 +275,7 @@ LOO | other
 
 ## Note
 
-- MQI ≤ 1 deriva dagli obiettivi di qualità (Allegato V)
-- La validazione è un requisito vincolante, non opzionale
-- L’uso di dati non indipendenti invalida la validazione
-- Il modulo è prerequisito per l’intero uso della modellistica
+- Il criterio `MQI ≤ 1` deriva dall’Allegato V.
+- Il criterio del 90 % dei punti è vincolante.
+- Il modulo definisce requisiti minimi normativi
+  e non sostituisce la valutazione esperta.

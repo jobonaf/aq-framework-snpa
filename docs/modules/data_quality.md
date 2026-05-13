@@ -2,18 +2,24 @@
 
 ## Riferimenti normativi
 
-- Allegato V Direttiva (UE) 2024/2881
-- Atti di esecuzione (regole di utilizzo dei dati)
+- Direttiva (UE) 2024/2881, Allegato V
+- Art. 8 (valutazione della qualità dell’aria)
 
 ---
 
 ## Descrizione
 
-Il modulo definisce i requisiti di qualità dei dati utilizzati per:
+Il modulo definisce le **condizioni di validità dei dati**
+utilizzati per la valutazione della qualità dell’aria.
 
-- valutazione (M_LIMITS)
-- rappresentatività (M_REPR)
-- validazione modellistica (M_MODEL_QA)
+La qualità dei dati condiziona:
+
+- la verifica di conformità (`M_LIMITS`)
+- la determinazione della rappresentatività (`M_REPR`)
+- la validazione delle applicazioni modellistiche (`M_MODEL_QA`)
+
+Il modulo **non** disciplina le procedure di laboratorio,
+accreditamento o QA/QC istituzionale.
 
 ---
 
@@ -21,76 +27,152 @@ Il modulo definisce i requisiti di qualità dei dati utilizzati per:
 
 ```
 
-coverage = percentuale dati validi
+coverage(p, m) = percentuale di dati validi
+per l’inquinante p
+e la metrica m
 
-uncertainty = incertezza di misura
+```
+```
 
-MIN_coverage, MAX_uncertainty =
-valori da tables/t_data_quality.md
+uncertainty(p, m) = incertezza del dato
+espressa con livello di confidenza 95 %
+
+```
+```
+
+MIN\_coverage(p, m)
+MAX\_uncertainty(p, m)
+\= valori normativi definiti in T\_DATA\_QUALITY
+
+```
+```
+
+DATA\_VALID(p, m) =
+(coverage ≥ MIN\_coverage)
+AND (uncertainty ≤ MAX\_uncertainty)
 
 ```
 
 ---
 
-## Logica
+## Ambito di applicazione
+
+Le regole di qualità dei dati si applicano a:
+
+- misurazioni in siti fissi
+- misurazioni indicative
+- dati utilizzati per la valutazione e la validazione modellistica
+
+Le regole **non si applicano** a:
+
+- AOT40
+- AEI / esposizione media
+- soglie di allarme e di informazione
+- livelli critici per la vegetazione e gli ecosistemi
+
+---
+
+## Regole di validità dei dati
+
+### Regola generale
 
 ```
 
-DATA_VALID =
-(coverage ≥ MIN_coverage)
-AND (uncertainty ≤ MAX_uncertainty)
+if DATA\_VALID(p, m) = false:
+data excluded from assessment
 
 ```
 
 ---
 
-## Regole operative
+### Distinzione per tipologia di misura
 
-### Uso dei dati
+- **misure fisse**  
+  → requisiti più stringenti di copertura e incertezza
+
+- **misure indicative**  
+  → requisiti meno stringenti, come definiti in `T_DATA_QUALITY`
+
+Il tipo di misura è definito nel contesto del modulo che utilizza i dati.
+
+---
+
+## Lungo termine vs breve termine
+
+Le verifiche di qualità dei dati sono effettuate separatamente per:
+
+- concentrazioni a lungo termine (medie annue)
+- concentrazioni a breve termine (orari, 8 ore, 24 ore)
+
+La metrica applicabile è quella definita
+dalla normativa per ciascun inquinante.
+
+---
+
+## Regole temporali (transizione normativa)
+
+- Prima del 2030 si applicano le percentuali massime di incertezza
+  previste per il periodo transitorio.
+- A partire dal 2030, l’incertezza dei dati non supera
+  il valore assoluto o relativo, se superiore,
+  definito in `T_DATA_QUALITY`.
+
+---
+
+## Copertura dei dati
+
+La copertura minima dei dati:
+
+- è valutata sull’intero anno civile
+- deve essere garantita anche su sotto‑periodi rilevanti
+  (trimestre, mese, settimana, giorno),
+  secondo quanto previsto dalla normativa
+
+---
+
+## Campionamento non continuo
+
+Per inquinanti con copertura minima inferiore all’80 %:
+
+- è ammesso il campionamento non continuo o casuale
+- a condizione che l’incertezza complessiva
+  soddisfi gli obiettivi di qualità dei dati
+
+---
+
+## Interazioni con altri moduli
+
+- `M_LIMITS`  
+  → utilizza solo dati validi per la conformità
+
+- `M_REPR`  
+  → utilizza solo dati validi per la rappresentatività
+
+- `M_MODEL_QA`  
+  → utilizza solo dati validi per la validazione dei modelli
+
+---
+
+## Output
 
 ```
 
-if NOT DATA_VALID:
-i dati devono essere esclusi
+data\_quality\_status:
+pollutant
+metric
+data\_type = fixed | indicative | model\_input
+coverage
+uncertainty
+valid (boolean)
 
 ```
 
 ---
 
-### Applicazione
+## Note
 
-- calcolo medie
-- conteggio superamenti
-- validazione modelli
-
----
-
-### Misure indicative
-
-```
-
-misure indicative:
-incertezza maggiore consentita
-
-```
-
----
-
-### Integrazione con la modellistica
-
-```
-
-solo osservazioni valide usate
-per la validazione del modello
-
-```
-
----
-
-## Moduli e tabelle correlati
-
-La qualità dei dati condiziona tutte le valutazioni successive.
-
-- [M_MODEL_QA](model_qa.md): la validazione modellistica richiede dati di qualità adeguata.
-- [M_LIMITS](limits.md): solo dati validi possono essere usati per la conformità.
-- [Obiettivi di qualità dei dati](../tables/t_data_quality.md): specificano copertura e incertezza massime.
+- La valutazione della qualità dei dati
+  non impedisce la segnalazione di una non conformità
+  se i dati disponibili sono sufficienti
+  per una valutazione conclusiva, anche in presenza
+  di copertura incompleta, come previsto dall’Allegato V.
