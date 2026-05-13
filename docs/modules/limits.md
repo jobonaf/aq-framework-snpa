@@ -1,30 +1,29 @@
-# M_LIMITS — Conformità ai valori limite
+# M_LIMITS — Verifica di conformità
 
 ## Riferimenti normativi
 
-- Allegato I Direttiva (UE) 2024/2881 (valori limite)
+- Direttiva (UE) 2024/2881, Allegato I (standard di qualità dell’aria)
 - Art. 8 (valutazione)
 - Art. 16 (fonti naturali)
-- Art. 17 (superamenti e piani)
+- Art. 17 (superamenti)
 - Art. 18 (proroghe temporali)
-- Allegato V (qualità dati e incertezza)
+- Allegato V (qualità dei dati)
 
 ---
 
 ## Descrizione
 
-Il modulo definisce la verifica della conformità ai:
+Il modulo verifica la **conformità** della qualità dell’aria
+ai valori normativi definiti nell’Allegato I della Direttiva.
 
-- valori limite (LV)
-- valori obiettivo (TV)
+La verifica di conformità è effettuata:
 
-La conformità è valutata considerando:
+- per inquinante
+- per metrica normativa
+- su base zonale
 
-- dimensione temporale (media, massimo, percentili)
-- dimensione spaziale (integrazione misure + modellistica)
-- qualità e validità dei dati
-
-Il modulo rappresenta l’output finale del sistema.
+Il modulo **non definisce** piani di qualità dell’aria,
+né pianifica misure correttive.
 
 ---
 
@@ -32,69 +31,29 @@ Il modulo rappresenta l’output finale del sistema.
 
 ```
 
-C_metric(x, t) = concentrazione per metrica specifica
-(annuale, giornaliera, oraria, 8h)
-
-LV(pollutant, metric, year) =
-valore normativo ([vedi tabella limits](../tables/t_limit_values.md))
-
-N_exceed =
-numero di superamenti
-
-MAX_exceed =
-massimo numero consentito
+C(p, x, t) = concentrazione dell’inquinante p
+nella localizzazione x
+al tempo t
 
 ```
-
----
-
-## Logica
-
-### Selezione del valore applicabile
-
 ```
 
-APPLICABLE_LV =
-LV_transitional if year < 2030
-else LV_2030
+METRIC(p) = metrica normativa applicabile
+per l’inquinante p
+(definita in T\_LIMIT\_VALUES)
 
 ```
-
----
-
-### Conformità alla media
-
 ```
 
-COMPLIANT_MEAN =
-C_metric ≤ APPLICABLE_LV
+LV(p) = valore normativo per l’inquinante p
+e la metrica METRIC(p),
+definito in T\_LIMIT\_VALUES
 
 ```
-
-(Per metriche annuali)
-
----
-
-### Conformità al conteggio dei superamenti
-
 ```
 
-COMPLIANT_EXCEEDANCE =
-N_exceed ≤ MAX_exceed
-
-```
-
-(Per metriche giornaliere/orarie/8h)
-
----
-
-### Conformità complessiva
-
-```
-
-COMPLIANT =
-COMPLIANT_MEAN
-AND COMPLIANT_EXCEEDANCE
+EXCEEDANCE(p, t) =
+C(p, x, t) > LV(p)
 
 ```
 
@@ -102,196 +61,125 @@ AND COMPLIANT_EXCEEDANCE
 
 ## Determinazione della concentrazione
 
-### Regola generale
+### Regola di integrazione spaziale
 
 ```
 
-C(x) =
-measurement if x ∈ AREA_REPR
-else model if VALID_MODEL
+if x ∈ AREA\_REPR:
+C(p, x, t) = measurement
+else if VALID\_MODEL:
+C(p, x, t) = model
+else:
+concentration undefined
+
+```
+
+La rappresentatività spaziale è definita in `M_REPR`.
+
+---
+
+## Regole di conformità
+
+### Conformità per metriche senza conteggio
+
+Per metriche valutate come media (es. media annua):
+
+```
+
+COMPLIANT\_MEAN(p) =
+mean(C(p)) ≤ LV(p)
 
 ```
 
 ---
 
-### Requisiti
+### Conformità per metriche con conteggio
 
-- dati validi ([vedi M_DATA_QUALITY](../data_quality.md))
-- uso modello solo se VALID_MODEL (M_MODEL_QA)
-
----
-
-## Regole operative
-
----
-
-### Uso delle misure
+Per metriche che prevedono un numero massimo di superamenti:
 
 ```
 
-if x ∈ AREA_REPR:
-use measurement
+COMPLIANT\_EXCEEDANCE(p) =
+COUNT{ EXCEEDANCE(p, t) } ≤ MAX\_EXCEED(p)
 
 ```
+
+Il valore `MAX_EXCEED(p)` è definito in `T_LIMIT_VALUES`.
 
 ---
 
-### Uso del modello
+### Conformità complessiva
 
 ```
 
-if x ∉ AREA_REPR AND VALID_MODEL:
-use model
+COMPLIANT(p) =
+COMPLIANT\_MEAN(p)
+AND COMPLIANT\_EXCEEDANCE(p)
 
 ```
 
 ---
 
-### Superamenti modellistici
+## Trattamento dei dati
+
+```
+
+use only data where DATA\_VALID = true
+
+```
+
+La validità dei dati è definita in `M_DATA_QUALITY`.
 
 ---
 
-#### Caso 1 — coerenza misura + modello
+## Fonti naturali (Art. 16)
+
+Se un superamento è attribuito a fonti naturali documentate:
 
 ```
 
-if model_exceedance
-AND measurement_exceedance:
-→ valid exceedance
+EXCLUDED\_FROM\_COMPLIANCE = true
 
 ```
 
----
+L’attribuzione deve essere:
 
-#### Caso 2 — conflitto misura–modello
-
-```
-
-if measurement_exceedance
-AND model_no_exceedance:
-→ model NOT usable
-
-```
-
----
-
-#### Caso 3 — superamento modellistico interno ad AREA_REPR
-
-```
-
-if model_exceedance
-AND x ∈ AREA_REPR
-AND measurement_no_exceedance:
-→ NOT valid exceedance
-
-```
-
----
-
-#### Caso 4 — superamento modellistico fuori dalla rete
-
-```
-
-if model_exceedance outside all AREA_REPR:
-→ valid exceedance
-→ new station required (M_NETWORK)
-
-```
-
----
-
-## Conteggio dei superamenti
-
-Applicabile a:
-
-- valori giornalieri
-- valori orari
-- medie mobili (8h)
-
-```
-
-N_exceed =
-count(periods where C_metric > LV)
-
-```
-
----
-
-## Qualità dei dati
-
-```
-
-use only data where:
-DATA_VALID = True
-
-```
-```
-
-if data invalid:
-exclude from calculation
-
-```
-
----
-
-## Contributi naturali (Art. 16)
-
-```
-
-if exceedance attributable to natural sources:
-EXCLUDED_FROM_COMPLIANCE = True
-
-```
-
-Condizioni:
-
-- identificazione del contributo
-- quantificazione
-- documentazione
-- accettazione della Commissione
+- identificata
+- quantificata
+- documentata
+- accettata dalla Commissione
 
 ---
 
 ## Eventi eccezionali
 
-Esempio:
-
-- sabbiatura stradale (PM10)
-
-```
-
-if event qualifies:
-may be excluded from exceedance count
-
-```
+Eventi eccezionali possono essere esclusi dal conteggio dei superamenti
+se previsti dalla normativa e adeguatamente documentati.
 
 ---
 
-## Deroghe (Art. 18)
+## Deroghe temporali (Art. 18)
+
+Se è concessa una proroga temporale:
 
 ```
 
-if extension granted:
-TEMPORARY_NON_COMPLIANCE_ALLOWED
+TEMPORARY\_NON\_COMPLIANCE\_ALLOWED = true
 
 ```
 
-Condizioni:
-
-- piano approvato
-- dimostrazione tecnica
-- rispetto scadenze
+Il modulo **registra** la deroga,
+ma **non valuta** la validità del piano associato.
 
 ---
 
-## Moduli e tabelle correlati
+## Interazioni con altri moduli
 
-La verifica di conformità integra tutti i risultati precedenti.
-
-- [M_REPR](repr.md): determina la validità spaziale delle misure.
-- [M_MOD](modelling.md): individua superamenti al di fuori della rete.
-- [M_MODEL_QA](model_qa.md): condiziona l’uso dei risultati modellistici.
-- [Valori limite](../tables/t_limit_values.md): definiscono i criteri di conformità normativa.
+- M_REPR — definisce dove una misura è valida
+- M_MOD — fornisce il campo di concentrazione
+- M_MODEL_QA — abilita l’uso del modello
+- M_DATA_QUALITY — valida i dati
+- M_NETWORK — può essere attivato in caso di lacune di copertura
 
 ---
 
@@ -299,20 +187,21 @@ La verifica di conformità integra tutti i risultati precedenti.
 
 ```
 
-compliance:
-zone_id
+compliance\_result:
+zone\_id
 pollutant
 metric
 compliant (boolean)
 
-    mean_value
-    exceedance_count
-    exceedance_allowed
+statistics:
+mean\_value
+exceedance\_count
+allowed\_exceedances
 
-    adjusted:
-        natural (bool)
-        exceptional (bool)
-        derogation (bool)
+adjustments:
+natural\_sources (bool)
+exceptional\_events (bool)
+derogation (bool)
 
 ```
 
@@ -320,6 +209,6 @@ compliant (boolean)
 
 ## Note
 
-- La modellistica non può ridurre artificialmente i superamenti
-- La conformità è determinata su base zonale
-- Le decisioni sono soggette a validazione Commissione
+- Il modulo non riduce artificialmente i superamenti tramite modellistica.
+- La conformità è determinata su base zonale.
+- La verifica finale è soggetta a validazione da parte della Commissione.
