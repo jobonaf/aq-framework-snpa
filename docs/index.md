@@ -12,7 +12,7 @@ Questo progetto definisce una **specifica formale e computazionale** per l’imp
 Il framework traduce i requisiti normativi in:
 
 - moduli logici (M_*)
-- tabelle normative
+- tabelle normative (T_*)
 - relazioni tra componenti
 
 ---
@@ -36,21 +36,11 @@ Il sistema è organizzato in:
 
 ---
 
-## Logical Pipeline
-
-```
-
-ZONE → ASSESS → NETWORK → MODEL → MODEL_QA → REPR → LIMITS → EXPOSURE
-
-```
-
----
-
 ## Navigazione
 
 ### Moduli
-- Zoning
-- Assessment
+- Zonizzazione
+- Valutazione
 - Rete di monitoraggio
 - Modellistica
 - Garanzia della qualità del modello

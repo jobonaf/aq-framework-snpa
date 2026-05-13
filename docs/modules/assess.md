@@ -33,6 +33,26 @@ TH = soglia di valutazione (tables/t_assess_thresholds.md)
 
 ---
 
+#### REQ-ASSESS-THRESHOLD_CLASSIFICATION
+
+- Fonte: Art. 8 Dir. 2024/2881 [+ Allegato II]
+- Stato: DRAFT
+- Tipo: obbligatorio
+- Dipendenze: tables/t_assess_thresholds.md
+
+**Regola**
+La zona è classificata come sopra soglia quando, per un inquinante e una metrica,
+il numero di anni nei quali la concentrazione supera la soglia è almeno 3 nei 5 anni precedenti.
+
+**Criterio di accettazione**
+Dato un inquinante, una zona e i valori di concentrazione annuali/periodiche,
+il sistema restituisce ABOVE_THRESHOLD=true se COUNT{ y ∈ ultimi_5_anni | C_y > TH } ≥ 3.
+
+**Pseudocode**
+ABOVE_THRESHOLD = COUNT{ y ∈ ultimi_5_anni where C_y > TH } ≥ 3
+
+---
+
 ## Logica
 
 ### Classificazione della zona

@@ -13,39 +13,29 @@ inquinante e metrica (a differenza della Dir. 2008/50, che prevedeva una soglia
 superiore e una inferiore). Una zona si classifica **sopra soglia** se la
 concentrazione ha superato la soglia in almeno 3 dei 5 anni precedenti.
 
-| Inquinante | `aq/pollutant/` | Metrica (`reportingMetric`) | Soglia [µg/m³] | % del VL 2030 |
-|---|---|---|---|---|
-| PM2.5 | /8 | `P1Y` — media annuale | 10 | 100% |
-| PM2.5 | /8 | `P1D` — media giornaliera | 15 | 60% |
-| PM10 | /38 | `P1Y` — media annuale | 15 | 75% |
-| PM10 | /38 | `P1D` — media giornaliera | 30 | 67% |
-| NO2 | /8 | `P1Y` — media annuale | 10 | 50% |
-| NO2 | /8 | `P1D` — media giornaliera | 25 | 50% |
-| NO2 | /8 | `P1H` — media oraria | 100 | 50% |
-| SO2 | /1 | `P1D` — media giornaliera | 25 | 63% |
-| SO2 | /1 | `P1H` — media oraria | 150 | 43% |
-| O3 | /7 | `P8H` — massima media mobile 8h | 100 | 83% |
-| BaP | /5029 | `P1Y` — media annuale [ng/m³] | 0,5 | 50% |
-| C6H6 (benzene) | /20 | `P1Y` — media annuale | 2 | 59% |
-| CO | /10 | `P8H` — massima media mobile 8h [µg/m³] | 5.000 | 50% |
-| As | /2 | `P1Y` — media annuale [ng/m³] | 3,6 | 60% |
-| Cd | /3 | `P1Y` — media annuale [ng/m³] | 3 | 60% |
-| Ni | /30 | `P1Y` — media annuale [ng/m³] | 12 | 60% |
-| Pb | /33 | `P1Y` — media annuale | 0,25 | 50% |
+| Inquinante | Metrica (`reportingMetric`) | Soglia [µg/m³] | % del VL 2030 |
+|---|---|---|---|
+| PM2.5 | `P1Y` — media annuale | 10 | 100% |
+| PM2.5 | `P1D` — media giornaliera | 15 | 60% |
+| PM10 | `P1Y` — media annuale | 15 | 75% |
+| PM10 | `P1D` — media giornaliera | 30 | 67% |
+| NO2 | `P1Y` — media annuale | 10 | 50% |
+| NO2 | `P1D` — media giornaliera | 25 | 50% |
+| NO2 | `P1H` — media oraria | 100 | 50% |
+| SO2 | `P1D` — media giornaliera | 25 | 63% |
+| SO2 | `P1H` — media oraria | 150 | 43% |
+| O3 | `P8H` — massima media mobile 8h | 100 | 83% |
+| BaP | `P1Y` — media annuale [ng/m³] | 0,5 | 50% |
+| C6H6 (benzene) | `P1Y` — media annuale | 2 | 59% |
+| CO | `P8H` — massima media mobile 8h [µg/m³] | 5.000 | 50% |
+| As | `P1Y` — media annuale [ng/m³] | 3,6 | 60% |
+| Cd | `P1Y` — media annuale [ng/m³] | 3 | 60% |
+| Ni | `P1Y` — media annuale [ng/m³] | 12 | 60% |
+| Pb | `P1Y` — media annuale | 0,25 | 50% |
 
 ---
 
-## Regola di classificazione
-
-```
-ABOVE_THRESHOLD(pollutant, zone) =
-  COUNT { y ∈ previous_5_years :
-    C(pollutant, zone, y) > ASSESS_THRESHOLD(pollutant) } >= 3
-```
-
-La verifica si applica separatamente per ciascuna metrica (annuale, giornaliera,
-oraria) di ciascun inquinante. È sufficiente che **una** delle metriche sia sopra
-soglia per classificare la zona come sopra soglia per quell'inquinante.
+La classificazione delle zone è definita nel modulo [M_ASSESS](../modules/assess.md) tramite il requisito `REQ-ASSESS-THRESHOLD_CLASSIFICATION`.
 
 ---
 
@@ -67,7 +57,5 @@ soglia per classificare la zona come sopra soglia per quell'inquinante.
 - Per gli inquinanti con più metriche (NO2, SO2, PM), la classificazione sopra/sotto
   soglia si valuta per ciascuna metrica indipendentemente; il regime di valutazione
   più restrittivo prevale.
-- La corrispondenza `aq/pollutant/` segue il vocabolario EIONET:
-  `http://dd.eionet.europa.eu/vocabulary/aq/pollutant/`
 - Per As, Cd, Ni, Pb, BaP la soglia si confronta con il valore obiettivo (TV),
   non con il valore limite (LV), in quanto sono regolati come `aq/objectivetype/TV`.

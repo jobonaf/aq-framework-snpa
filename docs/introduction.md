@@ -4,6 +4,8 @@
 
 Questo documento definisce una **specifica tecnica formale** per la Direttiva (UE) 2024/2881 sulla qualità dell’aria ambiente.
 
+Il repository è disponibile su GitHub: https://github.com/jobonaf/aq-framework-snpa
+
 L’obiettivo è tradurre i requisiti normativi in una struttura:
 
 - esplicita
