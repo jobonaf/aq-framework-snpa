@@ -6,25 +6,26 @@
 - Art. 8 Direttiva (UE) 2024/2881
 - Art. 9 Direttiva (UE) 2024/2881
 - Atti di esecuzione (bozza 2026 — metodologia di rappresentatività spaziale)
-- Allegato IV (riferimenti impliciti)
+- Allegato IV (criteri di localizzazione)
 
 ---
 
 ## Descrizione
 
-Il modulo definisce la **rappresentatività spaziale** dei punti di campionamento,
-ossia l’area geografica in cui le concentrazioni osservate o modellate in un punto
-sono rappresentative entro una tolleranza definita.
+Il modulo definisce la **rappresentatività spaziale**
+dei punti di campionamento, ossia l’area geografica
+in cui le concentrazioni osservate o modellate in un punto
+sono rappresentative entro una tolleranza normativa.
 
-La rappresentatività spaziale è utilizzata per:
+Il modulo:
 
-- collegare misure puntuali e territorio
-- interpretare correttamente i risultati delle misure
-- supportare la progettazione e la verifica della rete di monitoraggio
-- integrare misure e modellistica
+- collega misure puntuali e territorio
+- supporta la progettazione della rete
+- integra misure e modellistica
 
-Il modulo **non** verifica la conformità ai valori limite
-e **non** valuta l’adeguatezza complessiva della rete.
+Il modulo **non**:
+- verifica la conformità ai valori limite
+- valuta l’adeguatezza complessiva della rete
 
 ---
 
@@ -32,195 +33,154 @@ e **non** valuta l’adeguatezza complessiva della rete.
 
 ```
 
-C\_sp = valore centrale di concentrazione
+C\_sp =
+valore centrale di concentrazione
 nel punto di campionamento sp,
 calcolato secondo la metrica normativa applicabile
 
 ```
 ```
 
-T\_min(p) = tolleranza minima per l’inquinante p,
+T\_min(p) =
+tolleranza minima per l’inquinante p,
 definita in T\_REPR\_TOLERANCE
 
 ```
 ```
 
-Δ(sp, p) = max(0.15 × C\_sp, T\_min(p))
+Δ(sp, p) =
+max(0.15 × C\_sp, T\_min(p))
 
 ```
 ```
 
-interval(sp, p) = \[C\_sp − Δ, C\_sp + Δ]
-
-```
-```
-
-C(x, p) = concentrazione dell’inquinante p
-nella localizzazione x,
-misurata o modellata
-
-```
-
----
-
-## Logica di base
-
-Una localizzazione appartiene all’area di rappresentatività
-di un punto di campionamento se la concentrazione rientra
-nell’intervallo di tolleranza definito.
-
-```
-
-REPRESENTED(x, sp, p) =
-C(x, p) ∈ interval(sp, p)
+interval(sp, p) =
+\[C\_sp − Δ, C\_sp + Δ]
 
 ```
 ```
 
 AREA\_REPR(sp, p) =
-{ x ∈ zone | REPRESENTED(x, sp, p) }
+{ x ∈ zone | C(x, p) ∈ interval(sp, p) }
 
 ```
 
 ---
 
-## Procedura operativa
+## Requisiti normativi
 
-### 1. Determinazione del valore centrale
+### REQ-REPR-AREA_DEFINITION
 
-```
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 4(26) Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | T_REPR_TOLERANCE |
 
-C\_sp = valore centrale misurato nel punto sp
+**Regola**  
+L’area di rappresentatività di un punto di campionamento
+è definita come l’insieme delle localizzazioni
+in cui la concentrazione rientra nell’intervallo di tolleranza
+attorno al valore centrale misurato.
 
-```
-
-Il valore centrale e la metrica utilizzata
-sono quelli **definiti dalla normativa applicabile**
-per lo specifico inquinante (es. media annua, media su 8 ore).
-
-Il modulo **non decide** quale metrica utilizzare.
-
----
-
-### 2. Identificazione preliminare dell’area
-
-#### Caso basato su misure
+**Criterio di accettazione**
 
 ```
 
-AREA\_prelim =
-{ x | C\_meas(x, p) ∈ interval(sp, p) }
+AREA\_REPR(sp, p) =
+{ x | C(x, p) ∈ interval(sp, p) }
 
 ```
 
 ---
 
-#### Caso basato su modellistica
+### REQ-REPR-MODEL_USAGE
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8–9 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_MODEL_QA |
+
+**Regola**  
+La modellistica può essere utilizzata
+per la determinazione dell’area di rappresentatività
+solo se il modello è validato.
+
+**Criterio di accettazione**
 
 ```
 
-grid = model(zone)
-
-AREA\_prelim =
-{ cell ∈ grid | C\_model(cell, p) ∈ interval(sp, p) }
-
-```
-
-L’uso della modellistica è consentito **solo se il modello è validato**
-(secondo `M_MODEL_QA`).
-
----
-
-### 3. Affinamento obbligatorio dell’area
-
-L’area preliminare deve essere affinata applicando
-criteri spaziali, tipologici ed emissivi.
-
----
-
-#### Vincolo geografico
-
-```
-
-x ∈ zone
-
-```
-
-- l’area è limitata ai confini della zona
-- possono esistere domini non contigui
-
----
-
-#### Coerenza con il tipo di stazione
-
-Sono escluse localizzazioni non coerenti con la tipologia del punto:
-
-- siti di traffico per stazioni di fondo
-- siti industriali non rappresentativi
-
----
-
-#### Coerenza emissiva
-
-```
-
-escludi x dove emission\_profile(x)
-differisce significativamente da emission\_profile(sp)
+if use\_model = true:
+VALID\_MODEL = true
 
 ```
 
 ---
 
-#### Vincoli locali
+### REQ-REPR-AREA_REFINEMENT
 
-L’area può essere ulteriormente limitata in presenza di:
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato IV Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
-- contesti urbani complessi
-- discontinuità morfologiche
-- vincoli amministrativi specifici
+**Regola**  
+L’area di rappresentatività preliminare
+deve essere affinata applicando criteri:
+
+- geografici
+- tipologici
+- emissivi
+
+**Criterio di accettazione**  
+Sono escluse dall’area le localizzazioni
+non coerenti con il tipo di stazione
+o con il profilo emissivo.
 
 ---
 
-#### Giudizio esperto
+### REQ-REPR-EXPERT_JUDGEMENT
 
-Il giudizio esperto è richiesto nei casi di:
+| Campo | Valore |
+|------|-------|
+| Fonte | Atti di esecuzione (metodologia) |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
+
+**Regola**  
+Il giudizio esperto è obbligatorio nei casi di:
 
 - forte eterogeneità spaziale
 - orografia complessa
 - condizioni di dispersione non uniformi
 
-Il giudizio deve essere documentato.
+**Criterio di accettazione**  
+Il giudizio esperto è documentato
+e associato alla definizione dell’area.
 
 ---
 
-## Mappa di rappresentatività della zona
+### REQ-REPR-OVERLAP_RESOLUTION
 
-Per ciascuna zona e inquinante è definita una mappa di rappresentatività:
+| Campo | Valore |
+|------|-------|
+| Fonte | Atti di esecuzione (metodologia) |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | — |
 
-```
+**Regola**  
+Se una localizzazione appartiene a più aree di rappresentatività,
+l’assegnazione avviene sulla base di criteri qualitativi.
 
-MAP\_REPR(p, z) =
-{ AREA\_REPR(sp, p) per tutti i punti sp }
-
-```
-
-La mappa descrive la **copertura spaziale delle misure**,
-ma **non valuta** l’adeguatezza della rete,
-che è responsabilità di `M_NETWORK`.
-
----
-
-## Gestione delle sovrapposizioni
-
-Se una localizzazione appartiene a più aree di rappresentatività:
-
-```
-
-x ∈ AREA\_REPR(sp1) AND x ∈ AREA\_REPR(sp2)
-
-```
-
-l’assegnazione avviene sulla base di criteri qualitativi:
+**Criterio di accettazione**  
+L’assegnazione considera almeno:
 
 - tipologia del punto
 - coerenza emissiva
@@ -228,62 +188,49 @@ l’assegnazione avviene sulla base di criteri qualitativi:
 
 ---
 
-## Casi critici
+### REQ-REPR-CRITICAL_CASE
 
-### Incoerenza tra campo di concentrazione e aree di rappresentatività
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8–9 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_MODEL_QA, M_NETWORK |
 
-Se una concentrazione modellata risulta:
+**Regola**  
+Se una concentrazione modellata risulta
+non coerente con alcuna area di rappresentatività,
+il caso richiede la revisione del modello o della rete.
 
-- significativamente superiore ai valori osservati
-- non coerente con alcuna AREA_REPR
-
-allora:
+**Criterio di accettazione**
 
 ```
 
-area non assegnabile
+if no AREA\_REPR applicable:
 MODEL\_REVIEW\_REQUIRED = true
 
 ```
 
-Il caso richiede la revisione del modello o della rete,
-ma **non implica automaticamente una non conformità**.
+Il caso **non implica automaticamente**
+una non conformità normativa.
 
 ---
 
 ## Uso nei moduli a valle
 
-### Interazione con M_NETWORK
-
-Se una concentrazione rilevante cade al di fuori
-di tutte le aree di rappresentatività:
-
-```
-
-ADDITIONAL\_STATION\_REQUIRED = true
-
-```
-
-La decisione sull’introduzione di nuove stazioni
-è responsabilità di `M_NETWORK`.
-
----
-
-### Interazione con M_LIMITS
-
-La rappresentatività spaziale determina **dove**
-una misura è valida, ma **non valuta** il superamento
-dei valori limite, che è responsabilità di `M_LIMITS`.
+- `M_NETWORK` utilizza le aree di rappresentatività
+  per valutare la copertura della rete
+- `M_LIMITS` utilizza la rappresentatività
+  per determinare la validità spaziale delle misure
 
 ---
 
 ## Moduli e tabelle correlati
 
-- M_ASSESS — definisce il regime di valutazione
-- M_NETWORK — valuta l’adeguatezza della rete
-- M_MOD — fornisce il campo di concentrazione continuo
-- M_MODEL_QA — valida l’uso della modellistica
-- T_REPR_TOLERANCE — definisce le tolleranze normative
+- `M_ASSESS` — regime di valutazione
+- `M_NETWORK` — adeguatezza della rete
+- `M_MODEL_QA` — validazione della modellistica
+- `T_REPR_TOLERANCE` — tolleranze normative
 
 ---
 
@@ -305,7 +252,7 @@ method = measurement | modelling | hybrid
 
 ## Frequenza di aggiornamento
 
-La rappresentatività spaziale deve essere aggiornata:
+La rappresentatività spaziale è aggiornata:
 
 - almeno ogni 5 anni
 - in caso di modifica della rete
