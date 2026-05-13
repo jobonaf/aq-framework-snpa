@@ -3,23 +3,27 @@
 ## Riferimenti normativi
 
 - Art. 8 Direttiva (UE) 2024/2881
-- Allegato IV (uso combinato metodi)
-- Allegato V (incertezze e qualità)
+- Allegato IV (uso combinato dei metodi)
+- Allegato V (incertezza e qualità)
 - Atti di esecuzione (bozza 2026 — requisiti modellistici)
 
 ---
 
 ## Descrizione
 
-Il modulo disciplina l’uso delle applicazioni modellistiche per:
+Il modulo disciplina l’**uso regolatorio della modellistica**
+nel sistema di valutazione della qualità dell’aria.
 
-- valutazione della qualità dell’aria
-- supporto alla distribuzione spaziale delle concentrazioni
-- identificazione di hotspot
-- determinazione di aree di superamento
-- supporto alla rappresentatività spaziale (M_REPR)
+La modellistica è utilizzata per:
 
-La modellistica integra le misure ed è parte essenziale del framework.
+- supportare la distribuzione spaziale delle concentrazioni
+- identificare hotspot
+- delimitare aree di superamento
+- integrare le misure puntuali
+- supportare la rappresentatività spaziale (`M_REPR`)
+
+Il modulo **non** valida i modelli
+(vedi `M_MODEL_QA`).
 
 ---
 
@@ -27,38 +31,184 @@ La modellistica integra le misure ed è parte essenziale del framework.
 
 ```
 
-model = applicazione modellistica
+C\_model(x, t) =
+concentrazione modellata
+nella localizzazione x al tempo t
 
-C_model(x, t) = concentrazione modellata nella localizzazione x
+```
+```
 
-C_meas(sp, t) = concentrazione misurata nel punto di campionamento
+C\_meas(sp, t) =
+concentrazione misurata
+nel punto di campionamento sp
 
-AREA_REPR(sp) = area di rappresentatività ([vedi M_REPR](../repr.md))
+```
+```
+
+AREA\_REPR(sp) =
+area di rappresentatività
+definita in M\_REPR
+
+```
+```
+
+MODEL\_USABLE =
+modello validato
+secondo M\_MODEL\_QA
 
 ```
 
 ---
 
-## Logica
+## Requisiti normativi
 
-### Uso combinato misura + modello
+### REQ-MOD-MODEL_VALIDATION_REQUIRED
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881; Allegato V |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_MODEL_QA |
+
+**Regola**  
+I risultati di un modello possono essere utilizzati
+solo se il modello è validato.
+
+**Criterio di accettazione**
 
 ```
 
-C(x) =
-C_meas se x ∈ AREA_REPR(station)
-else C_model(x)
+if use\_model = true:
+MODEL\_USABLE = true
 
 ```
 
 ---
 
-### Dataset per la valutazione
+### REQ-MOD-COMBINED_USE
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato IV Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_REPR |
+
+**Regola**  
+Quando sono disponibili misure valide,
+la modellistica è utilizzata in combinazione con le misure.
+
+**Criterio di accettazione**
 
 ```
 
-ASSESSMENT_DATA =
-merge(measurements, model_output)
+if x ∈ AREA\_REPR:
+C(x) = C\_meas
+else:
+C(x) = C\_model
+
+```
+
+---
+
+### REQ-MOD-USE_ABOVE_THRESHOLD
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_ASSESS |
+
+**Regola**  
+In zone classificate sopra la soglia di valutazione,
+la modellistica può essere utilizzata
+solo in integrazione alle misure.
+
+**Criterio di accettazione**
+
+```
+
+if zone ABOVE\_THRESHOLD:
+model used only with measurements
+
+```
+
+---
+
+### REQ-MOD-USE_BELOW_THRESHOLD
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Art. 8 Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_ASSESS |
+
+**Regola**  
+In zone classificate sotto la soglia di valutazione,
+la modellistica può essere il metodo principale di valutazione.
+
+**Criterio di accettazione**
+
+```
+
+if zone BELOW\_THRESHOLD:
+model may be primary method
+
+```
+
+---
+
+### REQ-MOD-MEASUREMENT_MODEL_CONFLICT
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato IV Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_REPR |
+
+**Regola**  
+In caso di conflitto tra misure e modellistica
+all’interno di un’area di rappresentatività,
+prevalgono le misure.
+
+**Criterio di accettazione**
+
+```
+
+if x ∈ AREA\_REPR
+AND C\_meas indicates exceedance
+AND C\_model does not:
+model not used for assessment
+
+```
+
+---
+
+### REQ-MOD-MODEL_ONLY_USE
+
+| Campo | Valore |
+|------|-------|
+| Fonte | Allegato IV Dir. (UE) 2024/2881 |
+| Stato | STABLE |
+| Tipo | obbligatorio |
+| Dipendenze | M_MODEL_QA |
+
+**Regola**  
+In assenza di copertura di misure valide,
+la modellistica può essere utilizzata come unico metodo
+di valutazione, se validata.
+
+**Criterio di accettazione**
+
+```
+
+if no valid measurements
+AND MODEL\_USABLE = true:
+model may be used exclusively
 
 ```
 
@@ -68,205 +218,19 @@ merge(measurements, model_output)
 
 Il modello deve fornire:
 
-- campo spaziale continuo di concentrazione
-- identificazione hotspot
+- un campo spaziale continuo di concentrazione
+- identificazione di hotspot
 - delimitazione delle aree di superamento
 - supporto alla copertura spaziale della rete
 
 ---
 
-## Condizioni di utilizzo
-
-### Validità del modello
-
-```
-
-MODEL_USABLE = VALID_MODEL
-
-```
-
-→ [vedi M_MODEL_QA](../model_qa.md)
-
----
-
-### Uso sopra la soglia di valutazione
-
-```
-
-if zone ABOVE_THRESHOLD:
-la modellistica può essere utilizzata insieme alle misure
-
-```
-
----
-
-### Uso sotto soglia
-
-```
-
-if zone BELOW_THRESHOLD:
-la modellistica può essere metodo principale
-
-```
-
----
-
-### Uso sopra i valori limite (Implementing Decision)
-
-```
-
-if C_ann > LIMIT_VALUE
-AND implementing_acts in force:
-modellistica diventa obbligatoria (dopo periodo di transizione)
-
-```
-
----
-
-## Requisiti tecnici (Implementing Decision)
-
-Un modello è conforme se soddisfa:
-
-```
-
-MODEL_FIT =
-MATCHES_AVERAGING_PERIODS
-AND HAS_APPROPRIATE_SPATIAL_RESOLUTION
-AND INPUTS_ALIGNED
-AND REPRESENTS_RELEVANT_PROCESSES
-
-```
-
----
-
-### Requisiti sugli input
-
-#### Emissioni
-
-```
-
-emissions must:
-be spatially gridded
-be temporally consistent
-reflect relevant sources
-
-```
-
----
-
-#### Meteorologia
-
-```
-
-dati meteorologici devono:
-essere coerenti con scala spaziale/temporale
-rappresentare la variabilità
-
-```
-
----
-
-#### Concentrazioni di fondo
-
-```
-
-concentrazioni di background devono:
-essere coerenti con il dominio del modello
-
-```
-
----
-
-## Processi fisici rappresentati
-
-Il modello deve catturare:
-
-- dispersione atmosferica
-- condizioni meteorologiche
-- orografia
-- contributi transfrontalieri
-- condizioni climatiche avverse
-
----
-
-## Uso nella valutazione dei superamenti
-
----
-
-### Caso 1 — coerenza misura + modello
-
-```
-
-if model_exceedance AND measurement_exceedance:
-→ use model results
-
-```
-
----
-
-### Caso 2 — superamenti fuori dalla copertura
-
-```
-
-if model_exceedance outside all AREA_REPR:
-→ trigger new station (M_NETWORK)
-
-```
-
----
-
-### Caso 3 — conflitto modello–misura
-
-```
-
-if measurement_exceedance
-AND model_no_exceedance:
-→ model cannot be used for assessment
-
-```
-
----
-
-### Caso 4 — superamento modellistico isolato
-
-```
-
-if model_exceedance
-AND measurement_no_exceedance
-AND x ∈ AREA_REPR:
-→ not valid exceedance
-
-```
-
----
-
-## Uso esclusivo della modellistica
-
-```
-
-if no measurement coverage:
-model may be used
-
-```
-
-Condizione:
-
-```
-
-MODEL_USABLE = True
-
-```
-
----
-
-## Moduli e tabelle correlati
-
-La modellistica è integrata con le misure e soggetta a vincoli di qualità.
-
-- [M_MODEL_QA](model_qa.md): solo modelli validati possono essere utilizzati.
-- [M_REPR](repr.md): i risultati modellistici sono utilizzati per la determinazione della rappresentatività spaziale.
-- [M_LIMITS](limits.md): il modello contribuisce all’identificazione delle aree di superamento.
-- [Obiettivi di qualità dei dati](../tables/t_data_quality.md): definiscono i limiti di incertezza accettabili.
+## Interazioni con altri moduli
+
+- `M_MODEL_QA` — valida i modelli
+- `M_REPR` — definisce la rappresentatività spaziale
+- `M_LIMITS` — utilizza i risultati modellistici per la conformità
+- `M_NETWORK` — utilizza il modello per individuare lacune di copertura
 
 ---
 
@@ -274,9 +238,9 @@ La modellistica è integrata con le misure e soggetta a vincoli di qualità.
 
 ```
 
-model_output:
-concentration_field
-exceedance_areas
+model\_output:
+concentration\_field
+exceedance\_areas
 hotspots
 
 ```
@@ -285,6 +249,7 @@ hotspots
 
 ## Note
 
-- Il modello non sostituisce le misure nelle aree rappresentate
-- L’uso del modello è vincolato alla validazione
-- Le regole sono rafforzate dagli atti di esecuzione
+- La modellistica non sostituisce le misure
+  nelle aree rappresentate.
+- L’uso del modello è sempre subordinato
+  alla validazione normativa.
