@@ -5,6 +5,15 @@ del framework (non al software eseguibile).
 
 ---
 
+## [Non rilasciato]
+_Data: 2026-05-14_
+
+### 🔵 Added
+
+- Creato glossario YAML (`glossary/glossary.yaml`) per supportare la traduzione automatica e garantire coerenza terminologica tra moduli e tabelle.
+
+---
+
 ## [v0.2] — Specifica tecnica formale del core normativo
 _Data: 2026-05-13_
 

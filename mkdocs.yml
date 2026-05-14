@@ -1,5 +1,5 @@
 site_name: AQ Framework SNPA
-site_description: Framework formale di conformità alla Direttiva (UE) 2024/2881
+site_description: Formal technical specification of the core of Directive (EU) 2024/2881
 site_author: Giovanni Bonafè
 use_directory_urls: true
 
@@ -9,6 +9,49 @@ theme:
 plugins:
   - search
   - mermaid2
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: it
+          default: true
+          name: Italiano
+        - locale: en
+          name: English
+          
+nav_translations:
+  en:
+    Home: Home
+    Introduzione: Introduction
+    Architettura: Architecture
+    Moduli: Modules
+    Tabelle: Tables
+    Soglie: Thresholds
+    Monitoraggio: Monitoring
+    Altro: Other
+    Stato del progetto: Project status
+    Contribuire: Contributing
+
+    "M_ZONE — Suddivisione territoriale": "M_ZONE — Territorial zoning"
+    "M_ASSESS — Regime di valutazione": "M_ASSESS — Assessment regime"
+    "M_NETWORK — Rete di monitoraggio": "M_NETWORK — Monitoring network"
+    "M_MOD — Applicazioni modellistiche": "M_MOD — Modelling applications"
+    "M_MODEL_QA — Garanzia qualità modelli": "M_MODEL_QA — Model quality assurance"
+    "M_REPR — Rappresentatività spaziale": "M_REPR — Spatial representativeness"
+    "M_LIMITS — Conformità ai valori limite": "M_LIMITS — Compliance with limit values"
+    "M_EXPOSURE — Indicatore di esposizione media": "M_EXPOSURE — Average exposure indicator"
+    "M_DATA_QUALITY — Qualità dei dati": "M_DATA_QUALITY — Data quality"
+
+    "T_ASSESS_THRESHOLDS — Soglie di valutazione": "T_ASSESS_THRESHOLDS — Assessment thresholds"
+    "T_ALERT_THRESHOLDS — Soglie di allarme": "T_ALERT_THRESHOLDS — Alert thresholds"
+    "T_LIMIT_VALUES — Valori limite": "T_LIMIT_VALUES — Limit values"
+    "T_MIN_STATIONS — Numero minimo stazioni": "T_MIN_STATIONS — Minimum number of stations"
+    "T_SITING — Criteri di posizionamento": "T_SITING — Siting criteria"
+    "T_SUPERSITES — Supersiti di monitoraggio": "T_SUPERSITES — Monitoring supersites"
+    "T_DATA_QUALITY — Qualità dei dati": "T_DATA_QUALITY — Data quality"
+    "T_REPR_TOLERANCE — Tolleranze di rappresentatività": "T_REPR_TOLERANCE — Representativeness tolerance"
+    "T_EXPOSURE_OBLIGATIONS — Riduzione esposizione media": "T_EXPOSURE_OBLIGATIONS — Average exposure reduction obligations"
+    "T_NATURAL_EVENTS — Eventi naturali ed eccezionali": "T_NATURAL_EVENTS — Natural source contributions"
+    "T_EIONET — Vocabolari EIONET": "T_EIONET — EIONET vocabularies"
 
 nav:
   - Home: index.md
@@ -33,18 +76,29 @@ nav:
           - T_ASSESS_THRESHOLDS — Soglie di valutazione: tables/t_assess_thresholds.md
           - T_ALERT_THRESHOLDS — Soglie di allarme: tables/t_alert_thresholds.md
           - T_LIMIT_VALUES — Valori limite: tables/t_limit_values.md
+
       - Monitoraggio:
           - T_MIN_STATIONS — Numero minimo stazioni: tables/t_min_stations.md
           - T_SITING — Criteri di posizionamento: tables/t_siting.md
           - T_ADVANCED_MONITORING — Monitoraggio avanzato: tables/t_advanced_monitoring.md
-          - T_SUPERSITES — Parametri supersiti: tables/t_supersites.md
+          - T_SUPERSITES — Supersiti di monitoraggio: tables/t_supersites.md
+
       - Altro:
           - T_DATA_QUALITY — Qualità dei dati: tables/t_data_quality.md
           - T_REPR_TOLERANCE — Tolleranze di rappresentatività: tables/t_repr_tolerance.md
-          - T_EXPOSURE_OBLIGATIONS — Riduzione esposizione: tables/t_exposure_obligations.md
-          - T_NATURAL_EVENTS — Eventi naturali: tables/t_natural_events.md
+          - T_EXPOSURE_OBLIGATIONS — Riduzione esposizione media: tables/t_exposure_obligations.md
+          - T_NATURAL_EVENTS — Eventi naturali ed eccezionali: tables/t_natural_events.md
           - T_EIONET — Vocabolari EIONET: tables/t_eionet.md
 
   - Stato del progetto:
       - TODO: TODO.md
       - Contribuire: contributing.md
+
+extra:
+  alternate:
+    - name: Italiano
+      link: /it/
+      lang: it
+    - name: English
+      link: /en/
+      lang: en
