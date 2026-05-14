@@ -11,6 +11,7 @@ plugins:
   - mermaid2
   - i18n:
       docs_structure: folder
+      default_language_only: false
       languages:
         - locale: it
           default: true
