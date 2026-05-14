@@ -12,7 +12,7 @@ nav:
   - introduction.md
   - architecture.md
 
-  - Moduli:
+  - MODULES:
       - modules/zone.md
       - modules/assess.md
       - modules/network.md
@@ -23,24 +23,19 @@ nav:
       - modules/exposure.md
       - modules/data_quality.md
 
-  - Tabelle:
-      - Soglie:
-          - tables/t_assess_thresholds.md
-          - tables/t_alert_thresholds.md
-          - tables/t_limit_values.md
-
-      - Monitoraggio:
-          - tables/t_min_stations.md
-          - tables/t_siting.md
-          - tables/t_advanced_monitoring.md
-          - tables/t_supersites.md
-
-      - Altro:
-          - tables/t_data_quality.md
-          - tables/t_repr_tolerance.md
-          - tables/t_exposure_obligations.md
-          - tables/t_natural_events.md
-          - tables/t_eionet.md
+  - TABLES:
+      - tables/t_assess_thresholds.md
+      - tables/t_alert_thresholds.md
+      - tables/t_limit_values.md
+      - tables/t_min_stations.md
+      - tables/t_siting.md
+      - tables/t_advanced_monitoring.md
+      - tables/t_supersites.md
+      - tables/t_data_quality.md
+      - tables/t_repr_tolerance.md
+      - tables/t_exposure_obligations.md
+      - tables/t_natural_events.md
+      - tables/t_eionet.md
 
   - TODO.md
   - contributing.md
@@ -58,15 +53,7 @@ plugins:
           name: Italiano
         - locale: en
           name: English
-      nav_translations:
-        en:
-          Home: Home
-          Moduli: Modules
-          Tabelle: Tables
-          Soglie: Thresholds
-          Monitoraggio: Monitoring
-          Altro: Other
-
+          
 extra:
   alternate:
     - name: Italiano
