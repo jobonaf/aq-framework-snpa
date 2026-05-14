@@ -7,44 +7,6 @@ theme:
   name: material
   language: it
 
-plugins:
-  - search
-  - mermaid2
-  - i18n:
-      docs_structure: folder
-      default_language_only: false
-      languages:
-        - locale: it
-          default: true
-          build: true
-          name: Italiano
-        - locale: en
-          name: English
-      nav_translations:
-        en:
-          Home: Home
-          Introduzione: Introduction
-          Architettura: Architecture
-          Moduli: Modules
-          Tabelle: Tables
-          Soglie: Thresholds
-          Monitoraggio: Monitoring
-          Altro: Other
-          Stato del progetto: Project status
-          Contribuire: Contributing
-
-          "M_ZONE - Suddivisione territoriale": "M_ZONE - Territorial zoning"
-          "M_ASSESS - Regime di valutazione": "M_ASSESS - Assessment regime"
-          "M_NETWORK - Rete di monitoraggio": "M_NETWORK - Monitoring network"
-          "M_MOD - Applicazioni modellistiche": "M_MOD - Modelling applications"
-          "M_MODEL_QA - Garanzia qualità modelli": "M_MODEL_QA - Model quality assurance"
-          "M_REPR - Rappresentatività spaziale": "M_REPR - Spatial representativeness"
-          "M_LIMITS - Conformità ai valori limite": "M_LIMITS - Compliance with limit values"
-          "M_EXPOSURE - Indicatore di esposizione media": "M_EXPOSURE - Average exposure indicator"
-          "M_DATA_QUALITY - Qualità dei dati": "M_DATA_QUALITY - Data quality"
-
-          "T_EIONET - Vocabolari EIONET": "T_EIONET - EIONET vocabularies"
-
 nav:
   - Home: index.md
 
@@ -85,6 +47,44 @@ nav:
   - Stato del progetto:
       - TODO: TODO.md
       - Contribuire: contributing.md
+
+plugins:
+  - search
+  - mermaid2
+  - i18n:
+      docs_structure: folder
+      default_language_only: false
+      languages:
+        - locale: it
+          default: true
+          build: true
+          name: Italiano
+        - locale: en
+          name: English
+      nav_translations:
+        en:
+          Home: Home
+          Introduzione: Introduction
+          Architettura: Architecture
+          Moduli: Modules
+          Tabelle: Tables
+          Soglie: Thresholds
+          Monitoraggio: Monitoring
+          Altro: Other
+          Stato del progetto: Project status
+          Contribuire: Contributing
+
+          "M_ZONE - Suddivisione territoriale": "M_ZONE - Territorial zoning"
+          "M_ASSESS - Regime di valutazione": "M_ASSESS - Assessment regime"
+          "M_NETWORK - Rete di monitoraggio": "M_NETWORK - Monitoring network"
+          "M_MOD - Applicazioni modellistiche": "M_MOD - Modelling applications"
+          "M_MODEL_QA - Garanzia qualità modelli": "M_MODEL_QA - Model quality assurance"
+          "M_REPR - Rappresentatività spaziale": "M_REPR - Spatial representativeness"
+          "M_LIMITS - Conformità ai valori limite": "M_LIMITS - Compliance with limit values"
+          "M_EXPOSURE - Indicatore di esposizione media": "M_EXPOSURE - Average exposure indicator"
+          "M_DATA_QUALITY - Qualità dei dati": "M_DATA_QUALITY - Data quality"
+
+          "T_EIONET - Vocabolari EIONET": "T_EIONET - EIONET vocabularies"
 
 extra:
   alternate:
