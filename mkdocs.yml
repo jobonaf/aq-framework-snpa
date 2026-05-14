@@ -4,7 +4,8 @@ site_author: Giovanni Bonafè
 use_directory_urls: true
 
 theme:
-  name: readthedocs
+  name: material
+  language: it
 
 plugins:
   - search
@@ -97,8 +98,8 @@ nav:
 extra:
   alternate:
     - name: Italiano
-      link: /it/
+      link: /it/latest/
       lang: it
     - name: English
-      link: /en/
+      link: /it/latest/en/
       lang: en
