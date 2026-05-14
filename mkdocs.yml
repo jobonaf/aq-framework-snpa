@@ -9,44 +9,41 @@ theme:
 
 nav:
   - Home: index.md
-
-  - Introduzione:
-      - Introduzione: introduction.md
-      - Architettura: architecture.md
+  - introduction.md
+  - architecture.md
 
   - Moduli:
-      - M_ZONE - Suddivisione territoriale: modules/zone.md
-      - M_ASSESS - Regime di valutazione: modules/assess.md
-      - M_NETWORK - Rete di monitoraggio: modules/network.md
-      - M_MOD - Applicazioni modellistiche: modules/modelling.md
-      - M_MODEL_QA - Garanzia qualità modelli: modules/model_qa.md
-      - M_REPR - Rappresentatività spaziale: modules/repr.md
-      - M_LIMITS - Conformità ai valori limite: modules/limits.md
-      - M_EXPOSURE - Indicatore di esposizione media: modules/exposure.md
-      - M_DATA_QUALITY - Qualità dei dati: modules/data_quality.md
+      - modules/zone.md
+      - modules/assess.md
+      - modules/network.md
+      - modules/modelling.md
+      - modules/model_qa.md
+      - modules/repr.md
+      - modules/limits.md
+      - modules/exposure.md
+      - modules/data_quality.md
 
   - Tabelle:
       - Soglie:
-          - T_ASSESS_THRESHOLDS - Soglie di valutazione: tables/t_assess_thresholds.md
-          - T_ALERT_THRESHOLDS - Soglie di allarme: tables/t_alert_thresholds.md
-          - T_LIMIT_VALUES - Valori limite: tables/t_limit_values.md
+          - tables/t_assess_thresholds.md
+          - tables/t_alert_thresholds.md
+          - tables/t_limit_values.md
 
       - Monitoraggio:
-          - T_MIN_STATIONS - Numero minimo stazioni: tables/t_min_stations.md
-          - T_SITING - Criteri di posizionamento: tables/t_siting.md
-          - T_ADVANCED_MONITORING - Monitoraggio avanzato: tables/t_advanced_monitoring.md
-          - T_SUPERSITES - Supersiti di monitoraggio: tables/t_supersites.md
+          - tables/t_min_stations.md
+          - tables/t_siting.md
+          - tables/t_advanced_monitoring.md
+          - tables/t_supersites.md
 
       - Altro:
-          - T_DATA_QUALITY - Qualità dei dati: tables/t_data_quality.md
-          - T_REPR_TOLERANCE - Tolleranze di rappresentatività: tables/t_repr_tolerance.md
-          - T_EXPOSURE_OBLIGATIONS - Riduzione esposizione media: tables/t_exposure_obligations.md
-          - T_NATURAL_EVENTS - Eventi naturali ed eccezionali: tables/t_natural_events.md
+          - tables/t_data_quality.md
+          - tables/t_repr_tolerance.md
+          - tables/t_exposure_obligations.md
+          - tables/t_natural_events.md
           - tables/t_eionet.md
 
-  - Stato del progetto:
-      - TODO: TODO.md
-      - Contribuire: contributing.md
+  - TODO.md
+  - contributing.md
 
 plugins:
   - search
@@ -64,27 +61,11 @@ plugins:
       nav_translations:
         en:
           Home: Home
-          Introduzione: Introduction
-          Architettura: Architecture
           Moduli: Modules
           Tabelle: Tables
           Soglie: Thresholds
           Monitoraggio: Monitoring
           Altro: Other
-          Stato del progetto: Project status
-          Contribuire: Contributing
-
-          "M_ZONE - Suddivisione territoriale": "M_ZONE - Territorial zoning"
-          "M_ASSESS - Regime di valutazione": "M_ASSESS - Assessment regime"
-          "M_NETWORK - Rete di monitoraggio": "M_NETWORK - Monitoring network"
-          "M_MOD - Applicazioni modellistiche": "M_MOD - Modelling applications"
-          "M_MODEL_QA - Garanzia qualità modelli": "M_MODEL_QA - Model quality assurance"
-          "M_REPR - Rappresentatività spaziale": "M_REPR - Spatial representativeness"
-          "M_LIMITS - Conformità ai valori limite": "M_LIMITS - Compliance with limit values"
-          "M_EXPOSURE - Indicatore di esposizione media": "M_EXPOSURE - Average exposure indicator"
-          "M_DATA_QUALITY - Qualità dei dati": "M_DATA_QUALITY - Data quality"
-
-          "T_EIONET - Vocabolari EIONET": "T_EIONET - EIONET vocabularies"
 
 extra:
   alternate:
