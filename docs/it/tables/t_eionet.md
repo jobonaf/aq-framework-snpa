@@ -1,4 +1,4 @@
-# T_EOINET - Mappatura vocabolario EIONET
+# T_EIONET - Mappatura vocabolario EIONET
 
   | Concetto | Vocabolario |  
   | -------- | ------------ |  

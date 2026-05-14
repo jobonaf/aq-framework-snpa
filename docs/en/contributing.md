@@ -1,4 +1,5 @@
-⚠️ **Translation in progress**  
-> This page is a working English translation of the Italian version.
->
-> The **Italian version is the authoritative reference** for normative and regulatory purposes.
+# How to contribute
+
+For contributions and issues, go directly to:
+
+[https://github.com/jobonaf/aq-framework-snpa/blob/main/CONTRIBUTING.md](https://github.com/jobonaf/aq-framework-snpa/blob/main/CONTRIBUTING.md)
