@@ -42,7 +42,7 @@ nav:
           - T_REPR_TOLERANCE - Tolleranze di rappresentatività: tables/t_repr_tolerance.md
           - T_EXPOSURE_OBLIGATIONS - Riduzione esposizione media: tables/t_exposure_obligations.md
           - T_NATURAL_EVENTS - Eventi naturali ed eccezionali: tables/t_natural_events.md
-          - T_EIONET: tables/t_eionet.md
+          - tables/t_eionet.md
 
   - Stato del progetto:
       - TODO: TODO.md
