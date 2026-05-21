@@ -5,7 +5,7 @@ use_directory_urls: true
 
 theme:
   name: material
-  language: it
+  language: en
 
 nav:
   - Home: index.md
@@ -48,17 +48,19 @@ plugins:
       default_language_only: false
       languages:
         - locale: it
-          default: true
+          default: false
           build: true
           name: Italiano
         - locale: en
+          default: true
+          build: true
           name: English
           
 extra:
   alternate:
     - name: Italiano
-      link: /it/latest/
+      link: /en/latest/it/
       lang: it
     - name: English
-      link: /it/latest/en/
+      link: /en/latest/
       lang: en
