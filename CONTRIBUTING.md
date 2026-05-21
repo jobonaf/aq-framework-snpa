@@ -1,142 +1,131 @@
 # Contributing
 
-Repository: https://github.com/jobonaf/aq-framework-snpa
+Repository: [https://github.com/jobonaf/aq-framework-snpa](https://github.com/jobonaf/aq-framework-snpa)
 
-Questo documento spiega come contribuire al repository in modo semplice e chiaro.
-È pensato per persone e per sistemi LLM.
+This document explains how to contribute to the repository in a simple and clear way.
+It is intended for both people and LLM systems.
 
----
+## Report a bug or issue
 
-## Segnala un bug o un problema
+If you find an error, confusing content or an incorrect rule, open an issue.
+You do not need to know how to fix the problem: it is enough to describe what you found.
 
-Se trovi un errore, un contenuto confuso o una regola sbagliata, apri un issue.
-Non serve sapere come correggere il problema: basta raccontare cosa hai visto.
+- A clear report is already very useful.
+- Always indicate the file or page concerned.
+- If possible, add an excerpt of the text or a screenshot.
 
-- una segnalazione chiara è già molto utile
-- indica sempre il file o la pagina interessata
-- se possibile, aggiungi un estratto del testo o lo screenshot
+## How to open an issue
 
----
+- Go to: [https://github.com/jobonaf/aq-framework-snpa/issues/new](https://github.com/jobonaf/aq-framework-snpa/issues/new)
+- Write a short and specific title.
+- Explain:
+  - what you saw;
+  - where you found it;
+  - what you expected.
+- If possible, add:
+  - the file path (`docs/...`);
+  - a text excerpt;
+  - a screenshot.
 
-## Come aprire un issue
+### Example
 
-1. Vai a: https://github.com/jobonaf/aq-framework-snpa/issues/new
-2. Scrivi un titolo breve e specifico.
-3. Spiega:
-   - cosa hai visto
-   - dove lo hai trovato
-   - cosa ti aspettavi
-4. Se possibile, aggiungi:
-   - il percorso del file (`docs/...`)
-   - un estratto di testo
-   - uno screenshot
+- Title: Bug in `docs/modules/assess.md`
+- Description: The threshold formula seems wrong; I expected an annual threshold, not a daily one.
 
-### Esempio
+## Repository structure
 
-- Titolo: `Bug in docs/modules/assess.md`
-- Descrizione: `La formula della soglia sembra errata; mi aspettavo una soglia annuale, non giornaliera.`
+The documentation is organised as follows:
 
----
-
-## Struttura del repository
-
-La documentazione è organizzata così:
-
-```
+```text
 docs/
-  modules/        # regole e logica dei moduli
-  tables/         # parametri normativi e soglie
+  modules/          # module rules and logic
+  tables/           # normative parameters and thresholds
   introduction.md
   architecture.md
   TODO.md
-  CONTRIBUTING.md
+CONTRIBUTING.md
 ```
 
-- I **moduli** contengono regole operative.
-- Le **tabelle** contengono solo dati normativi.
-- Non mischiare regole e dati nello stesso file.
+- **Modules** contain operational rules.
+- **Tables** contain only normative data.
+- Do not mix rules and data in the same file.
 
----
+## Basic rules
 
-## Regole di base
+- Descriptive text may be written in **Italian or English**.
+- The repository is bilingual: Italian and English versions of descriptive documentation may coexist.
+- When both language versions exist, keep them aligned in meaning and structure.
+- Module, variable and function names: **English**.
+- Requirement identifiers: **English**.
+- EIONET vocabularies: **unchanged**.
+- Always check whether a similar issue or requirement already exists.
 
-- Testo descrittivo: **italiano**
-- Nomi di moduli, variabili e funzioni: **inglese**
-- Identificatori dei requisiti: **inglese**
-- Vocabolari EIONET: **invariati**
-- Cerca sempre se esiste già un issue o un requisito simile.
+## Requirements (REQ)
 
----
+Each important rule is described with a REQ block.
 
-## Requisiti (REQ)
+Format:
 
-Ogni regola importante viene descritta con un blocco `REQ`.
-
-Formato:
-
-```
-REQ-{MODULO}-{SLOT}
+```text
+REQ-{MODULE}-{SLOT}
 ```
 
-Dove:
+Where:
 
-- `{MODULO}` è il nome del modulo (ASSESS, REPR, NETWORK, …)
-- `{SLOT}` è una parola breve e descrittiva, permanente
+- `{MODULE}` is the module name (`ASSESS`, `REPR`, `NETWORK`, ...);
+- `{SLOT}` is a short, descriptive and permanent word.
 
-Esempi:
+Examples:
 
-- REQ-ASSESS-CLASSIFICATION
-- REQ-ASSESS-THRESHOLD_COUNT
-- REQ-REPR-TOLERANCE_INTERVAL
-- REQ-NETWORK-MIN_STATIONS
+- `REQ-ASSESS-CLASSIFICATION`
+- `REQ-ASSESS-THRESHOLD_COUNT`
+- `REQ-REPR-TOLERANCE_INTERVAL`
+- `REQ-NETWORK-MIN_STATIONS`
 
-Regole principali:
+Main rules:
 
-- l’identificatore è permanente
-- non rinominare requisiti esistenti
-- non usare numeri sequenziali come un ordine logico
-- nuovi requisiti devono usare un nuovo identificatore descrittivo
+- the identifier is permanent;
+- do not rename existing requirements;
+- do not use sequential numbers as logical ordering;
+- new requirements must use a new descriptive identifier.
 
----
+## Requirement format
 
-## Formato del requisito
+Each rule must contain:
 
-Ogni regola deve contenere:
-
-- identifier
-- source
-- status
-- type
-- dependencies
-- rule
-- acceptance criterion
-- pseudocode
+- identifier;
+- source;
+- status;
+- type;
+- dependencies;
+- rule;
+- acceptance criterion;
+- pseudocode.
 
 ### Template
 
-#### REQ-{MODULO}-{SLOT}
+```markdown
+##### REQ-
 
-- Fonte: Art. X Dir. 2024/2881 [+ Allegato Y]
-- Stato: STABLE / DRAFT / AMBIGUOUS / PENDING
-- Tipo: obbligatorio / raccomandato / facoltativo
-- Dipendenze: REQ-XXX-YYY, tables/ZZZ
+- Source: Art. X Dir. 2024/2881 [+ Annex Y]
+- Status: STABLE / DRAFT / AMBIGUOUS / PENDING
+- Type: mandatory / recommended / optional
+- Dependencies: REQ-XXX-YYY, tables/ZZZ
 
-**Regola**
-Descrizione breve e chiara della regola.
+**Rule**
+Short and clear description of the rule.
 
-**Criterio di accettazione**
-Dato [condizione], il sistema [comportamento atteso].
+**Acceptance criterion**
+Given [condition], the system [expected behaviour].
 
 **Pseudocode**
-Descrittivo, non eseguibile.
+Descriptive, not executable.
+```
 
----
+## Notes for LLMs and reviewers
 
-## Note per LLM e revisori
-
-- Il blocco `REQ` è l’unità minima.
-- Non dividere un requisito su più file.
-- Non cambiare la fonte senza verificarla.
-- Per un requisito `PENDING`, non completare la logica.
-- Prima di aggiungere un requisito, verifica che non esista già.
-
+- The REQ block is the minimum unit.
+- Do not split one requirement across multiple files.
+- Do not change the source without checking it.
+- For a `PENDING` requirement, do not complete the logic.
+- Before adding a requirement, check that it does not already exist.
