@@ -16,12 +16,18 @@ nav:
       - modules/zone.md
       - modules/assess.md
       - modules/network.md
+      - modules/data_quality.md
       - modules/modelling.md
       - modules/model_qa.md
       - modules/repr.md
       - modules/limits.md
       - modules/exposure.md
-      - modules/data_quality.md
+      - modules/source_attribution.md
+      - modules/plans.md
+      - modules/attainment_extensions.md
+      - modules/transboundary.md
+      - modules/public_information.md
+      - modules/reporting.md
 
   - TABLES:
       - tables/t_assess_thresholds.md
