@@ -1,226 +1,323 @@
-# Introduzione
+# Architettura del framework
 
-## Scopo
+## Panoramica
 
-Questo documento introduce l’**AQ Framework — SNPA**, una specifica tecnica formale e computabile per l’attuazione della Direttiva (UE) 2024/2881 sulla qualità dell’aria ambiente.
+Il framework è una **architettura formale e computabile** per implementare la Direttiva (UE) 2024/2881 sulla qualità dell’aria ambiente.
 
-Il repository è disponibile su GitHub:
+Modella la Direttiva come un insieme di moduli interoperabili (`M_*`) e tabelle di parametri normativi (`T_*`).
 
-<https://github.com/jobonaf/aq-framework-snpa>
+Ogni modulo ha una responsabilità limitata e scambia output strutturati con gli altri.
 
-Lo scopo del framework è tradurre i requisiti regolatori in una struttura:
+L’architettura è un **sistema decisionale regolatorio a livelli**, non una semplice pipeline lineare.
 
-- esplicita;
-- modulare;
-- formale;
-- tracciabile;
-- implementabile;
-- adatta all’automazione e al supporto decisionale.
+I livelli principali sono:
 
-Il framework è progettato per supportare sia l’interpretazione esperta sia l’implementazione software della Direttiva.
-
----
-
-## Contesto
-
-La Direttiva (UE) 2024/2881 introduce un approccio più integrato alla valutazione e alla gestione della qualità dell’aria ambiente.
-
-Gli elementi principali che richiedono formalizzazione includono:
-
-- l’integrazione tra misurazioni in siti fissi, misurazioni indicative, applicazioni di modellizzazione e stima obiettiva;
-- il ruolo centrale della rappresentatività spaziale;
-- requisiti più stringenti e specifici per scopo per la validazione dei modelli;
-- l’uso della modellizzazione per distribuzione spaziale, hotspot, previsioni e proiezioni;
-- standard di qualità dell’aria aggiornati e obblighi orientati all’orizzonte 2030;
-- indicatori di esposizione media e obblighi di riduzione dell’esposizione;
-- regole di attribuzione per fonti naturali e sabbiatura/salatura invernale;
-- cooperazione per l’inquinamento transfrontaliero;
-- piani per la qualità dell’aria, tabelle di marcia e piani d’azione a breve termine;
-- informazione al pubblico e rendicontazione regolatoria.
-
-Questi elementi richiedono un framework capace di rappresentare non solo la valutazione tecnica, ma anche le conseguenze giuridiche, i requisiti probatori, i trigger di pianificazione e i flussi di rendicontazione connessi al processo di valutazione.
+1. contesto territoriale;
+2. regime di valutazione;
+3. monitoraggio e validità dei dati;
+4. modellizzazione e rappresentatività spaziale;
+5. valutazione di conformità ed esposizione;
+6. attribuzione delle fonti;
+7. decisioni di pianificazione e proroga;
+8. coordinamento transfrontaliero;
+9. informazione al pubblico e rendicontazione.
 
 ---
 
-## Approccio architetturale
+## Principi architetturali
 
-Il framework adotta una **architettura regolatoria stratificata**.
+### Separazione delle responsabilità
 
-Non è una semplice pipeline lineare. Al contrario, separa la Direttiva in moduli interoperabili che scambiano output strutturati.
-
-I principali livelli architetturali sono:
-
-- contesto territoriale;
-- regime di valutazione;
-- monitoraggio e validità dei dati;
-- modellizzazione e rappresentatività spaziale;
-- valutazione della conformità e dell’esposizione;
-- attribuzione delle fonti;
-- pianificazione e proroga del termine di conseguimento;
-- coordinamento transfrontaliero;
-- informazione al pubblico e rendicontazione.
-
-Vedi anche:
-
-- [Architettura del framework](architecture.md)
-
----
-
-## Principi di progettazione
-
-### Progettazione modulare
-
-Ogni funzione regolatoria è rappresentata da un modulo dedicato `M_*`.
-
-Questa separazione evita di mescolare in un unico componente logiche di valutazione, evidenza, conformità, pianificazione e rendicontazione.
-
-### Separazione logica/dati
-
-Il framework distingue tra:
-
-- **moduli (`M_*`)**, che contengono logica regolatoria, condizioni, dipendenze, confini dell’effetto giuridico e output;
-- **tabelle (`T_*`)**, che contengono parametri normativi, soglie, valori, tolleranze e vocabolari controllati.
-
-Nei documenti di navigazione sono collegati solo i file tabellari esistenti. Tabelle aggiuntive previste possono essere richiamate concettualmente nelle dipendenze dei moduli, ma sono elencate separatamente finché i file corrispondenti non vengono creati.
-
-### Validità specifica per scopo
-
-La validità è trattata come specifica per scopo.
-
-Un dataset, un modello o un’area di rappresentatività non sono semplicemente validi o invalidi in senso assoluto. Sono validi rispetto a uno specifico uso regolatorio.
-
-### Confini dell’effetto giuridico
-
-Il framework distingue la produzione di evidenze dalle decisioni giuridiche o istituzionali finali.
+Ogni modulo svolge una sola funzione regolatoria.
 
 Esempi:
 
-- `M_SOURCE_ATTRIBUTION` può identificare un caso di fonte naturale, ma non omette direttamente un superamento ai fini della Direttiva.
-- `M_ATTAINMENT_EXTENSION` può determinare se una richiesta di proroga è supportata, ma non concede la proroga.
-- `M_REPORTING` rendiconta lo stato di conformità, ma non ricalcola la conformità.
+- `M_LIMITS` determina lo stato di conformità e di superamento.
+- `M_SOURCE_ATTRIBUTION` determina le evidenze di attribuzione delle fonti.
+- `M_PLANS` determina gli obblighi di pianificazione.
+- `M_REPORTING` rendiconta gli output ma non li ricalcola.
 
-### Tracciabilità e auditabilità
+### Confini degli effetti giuridici
 
-Tutti gli output regolatori dovrebbero essere tracciabili rispetto a versioni territoriali, versioni dei dati, versioni dei modelli, metodi, stato di validazione, periodi di valutazione e pacchetti di rendicontazione.
+Diversi moduli producono evidenze o effetti giuridici candidati, ma non decidono le conseguenze istituzionali finali.
 
----
+Esempi:
 
-## Ruolo della modellizzazione
+- `M_SOURCE_ATTRIBUTION` può identificare un caso di fonte naturale, ma `M_LIMITS` determina se un superamento è omesso ai fini della Direttiva.
+- `M_ATTAINMENT_EXTENSION` valuta se una proroga del termine è supportata, ma non la concede.
+- `M_TRANSBOUNDARY` coordina i casi transfrontalieri, ma non assegna responsabilità giuridica tra Stati membri.
 
-La modellizzazione svolge diversi ruoli distinti nel framework.
+### Validazione specifica per scopo
 
-Può essere utilizzata per:
+La validità è specifica per lo scopo.
 
-- supporto alla valutazione;
-- distribuzione spaziale delle concentrazioni di inquinanti;
-- identificazione degli hotspot;
-- delineazione dell’area modellata di superamento;
-- analisi della rappresentatività spaziale;
-- supporto alla riduzione della rete di monitoraggio;
-- supporto alla rilocalizzazione;
-- previsioni delle soglie di allarme e di informazione;
-- proiezioni per piani, tabelle di marcia e proroghe dei termini di conseguimento;
-- valutazione del contributo transfrontaliero;
-- supporto all’attribuzione delle fonti.
+Esempi:
 
-Poiché questi ruoli hanno conseguenze regolatorie diverse, la modellizzazione è validata tramite `M_MODEL_QA` in funzione dello scopo previsto ed è utilizzata tramite `M_MOD`.
+- dati validi per la rendicontazione possono non essere sufficienti per la riduzione della rete;
+- un modello valido per la valutazione annuale può non essere valido per previsioni a breve termine;
+- un’area di rappresentatività valida per un inquinante o una metrica non è automaticamente valida per un altro.
 
----
+### Tracciabilità e versioning
 
-## Ruolo della rappresentatività spaziale
+Tutti gli output regolatori dovrebbero essere tracciabili rispetto a:
 
-La rappresentatività spaziale collega le misurazioni puntuali al territorio.
-
-Determina:
-
-- dove una misurazione in sito fisso è spazialmente valida;
-- se un’area modellata di superamento è coperta da misurazioni in siti fissi;
-- se può essere necessario monitoraggio aggiuntivo;
-- se la riduzione della rete resta spazialmente adeguata;
-- se la rilocalizzazione di un punto di campionamento crea una perdita di copertura inaccettabile.
-
-La rappresentatività spaziale è gestita da `M_REPR` e interagisce strettamente con `M_NETWORK`, `M_MOD`, `M_LIMITS` e `M_ASSESS`.
+- versione territoriale;
+- versione dei dati;
+- versione del modello;
+- metodo e stato di validazione;
+- periodo di valutazione;
+- fonte giuridica;
+- pacchetto di rendicontazione.
 
 ---
 
-## Panoramica dei contenuti
+## Architettura a livelli
 
-## Moduli logici
+```mermaid
+graph TD
+    M_ZONE["M_ZONE
+    Domini territoriali"]
+    M_ASSESS["M_ASSESS
+    Regime di valutazione"]
+    M_NETWORK["M_NETWORK
+    Rete di monitoraggio"]
+    M_DATA["M_DATA_QUALITY
+    Qualità dei dati"]
+    M_MOD["M_MOD
+    Applicazioni di modellizzazione"]
+    M_MODEL_QA["M_MODEL_QA
+    QA dei modelli"]
+    M_REPR["M_REPR
+    Rappresentatività spaziale"]
+    M_LIMITS["M_LIMITS
+    Conformità e superamento"]
+    M_EXPOSURE["M_EXPOSURE
+    Indicatore di esposizione media"]
+    M_SOURCE["M_SOURCE_ATTRIBUTION
+    Attribuzione delle fonti"]
+    M_PLANS["M_PLANS
+    Piani e tabelle di marcia"]
+    M_EXTENSION["M_ATTAINMENT_EXTENSION
+    Proroga dei termini"]
+    M_TRANS["M_TRANSBOUNDARY
+    Coordinamento transfrontaliero"]
+    M_PUBLIC["M_PUBLIC_INFORMATION
+    Informazione al pubblico"]
+    M_REPORTING["M_REPORTING
+    Rendicontazione regolatoria"]
 
-Il framework include attualmente i seguenti moduli.
+    M_ZONE --> M_ASSESS
+    M_ZONE --> M_NETWORK
+    M_ZONE --> M_REPR
+    M_ZONE --> M_LIMITS
+    M_ZONE --> M_EXPOSURE
 
-### Livello territoriale e di valutazione
+    M_ASSESS --> M_NETWORK
+    M_ASSESS --> M_MOD
+    M_ASSESS --> M_LIMITS
 
-- [M_ZONE — Suddivisione territoriale e domini di valutazione](modules/zone.md)
-- [M_ASSESS — Regime di valutazione](modules/assess.md)
+    M_NETWORK --> M_DATA
 
-### Livello di monitoraggio, dati e validazione
+    M_DATA --> M_LIMITS
+    M_DATA --> M_EXPOSURE
+    M_DATA --> M_REPR
+    M_DATA --> M_MOD
+    M_DATA --> M_MODEL_QA
 
-- [M_NETWORK — Rete di monitoraggio](modules/network.md)
-- [M_DATA_QUALITY — Qualità dei dati e validità dei dati di valutazione](modules/data_quality.md)
-- [M_MODEL_QA — Validazione e assicurazione della qualità delle applicazioni di modellizzazione](modules/model_qa.md)
+    M_MOD --> M_MODEL_QA
+    M_MODEL_QA --> M_MOD
 
-### Livello di modellizzazione e spaziale
+    M_MOD --> M_REPR
 
-- [M_MOD — Applicazioni di modellizzazione](modules/modelling.md)
-- [M_REPR — Rappresentatività spaziale dei punti di campionamento](modules/repr.md)
+    M_REPR --> M_LIMITS
+    M_REPR --> M_NETWORK
+    M_NETWORK --> M_REPR
 
-### Livello di conformità ed esposizione
+    M_LIMITS --> M_SOURCE
+    M_EXPOSURE --> M_SOURCE
 
-- [M_LIMITS — Verifica della conformità e dei superamenti](modules/limits.md)
-- [M_EXPOSURE — Indicatore di esposizione media e obblighi di esposizione](modules/exposure.md)
+    M_SOURCE --> M_LIMITS
+    M_SOURCE --> M_EXPOSURE
 
-### Livello di attribuzione delle fonti e qualificazione giuridica
+    M_LIMITS --> M_PLANS
+    M_EXPOSURE --> M_PLANS
+    M_SOURCE --> M_PLANS
+    M_MOD --> M_PLANS
 
-- [M_SOURCE_ATTRIBUTION — Attribuzione delle fonti e qualificazione dei contributi](modules/source_attribution.md)
+    M_LIMITS --> M_EXTENSION
+    M_PLANS --> M_EXTENSION
+    M_MOD --> M_EXTENSION
+    M_MODEL_QA --> M_EXTENSION
+    M_SOURCE --> M_EXTENSION
 
-### Livello di pianificazione e conseguimento
+    M_SOURCE --> M_TRANS
+    M_TRANS --> M_PLANS
+    M_TRANS --> M_EXTENSION
 
-- [M_PLANS — Piani per la qualità dell’aria, tabelle di marcia e piani d’azione a breve termine](modules/plans.md)
-- [M_ATTAINMENT_EXTENSION — Proroga dei termini di conseguimento](modules/attainment_extension.md)
+    M_LIMITS --> M_PUBLIC
+    M_EXPOSURE --> M_PUBLIC
+    M_MOD --> M_PUBLIC
+    M_SOURCE --> M_PUBLIC
+    M_TRANS --> M_PUBLIC
+    M_PLANS --> M_PUBLIC
 
-### Livello di coordinamento e output
-
-- [M_TRANSBOUNDARY — Cooperazione e coordinamento per l’inquinamento atmosferico transfrontaliero](modules/transboundary.md)
-- [M_PUBLIC_INFORMATION — Informazione al pubblico e comunicazione](modules/public_information.md)
-- [M_REPORTING — Rendicontazione regolatoria e scambio dati](modules/reporting.md)
+    M_ZONE --> M_REPORTING
+    M_ASSESS --> M_REPORTING
+    M_NETWORK --> M_REPORTING
+    M_DATA --> M_REPORTING
+    M_MOD --> M_REPORTING
+    M_MODEL_QA --> M_REPORTING
+    M_REPR --> M_REPORTING
+    M_LIMITS --> M_REPORTING
+    M_EXPOSURE --> M_REPORTING
+    M_SOURCE --> M_REPORTING
+    M_PLANS --> M_REPORTING
+    M_EXTENSION --> M_REPORTING
+    M_TRANS --> M_REPORTING
+    M_PUBLIC --> M_REPORTING
+```
 
 ---
 
-## Tabelle normative
+## Livelli funzionali
 
-Il framework contiene attualmente i seguenti file tabellari:
+### Livello 1 — Contesto territoriale
 
-- [T_ADVANCED_MONITORING — Obblighi di monitoraggio avanzato](tables/t_advanced_monitoring.md)
-- [T_ALERT_THRESHOLDS — Soglie di allarme e soglie di informazione](tables/t_alert_thresholds.md)
-- [T_ASSESS_THRESHOLDS — Soglie di valutazione](tables/t_assess_thresholds.md)
-- [T_DATA_QUALITY — Obiettivi di qualità dei dati](tables/t_data_quality.md)
-- [T_EIONET — Vocabolari EIONET e standard di interoperabilità](tables/t_eionet.md)
-- [T_EXPOSURE_OBLIGATIONS — Obblighi e obiettivi di esposizione](tables/t_exposure_obligations.md)
-- [T_LIMIT_VALUES — Valori limite e valori-obiettivo](tables/t_limit_values.md)
-- [T_MIN_STATIONS — Numero minimo di punti di campionamento](tables/t_min_stations.md)
-- [T_NATURAL_EVENTS — Eventi naturali e criteri per fonti naturali](tables/t_natural_events.md)
-- [T_REPR_TOLERANCE — Tolleranze di rappresentatività spaziale](tables/t_repr_tolerance.md)
-- [T_SITING — Criteri di ubicazione](tables/t_siting.md)
-- [T_SUPERSITES — Parametri dei supersiti](tables/t_supersites.md)
+`M_ZONE` definisce zone, agglomerati, unità territoriali di esposizione media, aree di piano, aree interessate transfrontaliere e versioni territoriali.
+
+### Livello 2 — Regime di valutazione e monitoraggio
+
+`M_ASSESS` determina il regime di valutazione e i requisiti del metodo.
+
+`M_NETWORK` determina l’adeguatezza della rete di monitoraggio, le misurazioni aggiuntive, i vincoli di rilocalizzazione e gli obblighi relativi ai supersiti.
+
+`M_DATA_QUALITY` determina se i dataset sono validi per specifici scopi regolatori.
+
+### Livello 3 — Modellizzazione e rappresentatività spaziale
+
+`M_MOD` gestisce gli usi della modellizzazione: valutazione, distribuzione spaziale, punti critici di inquinamento atmosferico, previsioni, proiezioni, contributo transfrontaliero e supporto all’attribuzione delle fonti.
+
+`M_MODEL_QA` determina se un modello è valido per uno scopo specifico.
+
+`M_REPR` determina le aree di rappresentatività spaziale e se le misurazioni in siti fissi coprono le aree modellate di superamento.
+
+### Livello 4 — Valutazione regolatoria
+
+`M_LIMITS` determina lo stato di conformità e di superamento.
+
+`M_EXPOSURE` determina i valori dell’IEM e lo stato degli obblighi di esposizione.
+
+### Livello 5 — Spiegazione e qualificazione giuridica
+
+`M_SOURCE_ATTRIBUTION` determina le evidenze per fonti naturali, sabbiatura/salatura invernale, contributo transfrontaliero e profili di fonte per i piani.
+
+### Livello 6 — Pianificazione e proroga dei termini
+
+`M_PLANS` determina gli obblighi di pianificazione per piani per la qualità dell’aria, tabelle di marcia e piani d’azione a breve termine.
+
+`M_ATTAINMENT_EXTENSION` valuta se la proroga dei termini di conseguimento è supportata.
+
+### Livello 7 — Coordinamento e output esterni
+
+`M_TRANSBOUNDARY` coordina i casi transfrontalieri.
+
+`M_PUBLIC_INFORMATION` trasforma output validati in informazione destinata al pubblico.
+
+`M_REPORTING` aggrega gli output dei moduli in pacchetti ufficiali di rendicontazione.
 
 ---
 
-## Tabelle previste — non ancora implementate
+## Loop di feedback principali
 
-Le tabelle seguenti sono richiamate concettualmente dall’architettura o dalle dipendenze dei moduli, ma i file corrispondenti non esistono ancora:
+### Loop monitoraggio–rappresentatività
 
-- T_MODEL_QA — Parametri di assicurazione della qualità dei modelli
-- T_SOURCE_CATEGORIES — Categorie di fonti
-- T_ATTRIBUTION_METHODS — Metodi di attribuzione delle fonti
-- T_NUTS — Riferimenti territoriali NUTS
-- T_REPORTING_SCHEMA — Schemi di rendicontazione
+```mermaid
+graph LR
+    M_NETWORK --> M_REPR
+    M_REPR --> M_NETWORK
+```
+
+### Loop modellizzazione–rappresentatività–limiti
+
+```mermaid
+graph LR
+    M_MOD --> M_REPR
+    M_REPR --> M_LIMITS
+    M_LIMITS --> M_MOD
+```
+
+### Loop conformità–fonti–pianificazione
+
+```mermaid
+graph LR
+    M_LIMITS --> M_SOURCE_ATTRIBUTION
+    M_SOURCE_ATTRIBUTION --> M_PLANS
+    M_PLANS --> M_LIMITS
+```
+
+### Loop pianificazione–proroga
+
+```mermaid
+graph LR
+    M_LIMITS --> M_PLANS
+    M_PLANS --> M_ATTAINMENT_EXTENSION
+    M_ATTAINMENT_EXTENSION --> M_LIMITS
+```
 
 ---
 
-## Output principali
+## Livello dati e tabelle
 
-Il framework produce output strutturati, tra cui:
+Il framework separa la **logica** dai **dati dei parametri normativi**.
+
+### Moduli logici (`M_*`)
+
+I moduli definiscono:
+
+- condizioni;
+- dipendenze;
+- flussi decisionali;
+- output;
+- confini degli effetti giuridici.
+
+### Tabelle esistenti
+
+I seguenti file di tabella `T_*` esistono attualmente nel repository e possono essere collegati dai documenti di navigazione:
+
+- `T_ADVANCED_MONITORING` — Obblighi di monitoraggio avanzato
+- `T_ALERT_THRESHOLDS` — Soglie di allarme e informazione
+- `T_ASSESS_THRESHOLDS` — Soglie di valutazione
+- `T_DATA_QUALITY` — Obiettivi di qualità dei dati
+- `T_EIONET` — Vocabolari EIONET e standard di interoperabilità
+- `T_EXPOSURE_OBLIGATIONS` — Obblighi e obiettivi di riduzione dell’esposizione
+- `T_LIMIT_VALUES` — Valori limite e valori-obiettivo
+- `T_MIN_STATIONS` — Numero minimo di punti di campionamento
+- `T_NATURAL_EVENTS` — Eventi naturali e criteri per fonti naturali
+- `T_REPR_TOLERANCE` — Tolleranze di rappresentatività spaziale
+- `T_SITING` — Criteri di ubicazione
+- `T_SUPERSITES` — Parametri dei supersiti
+
+### Tabelle pianificate — non ancora implementate
+
+Le seguenti tabelle sono richiamate concettualmente dall’architettura o dalle dipendenze dei moduli, ma i file corrispondenti non esistono ancora. Non dovrebbero essere collegate dai documenti di navigazione finché non saranno create:
+
+- `T_MODEL_QA` — Parametri di assicurazione della qualità dei modelli
+- `T_SOURCE_CATEGORIES` — Categorie di fonti
+- `T_ATTRIBUTION_METHODS` — Metodi di attribuzione delle fonti
+- `T_NUTS` — Riferimenti territoriali NUTS
+- `T_REPORTING_SCHEMA` — Schemi di rendicontazione
+
+### Regola sui collegamenti alle tabelle
+
+Le pagine di documentazione dovrebbero collegare solo file di tabella esistenti.
+
+Le tabelle pianificate possono essere menzionate come dipendenze pianificate, ma senza link Markdown.
+
+---
+
+## Output principali del sistema
+
+Il framework produce molteplici output regolatori:
 
 ```text
 territorial_context
@@ -228,8 +325,8 @@ assessment_status
 network_status
 data_quality_status
 model_validation
-model_output
 representativeness_status
+model_output
 compliance_result
 exposure_status
 source_attribution_status
@@ -240,42 +337,55 @@ public_information
 reporting_package
 ```
 
-Questi output possono essere consumati da sistemi software, pipeline di rendicontazione, dashboard pubbliche e strumenti regolatori di supporto alle decisioni.
+---
+
+## Confini del sistema
+
+Il framework supporta il processo decisionale ma non sostituisce gli atti istituzionali.
+
+Non svolge le seguenti funzioni:
+
+- designare le autorità competenti;
+- concedere proroghe;
+- imporre sanzioni;
+- assegnare responsabilità giuridica tra Stati membri;
+- sostituire la valutazione formale della Commissione;
+- sostituire le procedure di partecipazione del pubblico.
 
 ---
 
-## Destinatari
+## Caratteristiche dell’architettura
 
-Il framework è destinato a:
+L’architettura è:
 
-- soggetti SNPA;
-- esperti di qualità dell’aria;
-- agenzie ambientali;
-- sviluppatori software;
-- data scientist ambientali;
-- analisti regolatori;
-- team di trasformazione digitale del settore pubblico.
+- modulare;
+- estensibile;
+- auditabile;
+- adatta all’automazione;
+- compatibile con rule engine;
+- compatibile con workflow assistiti da LLM;
+- interoperabile con sistemi di rendicontazione e scambio dati;
+- adatta a un’implementazione progressiva.
 
 ---
 
-## Stato del progetto
+## Note di implementazione
 
-Questa versione rappresenta una **specifica tecnica formale estesa**.
+Sequenza di implementazione raccomandata:
 
-Include i moduli tecnici core di valutazione e i moduli downstream per attribuzione delle fonti, piani e tabelle di marcia, proroga del termine di conseguimento, coordinamento transfrontaliero, informazione al pubblico e rendicontazione regolatoria.
-
-Sono necessari ulteriori lavori per:
-
-- completare e validare le tabelle normative esistenti;
-- creare le tabelle previste quando diventano necessarie;
-- allineare il framework agli atti implementativi e agli schemi di rendicontazione;
-- testare il framework su casi pratici;
-- affinare gli output dei moduli in schemi leggibili da macchina.
+1. implementare `M_ZONE`, `M_DATA_QUALITY` e le tabelle di base `T_*` esistenti;
+2. implementare `M_ASSESS`, `M_NETWORK`, `M_REPR`;
+3. implementare `M_MOD` e `M_MODEL_QA`;
+4. implementare `M_LIMITS` e `M_EXPOSURE`;
+5. implementare `M_SOURCE_ATTRIBUTION`;
+6. implementare `M_PLANS` e `M_ATTAINMENT_EXTENSION`;
+7. implementare `M_TRANSBOUNDARY`, `M_PUBLIC_INFORMATION`, `M_REPORTING`;
+8. creare le tabelle pianificate solo quando il loro schema sarà stabilizzato.
 
 ---
 
 ## Note
 
-Il framework è progettato per essere implementato progressivamente.
+Questa architettura riflette l’insieme completo dei moduli del framework e sostituisce la precedente vista come pipeline lineare.
 
-Un’implementazione pratica può partire da dati territoriali, tabelle normative, valutazione, monitoraggio e qualità dei dati, per poi aggiungere progressivamente modellizzazione, rappresentatività, conformità, esposizione, attribuzione delle fonti, pianificazione e rendicontazione.
+Il cambiamento progettuale chiave è che la Direttiva è rappresentata come un **sistema regolatorio multilivello**, in cui valutazione, evidenze, conformità, pianificazione, coordinamento e rendicontazione restano distinti ma interoperabili.

@@ -4,11 +4,9 @@
 
 Direttiva (UE) 2024/2881
 
----
-
 ## Panoramica
 
-Questo progetto definisce una **specifica formale e computabile** per l’attuazione della Direttiva (UE) 2024/2881 sulla qualità dell’aria ambiente.
+Questo progetto definisce una **specifica formale e computabile** per implementare la Direttiva (UE) 2024/2881 sulla qualità dell’aria ambiente.
 
 Il framework traduce i requisiti regolatori in:
 
@@ -25,11 +23,9 @@ Il framework è destinato a supportare:
 - l’auditabilità e la tracciabilità delle decisioni regolatorie;
 - l’interoperabilità con i sistemi di rendicontazione e scambio dati sulla qualità dell’aria.
 
----
-
 ## Modello architetturale
 
-Il framework è organizzato come **sistema decisionale regolatorio stratificato**, non come una singola pipeline lineare.
+Il framework è organizzato come **sistema decisionale regolatorio a livelli**, non come una singola pipeline lineare.
 
 Livelli principali:
 
@@ -37,17 +33,15 @@ Livelli principali:
 - regime di valutazione;
 - monitoraggio e qualità dei dati;
 - modellizzazione e rappresentatività spaziale;
-- valutazione della conformità e dell’esposizione;
+- valutazione di conformità ed esposizione;
 - attribuzione delle fonti;
-- pianificazione e proroga del termine di conseguimento;
+- pianificazione e proroga dei termini di conseguimento;
 - coordinamento transfrontaliero;
 - informazione al pubblico e rendicontazione.
 
 Vedi:
 
 - [Architettura del framework](architecture.md)
-
----
 
 ## Struttura del framework
 
@@ -61,7 +55,7 @@ I moduli definiscono la logica operativa e regolatoria:
 - dipendenze;
 - flussi decisionali;
 - passaggi di validazione;
-- confini dell’effetto giuridico;
+- confini degli effetti giuridici;
 - output strutturati.
 
 ### Tabelle
@@ -77,20 +71,16 @@ Le tabelle definiscono parametri regolatori:
 - categorie di fonti;
 - schemi di rendicontazione.
 
-L’indice seguente contiene link solo ai file tabellari attualmente presenti nel repository. Le tabelle previste sono elencate separatamente, senza link.
-
----
+L’indice seguente contiene link solo ai file tabellari attualmente presenti nel repository. Le tabelle pianificate sono elencate separatamente senza link.
 
 ## Navigazione
 
-### Architettura e documentazione principale
+## Architettura core e documentazione
 
 - [Introduzione](introduction.md)
 - [Architettura del framework](architecture.md)
 - [Changelog](CHANGELOG.md)
 - [TODO](TODO.md)
-
----
 
 ## Moduli
 
@@ -130,16 +120,14 @@ L’indice seguente contiene link solo ai file tabellari attualmente presenti ne
 - [M_PUBLIC_INFORMATION — Informazione al pubblico e comunicazione](modules/public_information.md)
 - [M_REPORTING — Rendicontazione regolatoria e scambio dati](modules/reporting.md)
 
----
-
 ## Tabelle esistenti
 
 - [T_ADVANCED_MONITORING — Obblighi di monitoraggio avanzato](tables/t_advanced_monitoring.md)
-- [T_ALERT_THRESHOLDS — Soglie di allarme e soglie di informazione](tables/t_alert_thresholds.md)
+- [T_ALERT_THRESHOLDS — Soglie di allarme e informazione](tables/t_alert_thresholds.md)
 - [T_ASSESS_THRESHOLDS — Soglie di valutazione](tables/t_assess_thresholds.md)
 - [T_DATA_QUALITY — Obiettivi di qualità dei dati](tables/t_data_quality.md)
 - [T_EIONET — Vocabolari EIONET e standard di interoperabilità](tables/t_eionet.md)
-- [T_EXPOSURE_OBLIGATIONS — Obblighi e obiettivi di esposizione](tables/t_exposure_obligations.md)
+- [T_EXPOSURE_OBLIGATIONS — Obblighi e obiettivi di riduzione dell’esposizione](tables/t_exposure_obligations.md)
 - [T_LIMIT_VALUES — Valori limite e valori-obiettivo](tables/t_limit_values.md)
 - [T_MIN_STATIONS — Numero minimo di punti di campionamento](tables/t_min_stations.md)
 - [T_NATURAL_EVENTS — Eventi naturali e criteri per fonti naturali](tables/t_natural_events.md)
@@ -147,19 +135,15 @@ L’indice seguente contiene link solo ai file tabellari attualmente presenti ne
 - [T_SITING — Criteri di ubicazione](tables/t_siting.md)
 - [T_SUPERSITES — Parametri dei supersiti](tables/t_supersites.md)
 
----
-
-## Tabelle previste — non ancora implementate
+## Tabelle pianificate — non ancora implementate
 
 Le tabelle seguenti sono richiamate dall’architettura logica o dalle dipendenze dei moduli, ma i file corrispondenti non sono ancora stati creati. Sono intenzionalmente elencate senza link per evitare navigazione non valida.
 
-- T_MODEL_QA — Parametri di assicurazione della qualità dei modelli
-- T_SOURCE_CATEGORIES — Categorie di fonti
-- T_ATTRIBUTION_METHODS — Metodi di attribuzione delle fonti
-- T_NUTS — Riferimenti territoriali NUTS
-- T_REPORTING_SCHEMA — Schemi di rendicontazione
-
----
+- `T_MODEL_QA` — Parametri di assicurazione della qualità dei modelli
+- `T_SOURCE_CATEGORIES` — Categorie di fonti
+- `T_ATTRIBUTION_METHODS` — Metodi di attribuzione delle fonti
+- `T_NUTS` — Riferimenti territoriali NUTS
+- `T_REPORTING_SCHEMA` — Schemi di rendicontazione
 
 ## Output principali dei moduli
 
@@ -183,8 +167,6 @@ public_information
 reporting_package
 ```
 
----
-
 ## Stato attuale del progetto
 
 Stato: **v0.3 — specifica tecnica formale estesa**
@@ -195,7 +177,7 @@ Questa versione include:
 - modellizzazione, QA dei modelli e rappresentatività spaziale;
 - valutazione della conformità e dell’esposizione;
 - attribuzione delle fonti;
-- piani, tabelle di marcia e proroga del termine di conseguimento;
+- piani, tabelle di marcia e proroga dei termini di conseguimento;
 - coordinamento transfrontaliero;
 - informazione al pubblico;
 - rendicontazione regolatoria.
@@ -204,11 +186,9 @@ Il framework è ancora soggetto a:
 
 - verifica rispetto al testo consolidato della Gazzetta ufficiale;
 - affinamento delle tabelle normative esistenti (`T_*`);
-- creazione delle tabelle previste, ove necessario;
+- creazione delle tabelle pianificate, ove necessario;
 - allineamento agli atti implementativi e ai formati di scambio dati;
 - validazione tramite casi d’uso pratici.
-
----
 
 ## Destinatari
 
@@ -219,8 +199,6 @@ Il framework è ancora soggetto a:
 - analisti di dati ambientali;
 - analisti regolatori;
 - progettisti di sistemi di supporto alle decisioni.
-
----
 
 ## Nota di implementazione
 
@@ -234,8 +212,6 @@ L’ordine di implementazione raccomandato è:
 - piani e proroghe dei termini di conseguimento;
 - coordinamento transfrontaliero;
 - informazione al pubblico e rendicontazione.
-
----
 
 ## Note
 
