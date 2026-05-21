@@ -1,0 +1,578 @@
+- id: Art24_p1
+  source:
+    document: directive_2024_2881
+    article: 24
+    paragraph: 1
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: adopt
+    object: delegated_acts_amending_annexes_III_to_VII_IX_and_X
+  condition:
+    text: to take account of technical and scientific developments regarding assessment of ambient air quality, measures to be considered for inclusion in the short-term action plans and public information
+  references:
+    - article: 25
+    - annex: III
+    - annex: IV
+    - annex: V
+    - annex: VI
+    - annex: VII
+    - annex: IX
+    - annex: X
+  domain:
+    - institutional
+    - assessment
+    - planning
+    - public_information
+
+- id: Art24_p2
+  source:
+    document: directive_2024_2881
+    article: 24
+    paragraph: 2
+  norm_type: prohibition
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: adopt
+    object:
+      - amendments_having_effect_of_directly_or_indirectly_modifying_limit_values_target_values_ozone_long_term_objectives_critical_levels_alert_thresholds_and_information_thresholds_average_exposure_reduction_obligations_and_average_exposure_concentration_objectives_specified_in_annex_I
+      - amendments_having_effect_of_directly_or_indirectly_modifying_dates_for_compliance_with_any_of_those_parameters
+  references:
+    - annex: I
+  domain:
+    - institutional
+    - assessment
+
+- id: Art25_p1
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: assign
+    object: power_to_adopt_delegated_acts_to_the_commission_subject_to_conditions_laid_down_in_this_article
+  domain:
+    - institutional
+
+- id: Art25_p2_a
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: assign
+    object: power_to_adopt_delegated_acts_referred_to_in_article_24_to_the_commission_for_a_period_of_5_years
+  references:
+    - article: 24
+  timing:
+    type: relative
+    offset: P5Y
+    anchor: 2024-12-10
+  domain:
+    - institutional
+
+- id: Art25_p2_b
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: commission
+  action:
+    verb: prepare
+    object: report_in_respect_of_the_delegation_of_power
+  timing:
+    type: relative
+    offset: P9M
+    anchor: before_end_of_5_year_period
+  domain:
+    - institutional
+    - reporting
+
+- id: Art25_p2_c
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: extend
+    object: delegation_of_power_for_periods_of_identical_duration
+  condition:
+    text: unless the European Parliament or the Council opposes such extension not later than 3 months before the end of each period
+  timing:
+    type: recurring
+    interval: P5Y
+    anchor: end_of_each_period
+  domain:
+    - institutional
+
+- id: Art25_p3_a
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 3
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: european_parliament
+  action:
+    verb: revoke
+    object: delegation_of_power_referred_to_in_article_24
+  references:
+    - article: 24
+  domain:
+    - institutional
+
+- id: Art25_p3_b
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 3
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: council
+  action:
+    verb: revoke
+    object: delegation_of_power_referred_to_in_article_24
+  references:
+    - article: 24
+  domain:
+    - institutional
+
+- id: Art25_p3_c
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: establish
+    object: end_of_delegation_of_power_specified_in_decision_to_revoke
+  domain:
+    - institutional
+
+- id: Art25_p3_d
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: take_effect
+    object: decision_to_revoke
+  timing:
+    type: relative
+    offset: P1D
+    anchor: publication_of_decision_in_official_journal_of_the_european_union_or_later_date_specified_therein
+  domain:
+    - institutional
+
+- id: Art25_p3_e
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: maintain
+    object: validity_of_delegated_acts_already_in_force
+  condition:
+    text: where a decision to revoke the delegation of power is adopted
+  domain:
+    - institutional
+
+- id: Art25_p4
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 4
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: commission
+  action:
+    verb: consult
+    object: experts_designated_by_each_member_state
+  condition:
+    text: before adopting a delegated act
+  references:
+    - document: interinstitutional_agreement_2016_better_law_making
+  domain:
+    - institutional
+
+- id: Art25_p5_a
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 5
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: commission
+  action:
+    verb: notify
+    object: delegated_act_simultaneously_to_the_european_parliament_and_to_the_council
+  timing:
+    type: relative
+    offset: P0D
+    anchor: adoption_of_delegated_act
+  domain:
+    - institutional
+    - reporting
+
+- id: Art25_p5_b
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 5
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: enter_into_force
+    object: delegated_act_adopted_pursuant_to_article_24
+  condition:
+    operator: or
+    items:
+      - label: no_objection
+        text: no objection has been expressed either by the European Parliament or by the Council within a period of 2 months of notification of that act to the European Parliament and to the Council
+      - label: prior_non_objection
+        text: before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object
+  references:
+    - article: 24
+  timing:
+    type: relative
+    offset: P2M
+    anchor: notification_of_delegated_act_to_the_european_parliament_and_to_the_council
+  domain:
+    - institutional
+
+- id: Art25_p5_c
+  source:
+    document: directive_2024_2881
+    article: 25
+    paragraph: 5
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: extend
+    object: objection_period
+  condition:
+    text: at the initiative of the European Parliament or of the Council
+  timing:
+    type: relative
+    offset: P2M
+    anchor: expiry_of_initial_objection_period
+  domain:
+    - institutional
+
+- id: Art26_p1_a
+  source:
+    document: directive_2024_2881
+    article: 26
+    paragraph: 1
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: ambient_air_quality_committee
+  action:
+    verb: assist
+    object: commission
+  domain:
+    - institutional
+
+- id: Art26_p1_b
+  source:
+    document: directive_2024_2881
+    article: 26
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: establish
+    object: ambient_air_quality_committee_as_committee_within_meaning_of_regulation_eu_no_182_2011
+  references:
+    - document: regulation_eu_182_2011
+  domain:
+    - institutional
+
+- id: Art26_p2
+  source:
+    document: directive_2024_2881
+    article: 26
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: apply
+    object: article_5_of_regulation_eu_no_182_2011
+  condition:
+    text: where reference is made to this paragraph
+  references:
+    - document: regulation_eu_182_2011
+      article: 5
+  domain:
+    - institutional
+
+- id: Art27_p1_a
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: access_for_members_of_public_concerned_to_review_procedure_before_court_of_law_or_another_independent_and_impartial_body_established_by_law
+  condition:
+    operator: or
+    items:
+      - label: a
+        text: they have a sufficient interest
+      - label: b
+        text: they maintain the impairment of a right, where administrative procedural law of a Member State requires this as a precondition
+  references:
+    - article: 9
+    - annex: III
+    - annex: IV
+    - article: 19
+    - article: 20
+  domain:
+    - enforcement
+    - monitoring
+    - planning
+
+- id: Art27_p1_b
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object: what_constitutes_sufficient_interest_and_impairment_of_a_right
+  condition:
+    text: consistently with the objective of giving the public concerned wide access to justice
+  domain:
+    - enforcement
+
+- id: Art27_p1_c
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: establish
+    object: interest_of_qualifying_non_governmental_organisation_as_sufficient_for_purposes_of_first_subparagraph_point_a
+  condition:
+    text: the non-governmental organisation promotes the protection of human health or the environment and meets any requirements under national law
+  domain:
+    - enforcement
+
+- id: Art27_p1_d
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: establish
+    object: qualifying_non_governmental_organisations_as_having_rights_capable_of_being_impaired_for_purposes_of_first_subparagraph_point_b
+  condition:
+    text: the non-governmental organisation promotes the protection of human health or the environment and meets any requirements under national law
+  domain:
+    - enforcement
+
+- id: Art27_p2
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: establish
+    object: review_procedure_requirements_including_fair_equitable_timely_not_prohibitively_expensive_and_adequate_effective_redress_mechanisms
+  qualifiers:
+    - where_appropriate
+  domain:
+    - enforcement
+
+- id: Art27_p3
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 3
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object: stage_at_which_decisions_acts_or_omissions_may_be_challenged
+  condition:
+    text: such that access to a review procedure before a court of law or another independent and impartial body established by law is not rendered impossible or excessively difficult
+  domain:
+    - enforcement
+
+- id: Art27_p4_a
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 4
+  norm_type: permission
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: require
+    object: preliminary_review_procedure_before_an_administrative_authority
+  domain:
+    - enforcement
+
+- id: Art27_p4_b
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: maintain
+    object: requirement_of_exhaustion_of_administrative_review_procedures_prior_to_recource_to_judicial_review_procedures
+  condition:
+    text: where such a requirement exists under national law
+  domain:
+    - enforcement
+
+- id: Art27_p5
+  source:
+    document: directive_2024_2881
+    article: 27
+    paragraph: 5
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: practical_information_is_made_available_to_the_public_on_access_to_administrative_and_judicial_review_procedures_referred_to_in_this_article
+  references:
+    - article: 27
+  domain:
+    - enforcement
+    - public_information
+
+- id: Art28_p1
+  source:
+    document: directive_2024_2881
+    article: 28
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: right_of_natural_persons_to_claim_and_obtain_compensation_for_damage_to_human_health
+  condition:
+    text: natural persons suffer damage to human health caused by a violation of the national rules transposing Article 19(1) to (5) and Article 20(1) and (2) of this Directive that has been committed intentionally or negligently by the competent authorities
+  references:
+    - article: 19
+      paragraph: 1
+    - article: 19
+      paragraph: 2
+    - article: 19
+      paragraph: 3
+    - article: 19
+      paragraph: 4
+    - article: 19
+      paragraph: 5
+    - article: 20
+      paragraph: 1
+    - article: 20
+      paragraph: 2
+  domain:
+    - enforcement
+
+- id: Art28_p2
+  source:
+    document: directive_2024_2881
+    article: 28
+    paragraph: 2
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: national_rules_and_procedures_relating_to_claims_for_compensation_do_not_render_impossible_or_excessively_difficult_the_exercise_of_the_right_to_compensation_for_damage
+  references:
+    - article: 28
+      paragraph: 1
+  domain:
+    - enforcement
+
+- id: Art28_p3_a
+  source:
+    document: directive_2024_2881
+    article: 28
+    paragraph: 3
+  norm_type: permission
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: limitation_periods_for_bringing_actions_for_compensation
+  references:
+    - article: 28
+      paragraph: 1
+  domain:
+    - enforcement
+
+- id: Art28_p3_b
+  source:
+    document: directive_2024_2881
+    article: 28
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: establish
+    object: limitation_period_start_constraint
+  condition:
+    operator: and
+    items:
+      - label: violation_ceased
+        text: the violation has ceased
+      - label: claimant_knows_damage
+        text: the person claiming the compensation knows, or can reasonably be expected to know, that he or she suffered damage from a violation as referred to in paragraph 1
+  references:
+    - article: 28
+      paragraph: 1
+  domain:
+    - enforcement

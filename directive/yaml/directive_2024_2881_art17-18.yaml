@@ -1,0 +1,558 @@
+- id: Art17_p1
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 1
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: identify
+    object: zones_where_pm10_limit_values_are_exceeded_due_to_re_suspension_from_winter_sanding_or_winter_salting
+  condition:
+    text: for a given year
+  domain:
+    - assessment
+
+- id: Art17_p2_a
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object:
+      - lists_of_zones_referred_to_in_article_17_paragraph_1
+      - information_on_pm10_concentrations_and_sources_in_such_zones
+  references:
+    - article: 17
+      paragraph: 1
+  domain:
+    - reporting
+
+- id: Art17_p2_b
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: evidence_that_exceedances_are_due_to_re_suspended_particulates_and_that_reasonable_measures_have_been_taken_to_lower_concentrations
+  domain:
+    - reporting
+
+- id: Art17_p3
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 3
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: omit
+    object: establishment_of_air_quality_plan_provided_for_in_article_19
+  condition:
+    text: exceedances in zones referred to in Article 17(1) are attributable to winter-sanding or winter-salting of roads
+  references:
+    - article: 16
+    - article: 17
+      paragraph: 1
+    - article: 19
+  exceptions:
+    - exceedances attributable to PM10 sources other than winter-sanding or winter-salting of roads
+  domain:
+    - planning
+
+- id: Art17_p4_a
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 4
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_details_for_methodology_for_determining_contributions_from_re_suspension_following_winter_sanding_or_winter_salting_of_roads
+  timing:
+    type: absolute
+    date: 2026-12-31
+  domain:
+    - assessment
+    - institutional
+
+- id: Art17_p4_b
+  source:
+    document: directive_2024_2881
+    article: 17
+    paragraph: 4
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_details_on_information_to_be_provided_by_member_states_pursuant_to_article_17_paragraph_2
+  references:
+    - article: 17
+      paragraph: 2
+    - article: 26
+      paragraph: 2
+  timing:
+    type: absolute
+    date: 2026-12-31
+  domain:
+    - reporting
+    - institutional
+
+- id: Art18_p1_a
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 1
+    point: a
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: postpone
+    object: attainment_deadline_for_limit_values
+  condition:
+    items:
+      - label: a
+        text: postponement is justified by site-specific dispersion characteristics, orographic boundary conditions, adverse climatic conditions, transboundary contributions, or where the necessary reductions can only be achieved by replacing a considerable fraction of the existing domestic heating systems that are the source of pollution causing exceedances
+  references:
+    - annex: I
+      section: 1
+  timing:
+    type: absolute
+    date: 2040-01-01
+  domain:
+    - planning
+
+- id: Art18_p1_b
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 1
+    point: b
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: postpone
+    object: attainment_deadline_for_limit_values
+  condition:
+    items:
+      - label: b
+        text: projections demonstrate that even taking into account the expected impact of effective air pollution measures identified in the air quality roadmap, the limit values cannot be attained by the attainment deadline
+  references:
+    - annex: I
+      section: 1
+  timing:
+    type: absolute
+    date: 2035-01-01
+  domain:
+    - planning
+    - modelling
+
+- id: Art18_p1_c
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 1
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: postpone
+    object: attainment_deadline_for_limit_values_for_a_second_and_last_time
+  condition:
+    text: attainment cannot be achieved by a deadline postponed in accordance with Article 18(1), first subparagraph, point (b)
+  references:
+    - article: 18
+      paragraph: 2
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: end_of_first_postponement_period
+  domain:
+    - planning
+
+- id: Art18_p2
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 2
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: postpone
+    object: attainment_deadline
+  condition:
+    items:
+      - label: a
+        text: an air quality roadmap is established by 31 December 2028 that meets the requirements listed in Article 19(6), (7) and (8)
+      - label: b
+        text: the air quality roadmap is supplemented by information on air pollution abatement measures listed in Point B of Annex VIII and demonstrates how exceedance periods above the limit values will be kept as short as possible
+      - label: c
+        text: the air quality roadmap is underpinned by air quality projections showing how the limit values will be attained as soon as possible and no later than by the end of the postponed attainment deadline, taking into account reasonable and proportionate measures
+      - label: d
+        text: the air quality roadmap outlines how the public and vulnerable groups will be informed about the consequences of the postponement
+      - label: e
+        text: the air quality roadmap outlines how additional funding will be mobilised to accelerate the improvement of air quality
+      - label: f
+        text: the conditions laid down in Article 18(3) are fulfilled throughout the postponement period
+      - label: g
+        text: where a second postponement is requested, the updated air quality roadmap demonstrates that the first roadmap has been implemented or that steps have been taken towards implementation and includes an analysis showing that the original projections did not materialise
+  references:
+    - article: 18
+      paragraph: 3
+    - article: 19
+      paragraph: 6
+    - article: 19
+      paragraph: 7
+    - article: 19
+      paragraph: 8
+    - annex: VIII
+  domain:
+    - planning
+    - modelling
+    - public_information
+
+- id: Art18_p3_a
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 3
+    point: a
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: implement
+    object: measures_in_the_air_quality_roadmap
+  condition:
+    text: during the period of postponement of an attainment deadline
+  references:
+    - document: directive_2016_2284
+  timing:
+    type: recurring
+    interval: P2Y6M
+    anchor: 2031-06-30
+  domain:
+    - planning
+    - reporting
+
+- id: Art18_p3_b
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 3
+    point: b
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: update
+    object: air_quality_roadmap
+  references:
+    - article: 19
+      paragraph: 5
+  condition:
+    text: during the period of postponement of an attainment deadline
+  domain:
+    - planning
+
+- id: Art18_p3_c
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 3
+    point: c
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: general_decreasing_trend_in_concentration_levels_for_the_relevant_pollutant
+  condition:
+    text: from 1 January 2035 and during the period of postponement of an attainment deadline
+  references:
+    - annex: VIII
+  timing:
+    type: absolute
+    date: 2035-01-01
+  domain:
+    - planning
+    - assessment
+
+- id: Art18_p3_d
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 3
+    point: d
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object:
+      - implementation_reports
+      - updated_air_quality_roadmaps
+  timing:
+    type: relative
+    offset: P2M
+    anchor: adoption_of_implementation_reports_or_updated_air_quality_roadmaps
+  domain:
+    - reporting
+
+- id: Art18_p4_a
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object: applicability_of_article_18_paragraph_1_first_subparagraph_points_a_or_b
+  timing:
+    type: absolute
+    date: 2029-01-31
+  references:
+    - article: 18
+      paragraph: 1
+      point: a
+    - article: 18
+      paragraph: 1
+      point: b
+  domain:
+    - reporting
+
+- id: Art18_p4_b
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object:
+      - air_quality_roadmap
+      - relevant_information_necessary_for_the_commission_assessment
+  timing:
+    type: absolute
+    date: 2029-01-31
+  references:
+    - article: 18
+      paragraph: 1
+  domain:
+    - reporting
+    - planning
+
+- id: Art18_p4_c
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object: inability_to_achieve_attainment_by_postponed_deadline
+  timing:
+    type: absolute
+    date: 2034-01-31
+  references:
+    - article: 18
+      paragraph: 1
+  domain:
+    - reporting
+
+- id: Art18_p4_d
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object:
+      - updated_air_quality_roadmap
+      - relevant_information_necessary_for_the_commission_assessment_of_second_postponement
+  timing:
+    type: absolute
+    date: 2034-01-31
+  references:
+    - article: 18
+      paragraph: 1
+  domain:
+    - reporting
+    - planning
+
+- id: Art18_p4_e
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: justify
+    object:
+      - methods_used_for_projections
+      - data_used_for_projections
+  condition:
+    text: where projections are provided as a reason for postponement
+  domain:
+    - reporting
+    - modelling
+
+- id: Art18_p4_f
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: consider
+    object:
+      - air_quality_projections_provided_by_the_member_state
+      - estimated_effects_of_measures_taken_by_the_member_state
+      - estimated_effects_of_union_measures_on_ambient_air_quality
+  condition:
+    text: in its assessment of a postponement notification
+  domain:
+    - assessment
+    - institutional
+
+- id: Art18_p4_g
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: determine
+    object: conditions_for_application_of_article_18_paragraph_1_as_satisfied
+  condition:
+    text: the Commission has raised no objections within 9 months of receipt of the notification
+  timing:
+    type: relative
+    offset: P9M
+    anchor: receipt_of_notification
+  references:
+    - article: 18
+      paragraph: 1
+  domain:
+    - institutional
+
+- id: Art18_p4_h
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 4
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: require
+    object:
+      - adjustment_of_air_quality_roadmap
+      - new_air_quality_roadmap
+  condition:
+    text: objections are raised by the Commission
+  references:
+    - article: 18
+      paragraph: 1
+  domain:
+    - institutional
+    - planning
+
+- id: Art18_p5_a
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 5
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_details_on_requirements_for_projections_under_article_18_paragraph_1
+  timing:
+    type: absolute
+    date: 2026-12-31
+  references:
+    - article: 18
+      paragraph: 1
+    - annex: I
+      section: 1
+  domain:
+    - modelling
+    - institutional
+
+- id: Art18_p5_b
+  source:
+    document: directive_2024_2881
+    article: 18
+    paragraph: 5
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: specify
+    object: information_to_be_included_in_implementation_reports
+  timing:
+    type: absolute
+    date: 2026-12-31
+  references:
+    - article: 18
+      paragraph: 3
+    - article: 26
+      paragraph: 2
+  domain:
+    - reporting
+    - institutional

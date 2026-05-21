@@ -1,0 +1,858 @@
+- id: Art21_p1
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 1
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object:
+      - member_states_from_which_air_pollution_originated
+      - commission
+  condition:
+    text: where transboundary transport of air pollution from one or more Member State contributes significantly to the exceedance of any limit value, ozone target value, average exposure reduction obligation or alert threshold in another Member State
+  domain:
+    - reporting
+
+- id: Art21_p2_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: cooperate
+    object: member_states_concerned
+  condition:
+    text: where Member States are concerned by transboundary air pollution referred to in paragraph 1
+  domain:
+    - planning
+
+- id: Art21_p2_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: joint_teams_of_experts
+  condition:
+    text: in cooperating with each other under paragraph 2
+  domain:
+    - planning
+
+- id: Art21_p2_c
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_support
+  condition:
+    text: in cooperation between the Member States concerned under paragraph 2
+  domain:
+    - planning
+    - institutional
+
+- id: Art21_p2_d
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: identify
+    object:
+      - sources_of_air_pollution
+      - contributions_of_those_sources_to_exceedances_in_another_member_state
+      - measures_to_be_taken_to_address_those_sources
+  condition:
+    text: in cooperation between the Member States concerned under paragraph 2
+  domain:
+    - assessment
+    - planning
+
+- id: Art21_p2_e
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: coordinated_activities
+  references:
+    - article: 19
+  condition:
+    text: in cooperation between the Member States concerned under paragraph 2
+  domain:
+    - planning
+
+- id: Art21_p2_f
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: address
+    object: pollution_sources_located_in_its_territory
+  condition:
+    text: in coordinated activities such as the coordination of air quality plans pursuant to Article 19
+  references:
+    - article: 19
+  domain:
+    - planning
+
+- id: Art21_p2_g
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: respond
+    object: other_member_states
+  timing:
+    type: relative
+    anchor: notification_by_another_member_state
+  condition:
+    text: after being notified by another Member State in accordance with the first subparagraph
+  domain:
+    - reporting
+
+- id: Art21_p2_h
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: inform
+    object: commission
+  timing:
+    type: relative
+    offset: P3M
+    anchor: notification_by_another_member_state
+  condition:
+    text: after being notified by another Member State in accordance with the first subparagraph
+  domain:
+    - reporting
+
+- id: Art21_p3_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 3
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: inform
+    object: commission
+  references:
+    - article: 21
+      paragraph: 2
+  condition:
+    text: in any cooperation referred to in paragraph 2 of this Article
+  domain:
+    - reporting
+
+- id: Art21_p3_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 3
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: invite
+    object: commission
+  references:
+    - article: 21
+      paragraph: 2
+  condition:
+    text: in any cooperation referred to in paragraph 2 of this Article
+  domain:
+    - institutional
+    - planning
+
+- id: Art21_p3_c
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 3
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: require
+    object: update_on_progress_in_implementing_coordinated_activities
+  references:
+    - article: 21
+      paragraph: 2
+  domain:
+    - institutional
+    - reporting
+
+- id: Art21_p3_d
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 3
+  norm_type: recommendation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: consider
+    object: further_action_at_union_level_to_reduce_precursor_emissions_responsible_for_transboundary_pollution
+  qualifiers:
+    - where_appropriate
+  references:
+    - document: directive_2016_2284
+      article: 11
+  domain:
+    - institutional
+    - planning
+
+- id: Art21_p4_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 4
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: prepare
+    object: coordinated_short_term_action_plans_covering_neighbouring_zones_in_other_member_states
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 20
+  domain:
+    - planning
+
+- id: Art21_p4_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 4
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: implement
+    object: coordinated_short_term_action_plans_covering_neighbouring_zones_in_other_member_states
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 20
+  domain:
+    - planning
+
+- id: Art21_p4_c
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 4
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: neighbouring_zones_in_other_member_states_receive_all_appropriate_information_regarding_short_term_action_plans
+  timing:
+    type: relative
+    anchor: establishment_of_short_term_action_plans
+  domain:
+    - public_information
+    - planning
+
+- id: Art21_p5_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 5
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: information_on_exceedances_to_competent_authorities_in_neighbouring_member_states_concerned
+  condition:
+    text: where the alert thresholds or information thresholds are exceeded in zones close to national borders
+  timing:
+    type: relative
+    anchor: exceedance_of_alert_thresholds_or_information_thresholds
+  domain:
+    - reporting
+
+- id: Art21_p5_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 5
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object: information_on_exceedances_to_public
+  condition:
+    text: where the alert thresholds or information thresholds are exceeded in zones close to national borders
+  domain:
+    - public_information
+
+- id: Art21_p6_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 6
+    point: a
+  norm_type: permission
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: identify
+    object: zones_in_which_transboundary_transport_of_air_pollution_contributes_significantly_to_exceedances
+  condition:
+    text: in the notification referred to in paragraph 1, for the relevant year
+  references:
+    - article: 21
+      paragraph: 1
+  domain:
+    - assessment
+    - reporting
+
+- id: Art21_p6_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 6
+    point: b
+  norm_type: permission
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: identify
+    object: average_exposure_territorial_units_in_which_transboundary_transport_of_air_pollution_contributes_significantly_to_exceedances
+  condition:
+    text: in the notification referred to in paragraph 1, for the relevant year
+  references:
+    - article: 21
+      paragraph: 1
+  domain:
+    - assessment
+    - reporting
+
+- id: Art21_p6_c
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 6
+  norm_type: permission
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object:
+      - lists_of_zones
+      - lists_of_average_exposure_territorial_units
+      - information_on_concentrations
+      - evidence_demonstrating_significant_contribution_from_transboundary_sources
+  domain:
+    - reporting
+    - assessment
+
+- id: Art21_p6_d
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 6
+  norm_type: discretion
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: consider
+    object: information_for_the_purposes_of_article_18
+  qualifiers:
+    - if_relevant
+  references:
+    - article: 18
+  domain:
+    - institutional
+    - assessment
+
+- id: Art21_p7_a
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 7
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: cooperate
+    object: third_countries_in_particular_candidate_countries
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 21
+      paragraph: 2
+    - article: 21
+      paragraph: 4
+    - article: 21
+      paragraph: 5
+  condition:
+    text: when establishing plans as provided for in paragraphs 2 and 4 and in informing the public as referred to in paragraph 5
+  domain:
+    - planning
+    - public_information
+
+- id: Art21_p7_b
+  source:
+    document: directive_2024_2881
+    article: 21
+    paragraph: 7
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: request
+    object: technical_support_from_commission
+  qualifiers:
+    - where_appropriate
+  domain:
+    - institutional
+    - planning
+
+- id: Art22_p1
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 1
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: public_and_appropriate_organisations_are_informed
+  references:
+    - annex: X
+    - article: 18
+    - article: 19
+    - article: 20
+    - article: 10
+    - annex: VII
+  domain:
+    - public_information
+
+- id: Art22_p1_f
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 1
+    point: f
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: summary_assessment_includes_further_information_and_assessments_on_environment_and_information_on_pollutants
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 10
+    - annex: VII
+  domain:
+    - public_information
+    - assessment
+
+- id: Art22_p2_a
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: air_quality_index
+  condition:
+    text: provided that there is an obligation to monitor sulphur dioxide, nitrogen dioxide, particulate matter PM10 and PM2.5 and ozone pursuant to this Directive
+  qualifiers:
+    - at_least
+  domain:
+    - public_information
+    - monitoring
+
+- id: Art22_p2_b
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object: air_quality_index_through_public_source
+  condition:
+    text: provided that there is an obligation to monitor sulphur dioxide, nitrogen dioxide, particulate matter PM10 and PM2.5 and ozone pursuant to this Directive
+  qualifiers:
+    - at_least
+  domain:
+    - public_information
+
+- id: Art22_p2_c
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: permission
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: additional_pollutants
+  qualifiers:
+    - if_relevant
+  domain:
+    - public_information
+    - monitoring
+
+- id: Art22_p2_d
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: informational
+  action:
+    verb: establish
+    object:
+      - air_quality_index_comparability_across_member_states
+      - air_quality_index_following_who_recommendations
+  qualifiers:
+    - to_the_extent_possible
+  domain:
+    - public_information
+
+- id: Art22_p2_e
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: informational
+  action:
+    verb: establish
+    object: air_quality_index_builds_on_air_quality_indices_at_european_scale_provided_by_european_environment_agency
+  domain:
+    - public_information
+
+- id: Art22_p2_f
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: informational
+  action:
+    verb: establish
+    object: air_quality_index_includes_information_regarding_impacts_on_health
+  domain:
+    - public_information
+
+- id: Art22_p2_g
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: permission
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: use
+    object: air_quality_index_provided_by_european_environment_agency
+  domain:
+    - public_information
+
+- id: Art22_p2_h
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 2
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object: reference_to_air_quality_index_provided_by_european_environment_agency_at_national_level
+  condition:
+    text: if a Member State decides not to use the index provided by the European Environment Agency
+  domain:
+    - public_information
+
+- id: Art22_p3_a
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 3
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object:
+      - information_on_symptoms_associated_with_air_pollution_peaks
+      - information_on_air_pollution_exposure_reduction_and_protection_behaviours
+  domain:
+    - public_information
+
+- id: Art22_p3_b
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 3
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: encourage
+    object: display_of_information_to_public_in_locations_frequented_by_sensitive_population_and_vulnerable_groups
+  domain:
+    - public_information
+
+- id: Art22_p4
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 4
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: inform
+    object: public_of_competent_authority_or_body_designated
+  references:
+    - article: 5
+  domain:
+    - public_information
+    - institutional
+
+- id: Art22_p5_a
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 5
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object: information_referred_to_in_article_22_to_public_free_of_charge
+  references:
+    - document: directive_2007_2_ec
+    - document: directive_2019_1024
+  domain:
+    - public_information
+
+- id: Art22_p5_b
+  source:
+    document: directive_2024_2881
+    article: 22
+    paragraph: 5
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: broad_public_access_to_information_referred_to_in_article_22
+  references:
+    - document: directive_2007_2_ec
+    - document: directive_2019_1024
+  domain:
+    - public_information
+
+- id: Art23_p1
+  source:
+    document: directive_2024_2881
+    article: 23
+    paragraph: 1
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: information_on_ambient_air_quality_is_made_available_to_commission
+  references:
+    - article: 23
+      paragraph: 5
+    - annex: V
+      section: B
+  condition:
+    text: irrespective of compliance with data quality objectives for data coverage laid down in Point B of Annex V
+  domain:
+    - reporting
+    - assessment
+
+- id: Art23_p2
+  source:
+    document: directive_2024_2881
+    article: 23
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object:
+      - changes_to_list_and_delimitation_of_zones_or_average_exposure_territorial_units
+      - list_of_zones_and_average_exposure_territorial_units_and_levels_of_pollutants_assessed
+      - dates_and_periods_when_levels_above_limit_values_target_values_critical_levels_or_average_exposure_reduction_obligation_levels_were_observed
+      - assessment_on_contributions_from_natural_sources_and_resuspension_of_particulates_following_winter_sanding_or_winter_salting_of_roads
+  condition:
+    text: for the specific purpose of assessing compliance with the limit values, target values, average exposure reduction obligations and critical levels
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 23
+      paragraph: 1
+    - article: 6
+    - article: 16
+    - article: 17
+  timing:
+    type: relative
+    offset: P9M
+    anchor: end_of_each_calendar_year
+  domain:
+    - reporting
+    - assessment
+
+- id: Art23_p3
+  source:
+    document: directive_2024_2881
+    article: 23
+    paragraph: 3
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: report
+    object:
+      - levels_recorded
+      - duration_of_periods_during_which_alert_threshold_or_information_threshold_was_exceeded
+  references:
+    - article: 23
+      paragraph: 1
+  domain:
+    - reporting
+    - assessment
+
+- id: Art23_p4
+  source:
+    document: directive_2024_2881
+    article: 23
+    paragraph: 4
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: information_referred_to_in_point_d_of_annex_iv_to_commission
+  references:
+    - annex: IV
+      section: D
+  timing:
+    type: relative
+    offset: P3M
+    anchor: commission_request
+  domain:
+    - reporting
+
+- id: Art23_p5
+  source:
+    document: directive_2024_2881
+    article: 23
+    paragraph: 5
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: adopt
+    object:
+      - implementing_acts_specifying_information_to_be_made_available_by_member_states_and_timescales_for_communication
+      - implementing_acts_identifying_ways_of_streamlining_data_reporting_and_reciprocal_exchange_of_information_and_data
+  references:
+    - article: 23
+    - article: 26
+      paragraph: 2
+  domain:
+    - institutional
+    - reporting

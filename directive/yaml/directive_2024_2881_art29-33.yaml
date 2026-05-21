@@ -1,0 +1,462 @@
+- id: Art29_p1_a
+  source:
+    document: directive_2024_2881
+    article: 29
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: lay_down
+    object: rules_on_penalties_applicable_to_infringements_of_national_provisions_adopted_pursuant_to_this_directive
+  references:
+    - document: directive_2008_99_ec
+  domain:
+    - enforcement
+
+- id: Art29_p1_b
+  source:
+    document: directive_2024_2881
+    article: 29
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: take
+    object: all_measures_necessary_to_ensure_that_penalties_are_implemented
+  references:
+    - document: directive_2008_99_ec
+  domain:
+    - enforcement
+
+- id: Art29_p1_c
+  source:
+    document: directive_2024_2881
+    article: 29
+    paragraph: 1
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object:
+      - rules_on_penalties
+      - measures_necessary_to_ensure_implementation
+  condition:
+    text: without undue delay
+  references:
+    - document: directive_2008_99_ec
+  domain:
+    - enforcement
+    - reporting
+
+- id: Art29_p1_d
+  source:
+    document: directive_2024_2881
+    article: 29
+    paragraph: 1
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object: any_subsequent_amendment_affecting_rules_and_measures
+  condition:
+    text: without undue delay
+  references:
+    - document: directive_2008_99_ec
+  domain:
+    - enforcement
+    - reporting
+
+- id: Art29_p2
+  source:
+    document: directive_2024_2881
+    article: 29
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object:
+      - penalties_established_pursuant_to_paragraph_1_give_due_regard_to_the_nature_gravity_extent_and_duration_of_the_infringement
+      - penalties_established_pursuant_to_paragraph_1_give_due_regard_to_the_impact_on_the_population_including_sensitive_population_and_vulnerable_groups_or_the_environment_affected_by_the_infringement
+      - penalties_established_pursuant_to_paragraph_1_give_due_regard_to_the_repetitive_or_singular_character_of_the_infringement
+      - penalties_established_pursuant_to_paragraph_1_give_due_regard_to_the_economic_benefits_derived_from_the_infringement_by_the_natural_or_legal_person_held_responsible
+  qualifiers:
+    - where_applicable
+  references:
+    - article: 29
+      paragraph: 1
+  domain:
+    - enforcement
+
+- id: Art30_p1_a
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: bring_into_force
+    object: laws_regulations_and_administrative_provisions_necessary_to_comply_with_specified_provisions
+  timing:
+    type: absolute
+    date: 2026-12-11
+  references:
+    - article: 1
+    - article: 3
+    - article: 4
+      point: 2
+    - article: 4
+      point: 7
+    - article: 4
+      point: 9
+    - article: 4
+      point: 14
+    - article: 4
+      point: 15
+    - article: 4
+      point: 16
+    - article: 4
+      point: 18
+    - article: 4
+      point: 21
+    - article: 4
+      point: 22
+    - article: 4
+      point: 23
+    - article: 4
+      point: 24
+    - article: 4
+      point: 25
+    - article: 4
+      point: 26
+    - article: 4
+      point: 27
+    - article: 4
+      point: 28
+    - article: 4
+      point: 29
+    - article: 4
+      point: 30
+    - article: 4
+      point: 33
+    - article: 4
+      point: 34
+    - article: 4
+      point: 41
+    - article: 4
+      point: 42
+    - article: 4
+      point: 43
+    - article: 4
+      point: 44
+    - article: 4
+      point: 45
+    - article: 5
+    - article: 6
+    - article: 7
+    - article: 8
+    - article: 9
+      paragraph: 1
+    - article: 9
+      paragraph: 2
+    - article: 9
+      paragraph: 3
+    - article: 9
+      paragraph: 5
+    - article: 9
+      paragraph: 6
+    - article: 9
+      paragraph: 7
+    - article: 9
+      paragraph: 8
+    - article: 9
+      paragraph: 9
+    - article: 10
+    - article: 11
+    - article: 12
+    - article: 13
+      paragraph: 1
+    - article: 13
+      paragraph: 2
+    - article: 13
+      paragraph: 3
+    - article: 13
+      paragraph: 5
+    - article: 13
+      paragraph: 6
+    - article: 13
+      paragraph: 7
+    - article: 15
+    - article: 16
+      paragraph: 1
+    - article: 16
+      paragraph: 2
+    - article: 16
+      paragraph: 4
+    - article: 17
+      paragraph: 4
+    - article: 18
+    - article: 19
+    - article: 20
+    - article: 21
+    - article: 22
+      paragraph: 1
+    - article: 22
+      paragraph: 2
+    - article: 22
+      paragraph: 3
+    - article: 22
+      paragraph: 5
+    - article: 23
+    - article: 24
+    - article: 25
+    - article: 26
+    - article: 27
+    - article: 28
+    - article: 29
+    - annex: I
+    - annex: II
+    - annex: III
+    - annex: IV
+    - annex: V
+    - annex: VI
+    - annex: VII
+    - annex: VIII
+    - annex: IX
+    - annex: X
+  domain:
+    - general
+    - institutional
+
+- id: Art30_p1_b
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 1
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object: text_of_measures
+  condition:
+    text: immediately
+  domain:
+    - reporting
+
+- id: Art30_p1_c
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: reference_to_this_directive_in_measures_or_on_the_occasion_of_their_official_publication
+  condition:
+    text: when Member States adopt those measures
+  domain:
+    - general
+    - institutional
+
+- id: Art30_p1_d
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: statement_that_references_in_existing_laws_regulations_and_administrative_provisions_to_the_directives_repealed_by_this_directive_shall_be_construed_as_references_to_this_directive
+  condition:
+    text: when Member States adopt those measures
+  domain:
+    - general
+    - institutional
+
+- id: Art30_p1_e
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object:
+      - how_reference_to_this_directive_is_to_be_made
+      - how_statement_is_to_be_formulated
+  domain:
+    - general
+    - institutional
+
+- id: Art30_p2
+  source:
+    document: directive_2024_2881
+    article: 30
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object: text_of_the_main_measures_of_national_law_adopted_in_the_field_covered_by_this_directive
+  domain:
+    - reporting
+    - institutional
+
+- id: Art31_p1
+  source:
+    document: directive_2024_2881
+    article: 31
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: revoke
+    object:
+      - directive_2004_107_ec
+      - directive_2008_50_ec
+  exceptions:
+    - obligations_of_member_states_relating_to_the_time_limits_for_the_transposition_into_national_law_of_the_directives_set_out_in_part_b_of_annex_xi
+  references:
+    - document: directive_2004_107_ec
+    - document: directive_2008_50_ec
+    - annex: XI
+      section: Part A
+    - annex: XI
+      section: Part B
+  timing:
+    type: absolute
+    date: 2026-12-12
+  domain:
+    - general
+    - institutional
+
+- id: Art31_p2
+  source:
+    document: directive_2024_2881
+    article: 31
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: construe
+    object: references_to_the_repealed_directives_as_references_to_this_directive_in_accordance_with_the_correlation_table_in_annex_xii
+  references:
+    - annex: XII
+  domain:
+    - general
+    - institutional
+
+- id: Art32_p2
+  source:
+    document: directive_2024_2881
+    article: 32
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: procedural
+  action:
+    verb: apply
+    object: specified_provisions
+  references:
+    - article: 2
+    - article: 4
+      point: 1
+    - article: 4
+      point: 3
+    - article: 4
+      point: 4
+    - article: 4
+      point: 5
+    - article: 4
+      point: 6
+    - article: 4
+      point: 8
+    - article: 4
+      point: 10
+    - article: 4
+      point: 11
+    - article: 4
+      point: 12
+    - article: 4
+      point: 13
+    - article: 4
+      point: 17
+    - article: 4
+      point: 19
+    - article: 4
+      point: 20
+    - article: 4
+      point: 31
+    - article: 4
+      point: 32
+    - article: 4
+      point: 35
+    - article: 4
+      point: 36
+    - article: 4
+      point: 37
+    - article: 4
+      point: 38
+    - article: 4
+      point: 39
+    - article: 4
+      point: 40
+    - article: 9
+      paragraph: 4
+    - article: 13
+      paragraph: 4
+    - article: 14
+    - article: 16
+      paragraph: 3
+    - article: 17
+      paragraph: 1
+    - article: 17
+      paragraph: 2
+    - article: 17
+      paragraph: 3
+    - article: 22
+      paragraph: 4
+  timing:
+    type: absolute
+    date: 2026-12-12
+  domain:
+    - general
+    - institutional
+
+- id: Art33
+  source:
+    document: directive_2024_2881
+    article: 33
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: establish
+    object: directive_addressees_as_member_states
+  domain:
+    - general
+    - institutional

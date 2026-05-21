@@ -1,0 +1,352 @@
+# Directive (EU) 2024/2881 — Normative YAML Annotations
+# Articles 1, 2, 3
+# Produced according to Normative YAML Annotation Specification v2.1
+#
+# Changes from v2.0 spec applied here:
+#   - action.verb: added `assist` and `propose`
+#   - qualifiers: added `where_applicable`
+#   - normative_role for assist-type obligations: `operational` (not `institutional`)
+
+---
+
+# ─── ARTICLE 1 — Objectives ───────────────────────────────────────────────────
+
+# Art. 1(1): constitutive_rule — establishes the zero-pollution objective.
+# No specific actor is assigned an action; the provision creates a legal aim.
+
+- id: Art1_p1
+  source:
+    document: directive_2024_2881
+    article: 1
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    object: zero_pollution_objective_for_air_quality
+  domain:
+    - general
+
+# Art. 1(2) sentence 1: constitutive_rule — the directive lays down the listed
+# standards. Multiple objects of the same action; not split per granularity rules.
+
+- id: Art1_p2_a
+  source:
+    document: directive_2024_2881
+    article: 1
+    paragraph: 2
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    object:
+      - limit_values
+      - target_values
+      - average_exposure_reduction_obligations
+      - average_exposure_concentration_objectives
+      - critical_levels
+      - alert_thresholds
+      - information_thresholds
+      - long_term_objectives
+  references:
+    - annex: I
+  domain:
+    - general
+    - assessment
+
+# Art. 1(2) sentence 2: obligation on the Commission to review the standards.
+# Distinct action and actor from the constitutive provision above.
+
+- id: Art1_p2_b
+  source:
+    document: directive_2024_2881
+    article: 1
+    paragraph: 2
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: commission
+  action:
+    verb: review
+    object: air_quality_standards
+  references:
+    - article: 3
+    - annex: I
+  domain:
+    - general
+    - assessment
+
+# Art. 1(3): purely descriptive policy aspiration — not encoded.
+
+
+# ─── ARTICLE 2 — Subject matter ───────────────────────────────────────────────
+
+# Art. 2: constitutive_rule — establishes the material scope of the directive.
+# Six points all instantiate the same implicit action on the part of the directive;
+# encoded as one unit per the granularity rule (same action, multiple objects).
+
+- id: Art2
+  source:
+    document: directive_2024_2881
+    article: 2
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    object:
+      - objectives_for_ambient_air_quality
+      - common_assessment_methods_and_criteria
+      - air_quality_monitoring_provisions
+      - public_information_provisions
+      - air_quality_maintenance_and_improvement_provisions
+      - cooperation_promotion_provisions
+  domain:
+    - general
+
+
+# ─── ARTICLE 3 — Regular review ───────────────────────────────────────────────
+
+# Art. 3(1): three distinct normative units:
+#   (a) obligation to conduct the review — absolute deadline 2030-12-31
+#   (b) same obligation recurring every 5 years, or earlier if triggered
+#   (c) obligation to present the report to EP and Council (distinct action)
+
+- id: Art3_p1_a
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: commission
+  action:
+    verb: review
+    object: scientific_evidence_related_to_air_pollutants_and_their_effects
+  references:
+    - article: 1
+  timing:
+    type: absolute
+    date: 2030-12-31
+  domain:
+    - general
+    - assessment
+
+- id: Art3_p1_b
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: commission
+  action:
+    verb: review
+    object: scientific_evidence_related_to_air_pollutants_and_their_effects
+  condition:
+    text: every 5 years after 31 December 2030, and more often if substantial new scientific findings point to the need for it
+  references:
+    - article: 1
+  timing:
+    type: recurring
+    interval: P5Y
+    anchor: 2030-12-31
+  domain:
+    - general
+    - assessment
+
+- id: Art3_p1_c
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 1
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: report_with_main_findings_to_european_parliament_and_council
+  timing:
+    type: absolute
+    date: 2030-12-31
+  domain:
+    - general
+    - reporting
+
+# Art. 3(2): four obligations on the Commission concerning what the review
+# shall assess. Split because the objects assessed are substantively distinct.
+
+- id: Art3_p2_a
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: assess
+    object: whether_air_quality_standards_remain_appropriate_to_avoid_harmful_effects
+  references:
+    - article: 1
+  domain:
+    - general
+    - assessment
+
+- id: Art3_p2_b
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: assess
+    object: options_and_timelines_for_alignment_with_who_air_quality_guidelines
+  references:
+    - article: 1
+  domain:
+    - general
+    - assessment
+
+- id: Art3_p2_c
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: assess
+    object:
+      - all_other_provisions_of_the_directive
+      - most_up_to_date_scientific_evidence
+      - air_pollutants_measured_at_monitoring_supersites_not_in_annex_i
+  references:
+    - article: 10
+    - annex: I
+  qualifiers:
+    - where_applicable
+  domain:
+    - general
+    - monitoring
+    - assessment
+
+# Art. 3(2) sub-list (a)–(i): the Commission shall take into account the listed
+# factors. Same actor, same action, nine parallel objects — one unit.
+
+- id: Art3_p2_d
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: evaluate
+    object:
+      - latest_scientific_information_from_relevant_union_bodies_and_international_organisations
+      - behavioural_fiscal_and_technological_developments_impacting_air_quality
+      - air_quality_situations_and_associated_health_and_environment_impacts
+      - direct_and_indirect_healthcare_and_environmental_costs_of_air_pollution
+      - socioeconomic_impacts_and_cost_benefit_analysis_of_complementary_actions
+      - progress_in_implementing_national_and_union_reduction_measures
+      - relevant_source_legislation_and_progress_in_its_implementation
+      - information_submitted_by_member_states_for_the_review
+      - more_stringent_air_quality_standards_introduced_by_member_states
+  references:
+    - article: 193
+  domain:
+    - general
+    - assessment
+
+# Art. 3(3): obligation on the EEA to assist the Commission.
+# normative_role: operational — the EEA supports an operational function,
+# not an institutional delegation of competence.
+
+- id: Art3_p3
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: european_environment_agency
+  action:
+    verb: assist
+    object: commission_in_carrying_out_the_review
+  references:
+    - article: 3
+      paragraph: 1
+  domain:
+    - general
+    - institutional
+
+# Art. 3(4): two separate permissions for the Commission — distinct objects
+# and distinct legislative instruments trigger separate encoding.
+
+- id: Art3_p4_a
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 4
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: propose
+    object: revision_of_air_quality_standards_or_coverage_of_additional_air_pollutants
+  condition:
+    text: where the Commission deems it necessary as a result of the review
+  domain:
+    - general
+    - assessment
+
+- id: Art3_p4_b
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 4
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: propose
+    object: introduction_or_revision_of_relevant_source_legislation
+  condition:
+    text: where the Commission deems it necessary to contribute to achieving the proposed revised air quality standards at Union level
+  domain:
+    - general
+    - institutional
+
+# Art. 3(5): permission for the Commission to propose further Union-level action.
+
+- id: Art3_p5
+  source:
+    document: directive_2024_2881
+    article: 3
+    paragraph: 5
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: commission
+  action:
+    verb: propose
+    object: further_action_at_union_level
+  condition:
+    text: where the Commission identifies during the review that further measures are needed to achieve applicable air quality standards in a significant area of Union territory
+  domain:
+    - general
+    - assessment

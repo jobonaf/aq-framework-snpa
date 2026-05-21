@@ -1,0 +1,788 @@
+- id: Art19_p1_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: air_quality_plan
+  condition:
+    text: where in given zones the levels of pollutants in ambient air exceed any limit value or target value laid down in Section 1 of Annex I
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: end_of_calendar_year_during_which_exceedance_was_recorded
+  references:
+    - annex: I
+      section: 1
+  domain:
+    - planning
+
+- id: Art19_p1_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: maintain
+    object: exceedance_period_not_longer_than_4_years
+  condition:
+    text: where in given zones the levels of pollutants in ambient air exceed any limit value or target value laid down in Section 1 of Annex I
+  timing:
+    type: relative
+    offset: P4Y
+    anchor: end_of_calendar_year_in_which_first_exceedance_was_recorded
+  references:
+    - annex: I
+      section: 1
+  domain:
+    - planning
+
+- id: Art19_p1_c
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: measures_in_air_quality_roadmap_are_appropriate_to_keep_exceedance_period_as_short_as_possible
+  condition:
+    text: where in a given zone an exceedance of a limit value is already covered by an air quality roadmap
+  domain:
+    - planning
+
+- id: Art19_p1_d
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: implement
+    object: additional_and_more_effective_measures
+  condition:
+    text: where in a given zone an exceedance of a limit value is already covered by an air quality roadmap and where relevant
+  references:
+    - article: 19
+      paragraph: 5
+  qualifiers:
+    - if_relevant
+  domain:
+    - planning
+
+- id: Art19_p2_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: air_quality_plan
+  condition:
+    text: where in territorial units covering at least one zone the levels of pollutants in ambient air exceed any ozone target value laid down in Section 2 of Annex I
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: end_of_calendar_year_during_which_exceedance_of_ozone_target_value_was_recorded
+  references:
+    - annex: I
+      section: 2
+  domain:
+    - planning
+
+- id: Art19_p2_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: measures_in_air_quality_roadmap_are_appropriate_to_keep_exceedance_period_as_short_as_possible
+  condition:
+    text: where in a given territorial unit an exceedance of an ozone target value is already covered by an air quality roadmap
+  domain:
+    - planning
+
+- id: Art19_p2_c
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: discretion
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: waive
+    object:
+      - establishment_of_air_quality_plan
+      - establishment_of_air_quality_roadmap
+  condition:
+    operator: and
+    items:
+      - label: a
+        text: there is no significant potential to reduce ozone concentrations considering geographical and meteorological conditions
+      - label: b
+        text: the measures would entail disproportionate costs
+  domain:
+    - planning
+
+- id: Art19_p2_d
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: detailed_justification_for_decision_not_to_establish_air_quality_plan_or_air_quality_roadmap
+  condition:
+    text: where an air quality plan or air quality roadmap is not established
+  references:
+    - commission
+  domain:
+    - planning
+    - public_information
+
+- id: Art19_p2_e
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: potential_to_reduce_ozone_concentrations
+  timing:
+    type: recurring
+    interval: P5Y
+    anchor: date_of_previous_assessment
+  domain:
+    - planning
+
+- id: Art19_p2_f
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: national_air_pollution_control_programme_includes_measures_addressing_ozone_precursors
+  condition:
+    text: for territorial units where the ozone target value is exceeded
+  references:
+    - document: directive_2016_2284
+      article: 6
+  domain:
+    - planning
+
+- id: Art19_p3_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: air_quality_plan
+  condition:
+    text: where in a given average exposure territorial unit the average exposure reduction obligation laid down in Section 5 of Annex I is not achieved
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: end_of_calendar_year_during_which_exceedance_of_average_exposure_reduction_obligation_was_recorded
+  references:
+    - annex: I
+      section: 5
+  domain:
+    - planning
+
+- id: Art19_p4_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 4
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: air_quality_roadmap
+  condition:
+    text: where from 1 January 2026 until 31 December 2029 in a zone or territorial unit the levels of pollutants are above any limit value or target value to be attained by 1 January 2030
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: end_of_calendar_year_during_which_exceedance_was_recorded
+  references:
+    - annex: I
+      section: 1
+    - annex: I
+      section: 2
+    - article: 19
+      paragraph: 2
+  domain:
+    - planning
+
+- id: Art19_p4_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 4
+  norm_type: discretion
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: waive
+    object: establishment_of_air_quality_roadmap
+  condition:
+    operator: or
+    items:
+      - label: a
+        text: the baseline scenario shows that the limit value or target value will be achieved with measures already in force
+      - label: b
+        text: the exceedance is caused by temporary activities influencing pollutant levels in a single year
+  references:
+    - annex: VIII
+  domain:
+    - planning
+
+- id: Art19_p4_c
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 4
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: detailed_justification_for_non_establishment_of_air_quality_roadmap
+  condition:
+    text: where an air quality roadmap is not established pursuant to the second subparagraph
+  references:
+    - commission
+  domain:
+    - planning
+    - public_information
+
+- id: Art19_p5_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: update
+    object:
+      - air_quality_plan
+      - air_quality_roadmap
+      - measures_in_air_quality_plan_or_air_quality_roadmap
+  condition:
+    text: where exceedances of any limit value, average exposure reduction obligation or target value persist during the third calendar year after the deadline for establishment of an air quality plan or air quality roadmap
+  timing:
+    type: relative
+    offset: P5Y
+    anchor: deadline_for_establishment_of_previous_air_quality_plan_or_air_quality_roadmap
+  references:
+    - article: 19
+      paragraph: 2
+  domain:
+    - planning
+
+- id: Art19_p5_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: implement
+    object: additional_and_more_effective_measures
+  condition:
+    text: where exceedances of any limit value, average exposure reduction obligation or target value persist during the third calendar year after the deadline for establishment of an air quality plan or air quality roadmap
+  domain:
+    - planning
+
+- id: Art19_p6_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: information_listed_in_annex_viii_point_a_points_1_to_7_in_air_quality_plans_and_air_quality_roadmaps
+  references:
+    - annex: VIII
+  domain:
+    - planning
+
+- id: Art19_p6_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: information_listed_in_annex_viii_point_a_points_8_9_and_10_in_air_quality_plans_and_air_quality_roadmaps
+  qualifiers:
+    - where_applicable
+  references:
+    - annex: VIII
+  domain:
+    - planning
+
+- id: Art19_p6_c
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object: information_on_relevant_abatement_measures_listed_in_annex_viii_point_b_point_2
+  references:
+    - annex: VIII
+  domain:
+    - planning
+
+- id: Art19_p6_d
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: include
+    object:
+      - measures_referred_to_in_article_20_paragraph_2
+      - specific_measures_aiming_at_protection_of_sensitive_population_and_vulnerable_groups
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 20
+      paragraph: 2
+  domain:
+    - planning
+
+- id: Art19_p6_e
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: risk_of_exceeding_alert_thresholds_for_pollutants_concerned
+  condition:
+    text: when preparing air quality plans or air quality roadmaps
+  domain:
+    - planning
+
+- id: Art19_p6_f
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: apply
+    object: analysis_of_risk_of_exceeding_alert_thresholds_for_establishing_short_term_action_plans
+  domain:
+    - planning
+
+- id: Art19_p6_g
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: integrated_air_quality_plans_or_air_quality_roadmaps
+  condition:
+    text: where air quality plans or air quality roadmaps are to be established in respect of several pollutants or air quality standards
+  qualifiers:
+    - where_appropriate
+  domain:
+    - planning
+
+- id: Art19_p6_h
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: consistency_of_air_quality_plans_and_air_quality_roadmaps_with_other_relevant_plans
+  qualifiers:
+    - to_the_extent_possible
+  references:
+    - document: directive_2002_49_ec
+    - document: directive_2010_75_eu
+    - document: directive_2016_2284
+  domain:
+    - planning
+
+- id: Art19_p7_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 7
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: consult
+    object:
+      - public
+      - competent_authorities
+  condition:
+    text: prior to finalisation of draft air quality plans, draft air quality roadmaps and significant updates thereof
+  references:
+    - document: directive_2003_35_ec
+    - annex: VIII
+  domain:
+    - planning
+    - public_information
+
+- id: Art19_p7_b
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 7
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: public_access_to_draft_air_quality_plan_or_draft_air_quality_roadmap
+  condition:
+    text: when the public is consulted
+  qualifiers:
+    - where_possible
+  references:
+    - annex: VIII
+  domain:
+    - planning
+    - public_information
+
+- id: Art19_p7_c
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 7
+  norm_type: recommendation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: encourage
+    object: active_involvement_of_all_interested_parties_in_preparation_implementation_and_update_of_air_quality_plans_and_air_quality_roadmaps
+  domain:
+    - planning
+    - public_information
+
+- id: Art19_p8_a
+  source:
+    document: directive_2024_2881
+    article: 19
+    paragraph: 8
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object:
+      - air_quality_plans
+      - air_quality_roadmaps
+  timing:
+    type: relative
+    offset: P2M
+    anchor: adoption_of_air_quality_plans_or_air_quality_roadmaps
+  references:
+    - commission
+  domain:
+    - planning
+    - reporting
+
+- id: Art20_p1_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: short_term_action_plan
+  condition:
+    text: where in a given zone there is a risk that the levels of pollutants will exceed one or more alert thresholds specified in Section 4 of Annex I
+  references:
+    - annex: I
+      section: 4
+  domain:
+    - planning
+
+- id: Art20_p1_b
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 1
+  norm_type: discretion
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: waive
+    object: establishment_of_short_term_action_plan_for_ozone
+  condition:
+    text: where there is no significant potential to reduce the risk duration or severity of an exceedance of the ozone alert threshold taking into account national geographical meteorological and economic conditions
+  domain:
+    - planning
+
+- id: Art20_p1_c
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 1
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: short_term_action_plan_focused_only_on_specific_protective_actions
+  condition:
+    text: where for particulate matter PM10 and PM2_5 the potential to reduce the risk of exceedance is severely limited taking into account local geographical and meteorological conditions and specificities of domestic heating systems
+  domain:
+    - planning
+
+- id: Art20_p2_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 2
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: effective_measures_to_control_or_temporarily_suspend_activities_contributing_to_exceedance_risk
+  condition:
+    text: when establishing short-term action plans
+  domain:
+    - planning
+
+- id: Art20_p2_b
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 2
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: consider
+    object: measures_set_out_in_annex_ix_for_short_term_action_plans
+  condition:
+    text: when establishing short-term action plans
+  references:
+    - annex: IX
+  domain:
+    - planning
+
+- id: Art20_p2_c
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 2
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: consider
+    object: inclusion_of_measures_related_to_transport_construction_works_industrial_installations_agriculture_use_of_products_and_domestic_heating
+  condition:
+    text: depending on the share of the main pollution sources to the exceedances to be addressed
+  qualifiers:
+    - where_appropriate
+  domain:
+    - planning
+
+- id: Art20_p2_d
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 2
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: consider
+    object: specific_actions_aiming_at_protection_of_sensitive_population_and_vulnerable_groups
+  condition:
+    text: in the framework of short-term action plans
+  domain:
+    - planning
+
+- id: Art20_p3_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 3
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: consult
+    object:
+      - public
+      - competent_authorities
+  condition:
+    text: prior to finalisation of draft short-term action plans and significant updates thereof
+  references:
+    - document: directive_2003_35_ec
+  domain:
+    - planning
+    - public_information
+
+- id: Art20_p4_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 4
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: make_available
+    object:
+      - results_of_investigations_on_feasibility_and_content_of_short_term_action_plans
+      - information_on_implementation_of_short_term_action_plans
+  condition:
+    text: when Member States have established a short-term action plan
+  domain:
+    - planning
+    - public_information
+
+- id: Art20_p5_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 5
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: communicate
+    object: short_term_action_plans
+  timing:
+    type: relative
+    offset: P1Y
+    anchor: adoption_of_short_term_action_plan
+  references:
+    - article: 23
+  domain:
+    - planning
+    - reporting
+
+- id: Art20_p6_a
+  source:
+    document: directive_2024_2881
+    article: 20
+    paragraph: 6
+  norm_type: permission
+  normative_role: institutional
+  actor:
+    type: member_state
+  action:
+    verb: request
+    object: commission_exchange_of_best_practices
+  condition:
+    text: when establishing short-term action plans indicating emergency measures to be taken
+  references:
+    - commission
+  domain:
+    - planning
+    - institutional

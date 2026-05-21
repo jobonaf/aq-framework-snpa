@@ -1,0 +1,7 @@
+Articoli  Istruzioni  LLM
+1-8       <2.1.1      Claude-Sonnet-4.6
+9-11      2.1.1       Claude-Sonnet-4.6
+12-16     2.2.1       ChatGPT
+17-20     2.3.0       ChatGPT
+21-23     2.3.1       GPT 5.5 Think Deeper
+24-33     2.3.2       GPT 5.5 Think Deeper

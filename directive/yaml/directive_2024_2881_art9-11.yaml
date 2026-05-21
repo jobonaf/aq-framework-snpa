@@ -1,0 +1,609 @@
+# Normative YAML Annotation — Directive (EU) 2024/2881
+# Articles 9, 10, 11
+# Specification version: 2.1.1
+
+---
+
+# ─── ARTICLE 9 ────────────────────────────────────────────────────────────────
+
+- id: Art9_p1
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 1
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object: location_of_sampling_points
+  references:
+    - annex: IV
+  domain:
+    - monitoring
+
+
+- id: Art9_p2
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: minimum_number_of_sampling_points_per_pollutant
+  condition:
+    text: in each zone where the level of pollutants exceeds the assessment threshold
+          specified in Annex II
+  references:
+    - annex: II
+    - annex: III
+  domain:
+    - monitoring
+
+
+- id: Art9_p3
+  # NOTE: Art. 9(3) establishes a single permission conditioned on four
+  # cumulative requirements (a–d). The four points are conditions of the
+  # same permission, not independent norms. They are therefore encoded as
+  # a single unit with a composite condition text rather than split.
+  # SPEC SUGGESTION: the condition field currently accepts a single text string.
+  # For multi-limb conditions it would be useful to allow a list of text strings
+  # (condition.items: list) to preserve the internal structure without merging.
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 3
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: reduce
+    object: minimum_number_of_sampling_points_for_fixed_measurements
+  condition:
+    text: >
+      where the level of pollutants exceeds the relevant assessment threshold
+      specified in Annex II but not the respective limit values, target values
+      and critical levels specified in Annex I, and provided that:
+      (a) indicative measurements or modelling applications provide sufficient
+      information for the assessment of air quality with regard to limit values,
+      target values, critical levels, alert thresholds and information thresholds,
+      as well as adequate information for the public;
+      (b) the number of sampling points and the spatial resolution of indicative
+      measurements and modelling applications are sufficient for concentrations
+      to be established in accordance with the data quality objectives in Annex V,
+      Points A and B, and enable assessment results to meet the requirements in
+      Point E of Annex V;
+      (c) the number of indicative measurements, if used, is at least the same as
+      the number of fixed measurements being replaced and is evenly distributed
+      over the calendar year;
+      (d) for ozone, nitrogen dioxide is measured at all remaining ozone sampling
+      points except at rural background locations
+  qualifiers:
+    - at_least
+  references:
+    - annex: I
+    - annex: II
+    - annex: III
+    - annex: V
+    - annex: IV
+  domain:
+    - monitoring
+    - assessment
+
+
+- id: Art9_p4
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 4
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    # "install" is not in the allowed verb list; "ensure" covers the installation
+    # obligation. SPEC SUGGESTION: add "install" to the allowed verb list, as it
+    # appears repeatedly in monitoring provisions and cannot be accurately rendered
+    # by any existing verb without loss of legal specificity.
+    object: sampling_points_for_ozone_precursor_substances
+  references:
+    - annex: VII
+  domain:
+    - monitoring
+
+
+- id: Art9_p5_a
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: nitrogen_dioxide_at_ozone_sampling_points
+  qualifiers:
+    - at_least
+  references:
+    - annex: III
+    - annex: IV
+  domain:
+    - monitoring
+
+
+- id: Art9_p5_b
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: carry_out
+    object: continuous_measurement_of_nitrogen_dioxide
+  condition:
+    text: except at rural background locations as referred to in Point B of Annex IV,
+          where other measurement methods may be used
+  references:
+    - annex: IV
+  domain:
+    - monitoring
+
+
+- id: Art9_p6
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: adequate_distribution_of_sampling_points_for_average_exposure_indicators
+  condition:
+    text: in accordance with Annex IV, for the calculation of the average exposure
+          indicators for PM2.5 and nitrogen dioxide reflecting general population
+          exposure adequately, and the number shall not be less than that determined
+          by application of Point B of Annex III
+  references:
+    - annex: III
+    - annex: IV
+  domain:
+    - monitoring
+    - assessment
+
+
+- id: Art9_p7_a
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 7
+  norm_type: prohibition
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    # The prohibition is on relocation; "ensure" approximates the obligation
+    # embedded in the prohibition. SPEC SUGGESTION: add "relocate" to the
+    # allowed verb list, as this provision's normative core is precisely
+    # the prohibition of relocation.
+    object: non_relocation_of_sampling_points_with_recorded_exceedances
+  condition:
+    text: where exceedances of a relevant limit value or target value specified in
+          Section 1 of Annex I were recorded within the previous 3 years
+  exceptions:
+    - relocation necessary due to special circumstances including spatial development
+  references:
+    - annex: I
+  domain:
+    - monitoring
+
+
+- id: Art9_p7_b
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 7
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: relocation_supported_by_modelling_or_indicative_measurements
+  condition:
+    text: where a sampling point with recorded exceedances is relocated
+  qualifiers:
+    - where_possible
+  domain:
+    - monitoring
+
+
+- id: Art9_p7_c
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 7
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: full_documentation_of_relocation_justification
+  condition:
+    text: where a sampling point with recorded exceedances is relocated
+  references:
+    - annex: IV
+  domain:
+    - monitoring
+
+
+- id: Art9_p8_a
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 8
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object:
+      - benzo_a_anthracene
+      - benzo_b_fluoranthene
+      - benzo_j_fluoranthene
+      - benzo_k_fluoranthene
+      - indeno_1_2_3_cd_pyrene
+      - dibenz_a_h_anthracene
+  condition:
+    text: to assess the contribution of benzo(a)pyrene in ambient air,
+          at a limited number of sampling points
+  domain:
+    - monitoring
+
+
+- id: Art9_p8_b
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 8
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: co_location_of_pah_sampling_points_with_benzo_a_pyrene_points
+  domain:
+    - monitoring
+
+
+- id: Art9_p8_c
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 8
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: selection_of_pah_sampling_points_enabling_identification_of_geographical_variation_and_trends
+  domain:
+    - monitoring
+
+
+- id: Art9_p9
+  source:
+    document: directive_2024_2881
+    article: 9
+    paragraph: 9
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: ultrafine_particle_levels
+  references:
+    - article: 10
+    - annex: III
+    - annex: VII
+  domain:
+    - monitoring
+
+
+# ─── ARTICLE 10 ───────────────────────────────────────────────────────────────
+
+- id: Art10_p1_a
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: monitoring_supersite_at_urban_background_location
+  condition:
+    text: at least one per 10 million inhabitants; Member States with fewer than
+          10 million inhabitants shall establish at least one
+  qualifiers:
+    - at_least
+  domain:
+    - monitoring
+
+
+- id: Art10_p1_b
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: monitoring_supersite_at_rural_background_location
+  condition:
+    text: >
+      Member States whose territory is more than 10 000 km² but not more than
+      100 000 km² shall establish at least one; Member States whose territory is
+      more than 100 000 km² shall establish at least one per 100 000 km²
+  qualifiers:
+    - at_least
+  domain:
+    - monitoring
+
+
+- id: Art10_p2
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 2
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object: siting_of_monitoring_supersites
+  references:
+    - annex: IV
+  domain:
+    - monitoring
+
+
+- id: Art10_p3
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    object: eligibility_of_supersite_sampling_points_for_minimum_number_requirements
+  condition:
+    text: where sampling points meet the requirements laid down in Points B and C
+          of Annex IV and are installed at monitoring supersites
+  references:
+    - annex: IV
+    - annex: III
+  domain:
+    - monitoring
+
+
+- id: Art10_p4_a
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 4
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: joint_monitoring_supersites_with_neighbouring_member_states
+  domain:
+    - monitoring
+    - institutional
+
+
+- id: Art10_p4_b
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    # This provision clarifies that joint supersites do not release Member States
+    # from their individual obligations under paragraph 1.
+    object: preservation_of_individual_obligations_notwithstanding_joint_supersites
+  references:
+    - article: 10
+      paragraph: 1
+  domain:
+    - monitoring
+    - institutional
+
+
+- id: Art10_p5
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: pollutants_listed_in_annex_VII_section_1_tables_1_and_2
+  condition:
+    text: at monitoring supersites at urban background locations and rural background locations
+  references:
+    - annex: VII
+  domain:
+    - monitoring
+
+
+- id: Art10_p6
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 6
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    # The provision allows non-measurement of black carbon, ultrafine particles
+    # or ammonia; no existing verb covers "choosing not to measure".
+    # SPEC SUGGESTION: add "omit" or "waive" to the allowed verb list, or
+    # clarify guidance for permissions structured as exemptions from an obligation.
+    object: non_measurement_of_black_carbon_ultrafine_particles_or_ammonia
+  condition:
+    text: >
+      in half of its monitoring supersites at rural background locations, if the
+      number of rural background supersites exceeds the number of urban background
+      supersites by at least a ratio of 2:1, as long as the selection is
+      representative for those pollutants
+  domain:
+    - monitoring
+
+
+- id: Art10_p7
+  source:
+    document: directive_2024_2881
+    article: 10
+    paragraph: 7
+  norm_type: recommendation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: coordinate
+    object: monitoring_strategy_and_measurement_programme
+  condition:
+    text: where appropriate, with the monitoring strategy and measurement programme
+          of EMEP, ACTRIS, and the monitoring of air pollution impacts under
+          Directive (EU) 2016/2284
+  qualifiers:
+    - where_appropriate
+  references:
+    - article: 7   # Directive (EU) 2016/2284 — cross-instrument reference
+  domain:
+    - monitoring
+
+
+# ─── ARTICLE 11 ───────────────────────────────────────────────────────────────
+
+- id: Art11_p1_a
+  source:
+    document: directive_2024_2881
+    article: 11
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    # "apply" is not in the allowed verb list; the legal act is applying
+    # reference methods. "assess" is the closest allowed verb given that
+    # the obligation concerns assessment using specified methods.
+    # SPEC SUGGESTION: add "apply" to the allowed verb list. It appears
+    # frequently in provisions referencing technical methods and annexes,
+    # and cannot be accurately substituted by any existing verb.
+    object: reference_measurement_methods
+  references:
+    - annex: VI
+  domain:
+    - assessment
+    - monitoring
+
+
+- id: Art11_p1_b
+  source:
+    document: directive_2024_2881
+    article: 11
+    paragraph: 1
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: air_quality_using_other_measurement_methods
+  condition:
+    text: subject to the conditions set out in Points B, C and D of Annex VI
+  references:
+    - annex: VI
+  domain:
+    - assessment
+    - monitoring
+
+
+- id: Art11_p2
+  source:
+    document: directive_2024_2881
+    article: 11
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: air_quality_modelling_applications
+  condition:
+    text: subject to the conditions set out in Point E of Annex VI
+  references:
+    - annex: VI
+  domain:
+    - assessment
+    - modelling
+
+
+- id: Art11_p3
+  source:
+    document: directive_2024_2881
+    article: 11
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: compliance_of_air_quality_assessment_data_with_data_quality_objectives
+  references:
+    - annex: V
+  domain:
+    - assessment
+    - monitoring

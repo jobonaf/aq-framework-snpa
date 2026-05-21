@@ -1,0 +1,809 @@
+# Directive (EU) 2024/2881 — Articles 5, 6, 7, 8
+# Annotated per Normative YAML Spec v2.1.1
+
+# ─────────────────────────────────────────────
+# ARTICLE 5 — Responsibilities
+# ─────────────────────────────────────────────
+
+- id: Art5_p1
+  source:
+    document: directive_2024_2881
+    article: 5
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: member_state
+  action:
+    verb: designate
+    object:
+      - competent_authorities
+      - responsible_bodies
+  domain:
+    - institutional
+
+# Points (a)–(j) encode the assigned responsibilities.
+# Each point is a constitutive_rule assigning competence
+# to the designated competent authority/body.
+# They do not prescribe a specific action to a specific
+# named actor; they enumerate the scope of designation.
+
+- id: Art5_a
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: a
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: assess
+    object:
+      - ambient_air_quality
+      - functioning_and_maintenance_of_monitoring_network
+  domain:
+    - assessment
+    - monitoring
+    - institutional
+
+- id: Art5_b
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: b
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: assign
+    object: approval_of_measurement_systems
+  domain:
+    - assessment
+    - monitoring
+    - institutional
+
+- id: Art5_c
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: c
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: ensure
+    object:
+      - accuracy_of_measurements
+      - transfer_and_sharing_of_measurement_data
+  domain:
+    - monitoring
+    - reporting
+    - institutional
+
+- id: Art5_d
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: d
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: assess
+    object: accuracy_of_modelling_applications
+  domain:
+    - modelling
+    - institutional
+
+# NOTE: "promoting" is not a legal operation in the allowed
+# verb list. The normative content is supervision/quality
+# assurance over modelling. `assess` is the closest legal
+# operation. Alternative: add `promote` to v2.1.1 verb list.
+# Preferred: map to `assess` with object `accuracy_of_modelling_applications`.
+
+- id: Art5_e
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: e
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: evaluate
+    object: assessment_methods
+  domain:
+    - assessment
+    - institutional
+
+- id: Art5_f
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: f
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: coordinate
+    object: union_wide_quality_assurance_programmes
+  condition:
+    text: if Union-wide quality assurance programmes are being organised by the Commission
+  domain:
+    - monitoring
+    - institutional
+
+- id: Art5_g
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: g
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: cooperate
+    object:
+      - other_member_states
+      - commission
+  domain:
+    - institutional
+
+- id: Art5_h
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: h
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: establish
+    object:
+      - air_quality_plans
+      - air_quality_roadmaps
+  domain:
+    - planning
+    - institutional
+
+- id: Art5_i
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: i
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: establish
+    object: short_term_action_plans
+  domain:
+    - planning
+    - institutional
+
+- id: Art5_j
+  source:
+    document: directive_2024_2881
+    article: 5
+    point: j
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: provide
+    object:
+      - air_quality_index
+      - relevant_public_information
+  references:
+    - annex: X
+  domain:
+    - public_information
+    - institutional
+
+# ─────────────────────────────────────────────
+# ARTICLE 6 — Establishment of zones and
+#             average exposure territorial units
+# ─────────────────────────────────────────────
+
+- id: Art6_p1_a
+  source:
+    document: directive_2024_2881
+    article: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object:
+      - zones
+      - average_exposure_territorial_units
+  qualifiers:
+    - where_appropriate
+  domain:
+    - assessment
+    - general
+
+# "where appropriate for the purposes of air quality assessment
+# and management, at the level of agglomerations" is a qualifier
+# on the spatial level, not a separable obligation.
+
+- id: Art6_p1_b
+  source:
+    document: directive_2024_2881
+    article: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: carry_out
+    object:
+      - air_quality_assessment
+      - air_quality_management
+  condition:
+    text: in all zones and average exposure territorial units
+  domain:
+    - assessment
+    - general
+
+# ─────────────────────────────────────────────
+# ARTICLE 7 — Assessment regime
+# ─────────────────────────────────────────────
+
+- id: Art7_p1_a
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 1
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: establish
+    object: applicability_of_assessment_thresholds
+  references:
+    - annex: II
+  domain:
+    - assessment
+    - general
+
+# The first subparagraph declares that the thresholds in
+# Annex II "shall apply" — a constitutive rule establishing
+# legal applicability, not a prescription to an actor.
+
+- id: Art7_p1_b
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: classify
+    object: zones
+  condition:
+    text: in relation to assessment thresholds
+  references:
+    - annex: II
+  domain:
+    - assessment
+
+# "Each zone shall be classified" — the actor is member_state
+# by attribution: classification is a member_state responsibility
+# per Art5(a) and the general structure of the Directive.
+# The provision is phrased impersonally; if strict fidelity
+# requires omitting inferred actors, encode as constitutive_rule.
+# Here classified as obligation following systematic reading.
+
+- id: Art7_p2_a
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 2
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: review
+    object: zone_classification
+  timing:
+    type: recurring
+    interval: P5Y
+    anchor: previous_classification
+  references:
+    - article: 7
+      paragraph: 3
+  domain:
+    - assessment
+
+- id: Art7_p2_b
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 2
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: review
+    object: zone_classification
+  condition:
+    text: in the event of significant changes in activities impacting ambient concentrations
+  domain:
+    - assessment
+
+# The "more frequently" review is a separate obligation
+# with a different trigger — split per atomicity rules.
+
+- id: Art7_p3_a
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: determine
+    object: exceedances_of_assessment_thresholds
+  condition:
+    text: on the basis of concentrations during the previous 5 years where sufficient data are available
+  domain:
+    - assessment
+
+- id: Art7_p3_b
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: classify
+    object: assessment_threshold_exceedance
+  condition:
+    text: if exceeded during at least 3 separate years out of the previous 5 years
+  domain:
+    - assessment
+
+- id: Art7_p3_c
+  source:
+    document: directive_2024_2881
+    article: 7
+    paragraph: 3
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: determine
+    object: exceedances_of_assessment_thresholds
+  condition:
+    text: where data are available for less than 5 years
+  qualifiers:
+    - where_applicable
+  domain:
+    - assessment
+
+# The second subparagraph ("Member States may combine...") is
+# a permission for an alternative determination method when
+# data are insufficient. Encoded separately from the default rule.
+
+# ─────────────────────────────────────────────
+# ARTICLE 8 — Assessment criteria
+# ─────────────────────────────────────────────
+
+- id: Art8_p1
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: ambient_air_quality
+  condition:
+    text: in all zones, with respect to the pollutants referred to in Article 7
+  references:
+    - article: 7
+    - article: 8
+      paragraph: 2
+    - article: 8
+      paragraph: 3
+    - article: 8
+      paragraph: 4
+    - article: 8
+      paragraph: 5
+    - article: 8
+      paragraph: 6
+    - annex: IV
+  domain:
+    - assessment
+
+- id: Art8_p2_a
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: ambient_air_quality_using_fixed_measurements
+  condition:
+    text: in all zones classified as above the assessment thresholds
+  domain:
+    - monitoring
+    - assessment
+
+- id: Art8_p2_b
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 2
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: supplement
+    object: fixed_measurements
+  condition:
+    text: to provide information on spatial distribution of air pollutants and spatial representativeness of fixed measurements
+  qualifiers:
+    - where_appropriate
+  domain:
+    - monitoring
+    - modelling
+    - assessment
+
+# "may be supplemented by modelling applications or indicative
+# measurements" — permission to complement fixed measurements.
+
+- id: Art8_p3_a
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: assess
+    object: ambient_air_quality_using_modelling_or_indicative_measurements
+  condition:
+    text: in all zones where the level of pollutants exceeds a relevant limit value or target value set out in Annex I
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: adoption_of_implementing_acts_referred_to_in_paragraph_7
+  references:
+    - article: 8
+      paragraph: 7
+    - annex: I
+  domain:
+    - modelling
+    - assessment
+
+- id: Art8_p3_b
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: information_on_spatial_distribution_of_pollutants
+  condition:
+    text: where modelling applications or indicative measurements are used pursuant to paragraph 3
+  domain:
+    - modelling
+    - assessment
+
+- id: Art8_p3_c
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object: information_on_spatial_representativeness_of_fixed_measurements
+  condition:
+    text: where modelling applications are used pursuant to paragraph 3
+  domain:
+    - modelling
+    - assessment
+
+- id: Art8_p3_d
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 3
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: carry_out
+    object: modelling_applications
+  qualifiers:
+    - as_far_as_practicable
+  timing:
+    type: recurring
+    interval: P5Y
+    anchor: previous_modelling_run
+  condition:
+    text: where modelling applications are used pursuant to paragraph 3
+  domain:
+    - modelling
+
+# "at least every 5 years" — recurring procedural obligation
+# on frequency of modelling. Qualifier "at least" applies.
+
+- id: Art8_p4
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: assess
+    object: ambient_air_quality_using_modelling_indicative_objective_or_combination
+  condition:
+    text: in all zones classified as below the assessment thresholds
+  domain:
+    - assessment
+    - modelling
+
+# "shall be sufficient" establishes a constitutive rule on
+# adequacy of assessment methods, not a prescription to act.
+
+- id: Art8_p5_a
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 5
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: evaluate
+    object: air_quality_with_respect_to_limit_and_target_values
+  condition:
+    text: taking into account results of modelling applications or indicative measurements used in accordance with paragraph 3 or 4 or Article 9(3)
+  references:
+    - article: 8
+      paragraph: 3
+    - article: 8
+      paragraph: 4
+    - article: 9
+      paragraph: 3
+  domain:
+    - assessment
+    - modelling
+
+- id: Art8_p5_b
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 5
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: evaluate
+    object: modelled_exceedance_as_non_exceedance_of_limit_or_target_values
+  condition:
+    text: where fixed measurements with spatial representativeness covering the modelled area of exceedance are available
+  domain:
+    - assessment
+    - modelling
+
+# The second subparagraph of Art8(5) grants a permission
+# to disregard a modelled exceedance under specific conditions.
+
+- id: Art8_p6_a
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: additional_fixed_or_indicative_measurement_at_hotspots
+  condition:
+    text: where modelling applications used in accordance with paragraphs 3 or 4 show an exceedance not covered by fixed measurements and their area of spatial representativeness
+  references:
+    - article: 8
+      paragraph: 3
+    - article: 8
+      paragraph: 4
+  domain:
+    - monitoring
+    - modelling
+    - assessment
+
+# First subparagraph of Art8(6): "at least one additional
+# fixed or indicative measurement may be used" — permission.
+
+- id: Art8_p6_b
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: additional_fixed_or_indicative_measurement_at_hotspots
+  condition:
+    text: where modelling applications used in accordance with Article 9(3) show an exceedance not covered by fixed measurements and their area of spatial representativeness
+  references:
+    - article: 9
+      paragraph: 3
+  domain:
+    - monitoring
+    - modelling
+    - assessment
+
+# Second subparagraph: "shall be used" — obligation.
+# Split from Art8_p6_a because the trigger differs
+# (Art8(3)/(4) vs Art9(3)) and the norm_type differs
+# (permission vs obligation).
+
+- id: Art8_p6_c
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: additional_fixed_measurements
+  condition:
+    text: where additional fixed measurements are used following a modelled exceedance
+  timing:
+    type: relative
+    offset: P2Y
+    anchor: date_of_modelled_exceedance
+  domain:
+    - monitoring
+
+- id: Art8_p6_d
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: additional_indicative_measurements
+  condition:
+    text: where additional indicative measurements are used following a modelled exceedance
+  timing:
+    type: relative
+    offset: P1Y
+    anchor: date_of_modelled_exceedance
+  domain:
+    - monitoring
+
+- id: Art8_p6_e
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: monitor
+    object: concentration_level_of_relevant_pollutant
+  condition:
+    text: measurements shall cover at least 1 calendar year in accordance with minimum data coverage requirements in Point B of Annex V
+  references:
+    - annex: V
+      section: B
+  domain:
+    - monitoring
+
+- id: Art8_p6_f
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 6
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: assess
+    object: exceedance_shown_by_modelling_for_air_quality_assessment
+  condition:
+    text: where a Member State chooses not to conduct any additional fixed or indicative measurements
+  domain:
+    - assessment
+    - modelling
+
+# "the exceedance shown by modelling applications shall be
+# used for air quality assessment" — constitutive rule
+# establishing the legal status of the modelled exceedance.
+
+- id: Art8_p7
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 7
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_details_for_modelling_and_spatial_representativeness
+  timing:
+    type: absolute
+    date: 2026-06-11
+  references:
+    - article: 8
+      paragraph: 7
+      point: a
+    - article: 8
+      paragraph: 7
+      point: b
+    - article: 26
+      paragraph: 2
+  domain:
+    - modelling
+    - assessment
+    - institutional
+
+# The implementing acts cover (a) modelling applications and
+# (b) spatial representativeness — same actor, same verb,
+# same timing: encoded as one unit per granularity rules.
+
+- id: Art8_p8
+  source:
+    document: directive_2024_2881
+    article: 8
+    paragraph: 8
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: consider
+    object: use_of_bio_indicators
+  condition:
+    text: where regional patterns of the impact on ecosystems are to be assessed
+  qualifiers:
+    - where_applicable
+  references:
+    - article: 8
+      paragraph: 8
+  domain:
+    - assessment
+    - monitoring
+
+# "shall be considered" — the passive phrasing and the
+# conditional framing ("where ... are to be assessed")
+# indicate a recommendation rather than a hard obligation.
+# The subject is indeterminate; actor assigned to member_state
+# by contextual attribution.

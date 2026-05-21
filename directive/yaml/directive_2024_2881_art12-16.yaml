@@ -1,0 +1,597 @@
+- id: Art12_p1
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object: pollutant_levels_below_limit_values
+  condition:
+    text: in zones where the levels of pollutants in ambient air are below the respective limit values specified in Section 1 of Annex I
+  references:
+    - annex: I
+      section: 1
+  domain:
+    - assessment
+
+- id: Art12_p2_a
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object: pollutant_levels_below_target_values
+  condition:
+    text: in zones in which the levels of pollutants in ambient air are below the respective target values specified in Sections 1 and 2 of Annex I
+  qualifiers:
+    - as_far_as_practicable
+  references:
+    - annex: I
+      section: 1
+    - annex: I
+      section: 2
+  domain:
+    - assessment
+
+- id: Art12_p2_b
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 2
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object: ozone_levels_below_long_term_objectives
+  condition:
+    text: once the long-term objectives for ozone specified in Section 2 of Annex I have been attained
+  qualifiers:
+    - where_possible
+  references:
+    - annex: I
+      section: 2
+  domain:
+    - assessment
+
+- id: Art12_p2_c
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 2
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: reduce
+    object: ozone_levels_to_long_term_objectives
+  qualifiers:
+    - as_far_as_practicable
+  references:
+    - annex: I
+      section: 2
+  domain:
+    - assessment
+
+- id: Art12_p3
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object:
+      - PM2_5_levels_below_average_exposure_concentration_objectives
+      - NO2_levels_below_average_exposure_concentration_objectives
+  condition:
+    text: in average exposure territorial units where the average exposure indicators for PM2.5 and NO2 are below the respective value of the average exposure concentration objectives for those pollutants as laid down in Section 5 of Annex I
+  references:
+    - annex: I
+      section: 5
+  domain:
+    - assessment
+
+- id: Art12_p4
+  source:
+    document: directive_2024_2881
+    article: 12
+    paragraph: 4
+  norm_type: recommendation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object:
+      - best_ambient_air_quality
+      - high_level_of_protection_of_human_health_and_environment
+  references:
+    - article: 1
+      paragraph: 1
+    - annex: II
+  domain:
+    - assessment
+
+- id: Art13_p1
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 1
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: pollutant_levels_do_not_exceed_limit_values
+  references:
+    - annex: I
+      section: 1
+  domain:
+    - assessment
+
+- id: Art13_p2
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 2
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: pollutant_levels_do_not_exceed_target_values
+  qualifiers:
+    - as_far_as_practicable
+  references:
+    - annex: I
+      section: 1
+    - annex: I
+      section: 2
+  domain:
+    - assessment
+
+- id: Art13_p3
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object:
+      - PM2_5_average_exposure_reduction_obligations
+      - NO2_average_exposure_reduction_obligations
+  condition:
+    text: where average exposure reduction obligations exceed the average exposure concentration objectives set out in Section 5, Point C, of Annex I
+  references:
+    - annex: I
+      section: 5
+  domain:
+    - assessment
+
+- id: Art13_p4
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: assess
+    object:
+      - compliance_with_article_13_paragraph_1
+      - compliance_with_article_13_paragraph_2
+      - compliance_with_article_13_paragraph_3
+  references:
+    - annex: IV
+  domain:
+    - assessment
+
+- id: Art13_p5
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 5
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: assess
+    object: average_exposure_indicators
+  references:
+    - annex: I
+      section: 5
+  domain:
+    - assessment
+
+- id: Art13_p6
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 6
+  norm_type: permission
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: postpone
+    object: deadline_for_attaining_limit_values
+  references:
+    - annex: I
+      section: 1
+    - article: 18
+  domain:
+    - assessment
+
+- id: Art13_p7_a
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 7
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object: more_stringent_protective_measures
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - assessment
+
+- id: Art13_p7_b
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 7
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: more_stringent_protective_measures
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - assessment
+
+- id: Art13_p7_c
+  source:
+    document: directive_2024_2881
+    article: 13
+    paragraph: 7
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object: more_stringent_protective_measures
+  timing:
+    type: relative
+    offset: P3M
+    anchor: adoption_of_measures
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - reporting
+
+- id: Art14
+  source:
+    document: directive_2024_2881
+    article: 14
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: ensure
+    object: compliance_with_critical_levels_for_protection_of_vegetation_and_natural_ecosystems
+  references:
+    - annex: I
+      section: 3
+    - annex: IV
+  domain:
+    - assessment
+
+- id: Art15_p1
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 1
+  norm_type: definition
+  normative_role: definitional
+  term: alert_thresholds_for_pollutants
+  definition: >
+    the alert thresholds for concentrations of sulphur dioxide, nitrogen dioxide,
+    particulate matter (PM10 and PM2.5) and ozone in ambient air shall be those
+    laid down in Section 4, Point A, of Annex I
+  references:
+    - annex: I
+      section: 4
+  domain:
+    - assessment
+
+- id: Art15_p2
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 2
+  norm_type: definition
+  normative_role: definitional
+  term: information_thresholds_for_pollutants
+  definition: >
+    the information thresholds for concentrations of sulphur dioxide, nitrogen dioxide,
+    particulate matter (PM10 and PM2.5) and ozone shall be those laid down in
+    Section 4, Point B, of Annex I
+  references:
+    - annex: I
+      section: 4
+  domain:
+    - assessment
+
+- id: Art15_p3
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 3
+  norm_type: obligation
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: apply
+    object: emergency_measures_indicated_in_short_term_action_plans
+  condition:
+    text: where any alert threshold laid down in Section 4, Point A, of Annex I is exceeded or predicted to be exceeded based on modelling applications or other forecasting tools
+  qualifiers:
+    - where_applicable
+  references:
+    - annex: I
+      section: 4
+    - article: 20
+  domain:
+    - planning
+
+- id: Art15_p4
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 4
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: member_state
+  action:
+    verb: inform
+    object: public_about_exceedance_of_alert_or_information_thresholds
+  condition:
+    text: where any alert threshold or information threshold laid down in Section 4 of Annex I is exceeded or predicted to be exceeded based on modelling applications or other forecasting tools
+  qualifiers:
+    - as_far_as_practicable
+  references:
+    - annex: I
+      section: 4
+    - annex: X
+  domain:
+    - public_information
+
+- id: Art15_p5_a
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 5
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: maintain
+    object: more_stringent_alert_or_information_thresholds
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - assessment
+
+- id: Art15_p5_b
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 5
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: establish
+    object: more_stringent_alert_or_information_thresholds
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - assessment
+
+- id: Art15_p5_c
+  source:
+    document: directive_2024_2881
+    article: 15
+    paragraph: 5
+  norm_type: obligation
+  normative_role: procedural
+  actor:
+    type: member_state
+  action:
+    verb: notify
+    object: more_stringent_alert_or_information_thresholds
+  timing:
+    type: relative
+    offset: P3M
+    anchor: adoption_of_measures
+  references:
+    - document: treaty_on_the_functioning_of_the_european_union
+      article: 193
+  domain:
+    - reporting
+
+- id: Art16_p1_a
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 1
+    point: a
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: classify
+    object: zones_where_exceedances_are_attributable_to_natural_sources
+  domain:
+    - assessment
+
+- id: Art16_p1_b
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 1
+    point: b
+  norm_type: permission
+  normative_role: operational
+  actor:
+    type: member_state
+  action:
+    verb: classify
+    object: average_exposure_territorial_units_where_exceedances_are_attributable_to_natural_sources
+  domain:
+    - assessment
+
+- id: Art16_p2
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 2
+  norm_type: obligation
+  normative_role: reporting
+  actor:
+    type: member_state
+  action:
+    verb: provide
+    object:
+      - lists_of_zones_and_average_exposure_territorial_units
+      - information_on_concentrations_and_sources
+      - evidence_of_natural_source_attribution
+  references:
+    - article: 16
+      paragraph: 1
+  domain:
+    - reporting
+
+- id: Art16_p3_a
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 3
+  norm_type: constitutive_rule
+  normative_role: operational
+  action:
+    verb: omit
+    object: exceedance_from_purposes_of_directive
+  condition:
+    text: where the Commission has been informed of an exceedance attributable to natural sources in accordance with paragraph 2
+  references:
+    - article: 16
+      paragraph: 2
+  domain:
+    - assessment
+
+- id: Art16_p3_b
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 3
+  norm_type: obligation
+  normative_role: informational
+  actor:
+    type: commission
+  action:
+    verb: inform
+    object: member_state_that_evidence_is_not_sufficient
+  condition:
+    text: if the Commission considers that the evidence provided by a Member State is not sufficient
+  domain:
+    - reporting
+
+- id: Art16_p4_a
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 4
+  norm_type: obligation
+  normative_role: institutional
+  actor:
+    type: commission
+  action:
+    verb: provide
+    object: technical_details_on_demonstration_and_subtraction_of_exceedances_attributable_to_natural_sources
+  timing:
+    type: absolute
+    date: 2026-12-31
+  domain:
+    - institutional
+
+- id: Art16_p4_b
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: determine
+    object: content_of_evidence_to_be_provided_by_member_states
+  references:
+    - article: 16
+      paragraph: 2
+  domain:
+    - institutional
+
+- id: Art16_p4_c
+  source:
+    document: directive_2024_2881
+    article: 16
+    paragraph: 4
+  norm_type: constitutive_rule
+  normative_role: institutional
+  action:
+    verb: apply
+    object: examination_procedure_referred_to_in_article_26_paragraph_2
+  references:
+    - article: 26
+      paragraph: 2
+  domain:
+    - institutional
